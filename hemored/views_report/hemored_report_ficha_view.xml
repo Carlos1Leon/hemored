@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="view_ficha_estadistica_xls_form">
+            <field name="name">Consolidado Ficha Estadística</field>
+            <field name="model">hemored.report_ficha</field>
+            <field name="arch" type="xml">
+                <form string="Ficha Estadística">
+                    <group>
+                        <field name="anho_id" options="{'no_create': True, 'no_edit': True}"/>
+                        <field name="periodo_id" options="{'no_create': True, 'no_edit': True}"
+                               domain="[('fiscalyear_id','=',anho_id)]"
+                        />
+                        <field name="diresa_id" options="{'no_create': True, 'no_edit': True}"/>
+                        <field name="banco_id" domain="[('diresa_id','=',diresa_id)]"
+                               options="{'no_create': True, 'no_edit': True}"/>
+                        <field name="tipo_banco" attrs="{'invisible':[('banco_id','!=', False)]}"/>
+                        <field name="institucion" attrs="{'invisible':[('banco_id','!=', False)]}"/>
+                        <field name="estado_validacion"/>
+                    </group>
+                    <footer>
+                        <button name="print_excel" type="object" class="oe_highlight" string="Generar reporte"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_report_ficha_action" model="ir.actions.act_window">
+            <field name="name">Consolidados Ficha Estadística</field>
+            <field name="res_model">hemored.report_ficha</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- MENU DE LA APLICACION -->
+        <menuitem
+            id="menu_main_ficha_report"
+            name="Ficha reporte"
+            groups="hemored.group_administrador,hemored.group_coordinador_diris_diresa_hemored"
+            web_icon="hemored,static/img/consolidado.png"
+            sequence="6"
+        />
+
+        <!-- MENU DONACION SANGRE -->
+        <menuitem id="menu_reporte_ficha"
+            name="Ficha Estadística"
+            parent="menu_main_ficha_report"
+            action="hemored_report_ficha_action"
+            sequence="1" />
+
+    </data>
+</odoo>

@@ -1,0 +1,1864 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Principal -->
+        <record id="root" model="basecatalogo.catalogo">
+            <field name="code">root</field>
+            <field name="name">Raíz</field>
+            <field name="active" eval="1"/>
+        </record>
+
+        <!-- Jerarquía 1 -->
+        <record id="_selection_tipo_banco" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_tipo_banco</field>
+            <field name="name">Tipo de Centro de Hemoterapia y Banco de Sangre</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_categoria" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_categoria</field>
+            <field name="name">Categoria Postulante</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_postulante" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_tipo_postulante</field>
+            <field name="name">Tipo Postulante</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_donante" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_tipo_donante</field>
+            <field name="name">Tipo de Donante</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_donante2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_tipo_donante2</field>
+            <field name="name">Tipo de Donante 2</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_motivo_diferido_excluido" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_motivo_diferido_excluido</field>
+            <field name="name">Motivo Diferido Excluido</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_grupo_edad_donante" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_grupo_edad_donante</field>
+            <field name="name">Grupo de Edad del Donante</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_marcador" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_marcador</field>
+            <field name="name">Marcador</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_clase" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_clase</field>
+            <field name="name">Clase</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_reactividad" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_reactividad</field>
+            <field name="name">Reactividad</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_unidad_sangre" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_tipo_unidad_sangre</field>
+            <field name="name">Tipo de Unidad Colectada</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_hemocomponente" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_hemocomponente</field>
+            <field name="name">Hemocomponente</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_grupo_edad" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_grupo_edad</field>
+            <field name="name">Grupo de Edad</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_demanda_hemocomponente" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_tipo_demanda_hemocomponente</field>
+            <field name="name">Tipo de Demanda Hemocomponente</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_transferencia_hemocomponente" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_transferencia_hemocomponente</field>
+            <field name="name">Transferencia de Hemocomponente</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_reaccion_adversa" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_tipo_reaccion_adversa</field>
+            <field name="name">Tipo de Reaccion Adversa</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_causa_eliminacion_sangre" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_causa_eliminacion_sangre</field>
+            <field name="name">Causa de Eliminación de Sangre</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_profesion" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_profesion</field>
+            <field name="name">Profesion</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_costo_hemocomponente" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_costo_hemocomponente</field>
+            <field name="name">Costo de producción de hemocomponentes</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_costo" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_costo</field>
+            <field name="name">Pruebas de inminohematologia</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_a" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_sub_tipo_equipamiento_critico_a</field>
+            <field name="name">Equipo crítico categoría A</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_sub_tipo_equipamiento_critico_b</field>
+            <field name="name">Equipo crítico categoría B</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_otros_indispensables" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="root" />
+            <field name="code">_selection_sub_tipo_equipamiento_otros_indispensables</field>
+            <field name="name">Otros Equipos Indispensables</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- Jerarquía 2 -->
+        <!-- 1 -->
+        <record id="_selection_tipo_banco_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_banco" />
+            <field name="sequence" eval="1"/>
+            <field name="code">1</field>
+            <field name="name">I</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_banco_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_banco" />
+            <field name="sequence" eval="2"/>
+            <field name="code">2</field>
+            <field name="name">II</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 2 -->
+        <record id="_selection_categoria_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_categoria" />
+            <field name="sequence" eval="1"/>
+            <field name="code">ca</field>
+            <field name="name">AUTOLOGOS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_categoria_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_categoria" />
+            <field name="sequence" eval="2"/>
+            <field name="code">cvim</field>
+            <field name="name">VOLUNTARIOS IM</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_categoria_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_categoria" />
+            <field name="sequence" eval="3"/>
+            <field name="code">cvem</field>
+            <field name="name">VOLUNTARIOS EM</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_categoria_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_categoria" />
+            <field name="sequence" eval="4"/>
+            <field name="code">cr</field>
+            <field name="name">REPOSICIÓN</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_categoria_5" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_categoria" />
+            <field name="sequence" eval="5"/>
+            <field name="code">cpr</field>
+            <field name="name">P. REMUNERADOS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 3 -->
+        <record id="_selection_tipo_postulante_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_postulante" />
+            <field name="sequence" eval="1"/>
+            <field name="code">pe</field>
+            <field name="name">POSTULANTES EXCLUIDOS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_postulante_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_postulante" />
+            <field name="sequence" eval="2"/>
+            <field name="code">pd</field>
+            <field name="name">POSTULANTES DIFERIDOS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_postulante_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_postulante" />
+            <field name="sequence" eval="3"/>
+            <field name="code">padi</field>
+            <field name="name">POSTULANTES APTOS DONACIÓN INCOMPLETA</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_postulante_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_postulante" />
+            <field name="sequence" eval="4"/>
+            <field name="code">padc</field>
+            <field name="name">POSTULANTES APTOS DONACIÓN COMPLETA</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 4 -->
+        <record id="_selection_tipo_donante_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_donante" />
+            <field name="sequence" eval="1"/>
+            <field name="code">dvpv</field>
+            <field name="name">VOLUNTARIAS DE PRIMERA VEZ</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_donante_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_donante" />
+            <field name="sequence" eval="2"/>
+            <field name="code">dvr</field>
+            <field name="name">VOLUNTARIAS REPETIDOS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_donante_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_donante" />
+            <field name="sequence" eval="3"/>
+            <field name="code">dr</field>
+            <field name="name">REPOSICIÓN</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_donante_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_donante" />
+            <field name="sequence" eval="4"/>
+            <field name="code">dpr</field>
+            <field name="name">P. REMUNERADOS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_donante_5" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_donante" />
+            <field name="sequence" eval="5"/>
+            <field name="code">da</field>
+            <field name="name">AUTOLOGOS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 4.1 -->
+        <record id="_selection_tipo_donante2_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_donante2" />
+            <field name="sequence" eval="1"/>
+            <field name="code">dv</field>
+            <field name="name">VOLUNTARIOS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_donante2_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_donante2" />
+            <field name="sequence" eval="2"/>
+            <field name="code">dr</field>
+            <field name="name">REPOSICIÓN</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_donante2_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_donante2" />
+            <field name="sequence" eval="3"/>
+            <field name="code">dpr</field>
+            <field name="name">P. REMUNERADOS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_donante2_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_donante2" />
+            <field name="sequence" eval="4"/>
+            <field name="code">da</field>
+            <field name="name">AUTOLOGOS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 4 -->
+        <record id="_selection_motivo_diferido_excluido_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_motivo_diferido_excluido" />
+            <field name="sequence" eval="1"/>
+            <field name="code">1</field>
+            <field name="name">PESO BAJO</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_motivo_diferido_excluido_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_motivo_diferido_excluido" />
+            <field name="sequence" eval="2"/>
+            <field name="code">2</field>
+            <field name="name">HEMOGLOBINA BAJA</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_motivo_diferido_excluido_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_motivo_diferido_excluido" />
+            <field name="sequence" eval="3"/>
+            <field name="code">3</field>
+            <field name="name">AFECCIONES MEDICAS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_motivo_diferido_excluido_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_motivo_diferido_excluido" />
+            <field name="sequence" eval="4"/>
+            <field name="code">4</field>
+            <field name="name">COMPORTAMIENTO DE ALTO RIESGO</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_motivo_diferido_excluido_5" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_motivo_diferido_excluido" />
+            <field name="sequence" eval="5"/>
+            <field name="code">5</field>
+            <field name="name">HISTORIAL DE VIAJES</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_motivo_diferido_excluido_6" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_motivo_diferido_excluido" />
+            <field name="sequence" eval="6"/>
+            <field name="code">6</field>
+            <field name="name">OTROS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 5 -->
+        <record id="_selection_grupo_edad_donante_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_grupo_edad_donante" />
+            <field name="sequence" eval="1"/>
+            <field name="code">1</field>
+            <field name="name">menor a 18 años</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_grupo_edad_donante_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_grupo_edad_donante" />
+            <field name="sequence" eval="2"/>
+            <field name="code">2</field>
+            <field name="name">18 a 24 años</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_grupo_edad_donante_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_grupo_edad_donante" />
+            <field name="sequence" eval="3"/>
+            <field name="code">3</field>
+            <field name="name">25 a 44 años</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_grupo_edad_donante_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_grupo_edad_donante" />
+            <field name="sequence" eval="4"/>
+            <field name="code">4</field>
+            <field name="name">45 a 64 años</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_grupo_edad_donante_5" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_grupo_edad_donante" />
+            <field name="sequence" eval="5"/>
+            <field name="code">5</field>
+            <field name="name">mayor igual 65 años</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 6 -->
+        <record id="_selection_marcador_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_marcador" />
+            <field name="sequence" eval="1"/>
+            <field name="code">mvih</field>
+            <field name="name">VIH</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_marcador_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_marcador" />
+            <field name="sequence" eval="2"/>
+            <field name="code">mhbsag</field>
+            <field name="name">HBsAg</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_marcador_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_marcador" />
+            <field name="sequence" eval="3"/>
+            <field name="code">mhepc</field>
+            <field name="name">Hep C</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_marcador_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_marcador" />
+            <field name="sequence" eval="4"/>
+            <field name="code">mantihbc</field>
+            <field name="name">Anti-HBc</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_marcador_5" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_marcador" />
+            <field name="sequence" eval="5"/>
+            <field name="code">mhtlv</field>
+            <field name="name">HTLV I/II</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_marcador_6" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_marcador" />
+            <field name="sequence" eval="6"/>
+            <field name="code">msifilis</field>
+            <field name="name">Sifilis</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_marcador_7" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_marcador" />
+            <field name="sequence" eval="7"/>
+            <field name="code">mchagas</field>
+            <field name="name">Chagas</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_marcador_8" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_marcador" />
+            <field name="sequence" eval="8"/>
+            <field name="code">motros</field>
+            <field name="name">Otros</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 7 -->
+        <record id="_selection_clase_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_clase" />
+            <field name="sequence" eval="1"/>
+            <field name="code">clt</field>
+            <field name="name">TAMIZADOS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_clase_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_clase" />
+            <field name="sequence" eval="2"/>
+            <field name="code">clr</field>
+            <field name="name">REACTIVOS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_clase_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_clase" />
+            <field name="sequence" eval="3"/>
+            <field name="code">clzg</field>
+            <field name="name">P. ZONA GRIS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 8 -->
+        <record id="_selection_reactividad_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_reactividad" />
+            <field name="sequence" eval="1"/>
+            <field name="code">unr</field>
+            <field name="name">UNIDADES NO REACTIVAS (APTAS)</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_reactividad_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_reactividad" />
+            <field name="sequence" eval="2"/>
+            <field name="code">ur</field>
+            <field name="name">UNIDADES REACTIVAS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_reactividad_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_reactividad" />
+            <field name="sequence" eval="3"/>
+            <field name="code">uzg</field>
+            <field name="name">UNIDADES ZONA GRIS (INDETERMINADO)</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 9 -->
+        <record id="_selection_tipo_unidad_sangre_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_unidad_sangre" />
+            <field name="sequence" eval="1"/>
+            <field name="code">1</field>
+            <field name="name">UNIDADES COLECTADAS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_unidad_sangre_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_unidad_sangre" />
+            <field name="sequence" eval="2"/>
+            <field name="code">2</field>
+            <field name="name">UNIDADES NO APTAS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_unidad_sangre_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_unidad_sangre" />
+            <field name="sequence" eval="3"/>
+            <field name="code">3</field>
+            <field name="name">UNIDADES APTAS NO FRACCIONADAS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_unidad_sangre_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_unidad_sangre" />
+            <field name="sequence" eval="4"/>
+            <field name="code">4</field>
+            <field name="name">UNIDADES APTAS FRACCIONADAS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 10 -->
+        <record id="_selection_hemocomponente_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_hemocomponente" />
+            <field name="sequence" eval="1"/>
+            <field name="code">hst</field>
+            <field name="name">SANGRE TOTAL</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_hemocomponente_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_hemocomponente" />
+            <field name="sequence" eval="2"/>
+            <field name="code">hgr</field>
+            <field name="name">GLOBULOS ROJOS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_hemocomponente_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_hemocomponente" />
+            <field name="sequence" eval="3"/>
+            <field name="code">hpfc</field>
+            <field name="name">PLASMA FRESCO CONGELADO</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_hemocomponente_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_hemocomponente" />
+            <field name="sequence" eval="4"/>
+            <field name="code">hc</field>
+            <field name="name">CRIOPRECIPITADO</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_hemocomponente_5" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_hemocomponente" />
+            <field name="sequence" eval="5"/>
+            <field name="code">hp</field>
+            <field name="name">PLAQUETAS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_hemocomponente_6" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_hemocomponente" />
+            <field name="sequence" eval="6"/>
+            <field name="code">hap</field>
+            <field name="name">AFERESIS DE PLAQUETAS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_hemocomponente_7" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_hemocomponente" />
+            <field name="sequence" eval="7"/>
+            <field name="code">hagr</field>
+            <field name="name">AFERESIS DE GLOBULOS R.</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_hemocomponente_8" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_hemocomponente" />
+            <field name="sequence" eval="8"/>
+            <field name="code">haplasma</field>
+            <field name="name">AFERESIS DE PLASMA</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 11 -->
+        <record id="_selection_grupo_edad_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_grupo_edad" />
+            <field name="sequence" eval="1"/>
+            <field name="code">1</field>
+            <field name="name">menor a 5 a</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_grupo_edad_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_grupo_edad" />
+            <field name="sequence" eval="2"/>
+            <field name="code">2</field>
+            <field name="name">5-9 a</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_grupo_edad_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_grupo_edad" />
+            <field name="sequence" eval="3"/>
+            <field name="code">3</field>
+            <field name="name">10-19 a</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_grupo_edad_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_grupo_edad" />
+            <field name="sequence" eval="4"/>
+            <field name="code">4</field>
+            <field name="name">20- 34 a</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_grupo_edad_5" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_grupo_edad" />
+            <field name="sequence" eval="5"/>
+            <field name="code">5</field>
+            <field name="name">35 - 49 a</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_grupo_edad_6" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_grupo_edad" />
+            <field name="sequence" eval="6"/>
+            <field name="code">6</field>
+            <field name="name">50 - 64 a</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_grupo_edad_7" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_grupo_edad" />
+            <field name="sequence" eval="7"/>
+            <field name="code">7</field>
+            <field name="name">mayor a 64 a</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 12 -->
+        <record id="_selection_tipo_demanda_hemocomponente_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_demanda_hemocomponente" />
+            <field name="sequence" eval="1"/>
+            <field name="code">ds</field>
+            <field name="name">SOLICITADAS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_demanda_hemocomponente_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_demanda_hemocomponente" />
+            <field name="sequence" eval="2"/>
+            <field name="code">da</field>
+            <field name="name">ATENDIDAS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 13 -->
+        <record id="_selection_transferencia_hemocomponente_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_transferencia_hemocomponente" />
+            <field name="sequence" eval="1"/>
+            <field name="code">tur</field>
+            <field name="name">UNIDADES RECIBIDAS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_transferencia_hemocomponente_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_transferencia_hemocomponente" />
+            <field name="sequence" eval="2"/>
+            <field name="code">tut</field>
+            <field name="name">UNIDADES TRANSFERIDAS</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 14 -->
+        <record id="_selection_tipo_reaccion_adversa_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_reaccion_adversa" />
+            <field name="sequence" eval="1"/>
+            <field name="code">1</field>
+            <field name="name">Hemólisis debida a Incompatibilidad ABO</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_reaccion_adversa_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_reaccion_adversa" />
+            <field name="sequence" eval="2"/>
+            <field name="code">2</field>
+            <field name="name">Hemólisis debida a otros aloanticuerpos</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_reaccion_adversa_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_reaccion_adversa" />
+            <field name="sequence" eval="3"/>
+            <field name="code">3</field>
+            <field name="name">Hemólisis no inmunológica</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_reaccion_adversa_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_reaccion_adversa" />
+            <field name="sequence" eval="4"/>
+            <field name="code">4</field>
+            <field name="name">Púrpura Post-transfusional</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_reaccion_adversa_5" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_reaccion_adversa" />
+            <field name="sequence" eval="5"/>
+            <field name="code">5</field>
+            <field name="name">Anafilaxia / hipersensibilidad</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_reaccion_adversa_6" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_reaccion_adversa" />
+            <field name="sequence" eval="6"/>
+            <field name="code">6</field>
+            <field name="name">Injuria pulmonar relacionada con la transfusión</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_reaccion_adversa_7" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_reaccion_adversa" />
+            <field name="sequence" eval="7"/>
+            <field name="code">7</field>
+            <field name="name">Enfermedad de injerto versus huésped transfusional</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_reaccion_adversa_8" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_reaccion_adversa" />
+            <field name="sequence" eval="8"/>
+            <field name="code">8</field>
+            <field name="name">Infección por VIH asociado a transfusión</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_reaccion_adversa_9" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_reaccion_adversa" />
+            <field name="sequence" eval="9"/>
+            <field name="code">9</field>
+            <field name="name">Infección por HBV asociado a transfusión</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_reaccion_adversa_10" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_reaccion_adversa" />
+            <field name="sequence" eval="10"/>
+            <field name="code">10</field>
+            <field name="name">Infección por HCV asociado a transfusión</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_reaccion_adversa_11" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_reaccion_adversa" />
+            <field name="sequence" eval="11"/>
+            <field name="code">11</field>
+            <field name="name">Otras infecciones virales asociadas a transfusión</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_reaccion_adversa_12" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_reaccion_adversa" />
+            <field name="sequence" eval="12"/>
+            <field name="code">12</field>
+            <field name="name">Sepsis por contaminación bacteriana del componente de la sangre</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_reaccion_adversa_13" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_reaccion_adversa" />
+            <field name="sequence" eval="13"/>
+            <field name="code">13</field>
+            <field name="name">Paludismo asociado a transfusión</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_reaccion_adversa_14" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_reaccion_adversa" />
+            <field name="sequence" eval="14"/>
+            <field name="code">14</field>
+            <field name="name">Otras infecciones parasitarias asociadas a transfusión</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_reaccion_adversa_15" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_reaccion_adversa" />
+            <field name="sequence" eval="15"/>
+            <field name="code">15</field>
+            <field name="name">Sobrecarga circulatoria asociada a transfusión</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_tipo_reaccion_adversa_16" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_tipo_reaccion_adversa" />
+            <field name="sequence" eval="16"/>
+            <field name="code">16</field>
+            <field name="name">Otras reacciones adversas graves</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 15 -->
+        <record id="_selection_causa_eliminacion_sangre_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_causa_eliminacion_sangre" />
+            <field name="sequence" eval="1"/>
+            <field name="code">cv</field>
+            <field name="name">VENCIMIENTO</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_causa_eliminacion_sangre_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_causa_eliminacion_sangre" />
+            <field name="sequence" eval="2"/>
+            <field name="code">cmitt</field>
+            <field name="name">MARCADORES ITT</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_causa_eliminacion_sangre_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_causa_eliminacion_sangre" />
+            <field name="sequence" eval="3"/>
+            <field name="code">ca</field>
+            <field name="name">ALMACENAMIENTO</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_causa_eliminacion_sangre_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_causa_eliminacion_sangre" />
+            <field name="sequence" eval="4"/>
+            <field name="code">ct</field>
+            <field name="name">TRANSPORTE</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_causa_eliminacion_sangre_5" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_causa_eliminacion_sangre" />
+            <field name="sequence" eval="5"/>
+            <field name="code">cp</field>
+            <field name="name">PROCESAMIENTO</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_causa_eliminacion_sangre_6" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_causa_eliminacion_sangre" />
+            <field name="sequence" eval="6"/>
+            <field name="code">co</field>
+            <field name="name">OTRA</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 16 -->
+        <record id="_selection_profesion_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_profesion" />
+            <field name="sequence" eval="1"/>
+            <field name="code">1</field>
+            <field name="name">Médico(a) cirujano(a)</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_profesion_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_profesion" />
+            <field name="sequence" eval="2"/>
+            <field name="code">2</field>
+            <field name="name">Tecnólogo(a) médico(a)</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="2"/>
+        </record>
+        <record id="_selection_profesion_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_profesion" />
+            <field name="sequence" eval="3"/>
+            <field name="code">3</field>
+            <field name="name">Biólogo(a)</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="3"/>
+        </record>
+        <record id="_selection_profesion_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_profesion" />
+            <field name="sequence" eval="4"/>
+            <field name="code">4</field>
+            <field name="name">Enfermero(a)</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="4"/>
+        </record>
+        <record id="_selection_profesion_5" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_profesion" />
+            <field name="sequence" eval="5"/>
+            <field name="code">5</field>
+            <field name="name">Técnico(a) de laboratorio</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="5"/>
+        </record>
+        <record id="_selection_profesion_6" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_profesion" />
+            <field name="sequence" eval="6"/>
+            <field name="code">6</field>
+            <field name="name">Otros profesionales</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="6"/>
+        </record>
+        <record id="_selection_profesion_7" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_profesion" />
+            <field name="sequence" eval="7"/>
+            <field name="code">7</field>
+            <field name="name">Secretario(a)</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="7"/>
+        </record>
+        <record id="_selection_profesion_8" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_profesion" />
+            <field name="sequence" eval="8"/>
+            <field name="code">8</field>
+            <field name="name">Digitador(a)</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="8"/>
+        </record>
+        <!-- 17 -->
+        <record id="_selection_costo_hemocomponente_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_costo_hemocomponente" />
+            <field name="sequence" eval="1"/>
+            <field name="code">1</field>
+            <field name="name">Paquete globular</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_costo_hemocomponente_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_costo_hemocomponente" />
+            <field name="sequence" eval="2"/>
+            <field name="code">2</field>
+            <field name="name">Plasma fresco congelado</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="2"/>
+        </record>
+        <record id="_selection_costo_hemocomponente_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_costo_hemocomponente" />
+            <field name="sequence" eval="3"/>
+            <field name="code">3</field>
+            <field name="name">Plaquetas simples</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="3"/>
+        </record>
+        <record id="_selection_costo_hemocomponente_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_costo_hemocomponente" />
+            <field name="sequence" eval="4"/>
+            <field name="code">4</field>
+            <field name="name">Concentrado de plaquetas por aféresis</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="4"/>
+        </record>
+        <record id="_selection_costo_hemocomponente_5" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_costo_hemocomponente" />
+            <field name="sequence" eval="5"/>
+            <field name="code">5</field>
+            <field name="name">Crioprecipitado</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="5"/>
+        </record>
+        <!-- 18 -->
+        <record id="_selection_costo_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_costo" />
+            <field name="sequence" eval="1"/>
+            <field name="code">1</field>
+            <field name="name">Dosaje de Hemoglobina/Hematocrito</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_costo_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_costo" />
+            <field name="sequence" eval="2"/>
+            <field name="code">2</field>
+            <field name="name">Determinación de grupo sanguíneo ABO-Rh</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="2"/>
+        </record>
+        <record id="_selection_costo_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_costo" />
+            <field name="sequence" eval="3"/>
+            <field name="code">3</field>
+            <field name="name">Determinación del D débil del sistema Rh</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="3"/>
+        </record>
+        <record id="_selection_costo_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_costo" />
+            <field name="sequence" eval="4"/>
+            <field name="code">4</field>
+            <field name="name">Determinación de fenotipo extendido Rh</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="4"/>
+        </record>
+        <record id="_selection_costo_5" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_costo" />
+            <field name="sequence" eval="5"/>
+            <field name="code">5</field>
+            <field name="name">Detección de anticuerpos irregulares</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="5"/>
+        </record>
+        <record id="_selection_costo_9" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_costo" />
+            <field name="sequence" eval="9"/>
+            <field name="code">9</field>
+            <field name="name">Identificación de anticuerpos irregulares</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="9"/>
+        </record>
+        <record id="_selection_costo_6" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_costo" />
+            <field name="sequence" eval="6"/>
+            <field name="code">6</field>
+            <field name="name">Prueba de compatibilidad</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="6"/>
+        </record>
+        <record id="_selection_costo_7" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_costo" />
+            <field name="sequence" eval="7"/>
+            <field name="code">7</field>
+            <field name="name">Test de Coombs directo</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="7"/>
+        </record>
+        <record id="_selection_costo_8" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_costo" />
+            <field name="sequence" eval="8"/>
+            <field name="code">8</field>
+            <field name="name">Test de Coombs indirecto</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="8"/>
+        </record>
+        <!-- 19 -->
+        <record id="_selection_sub_tipo_equipamiento_critico_a_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_a" />
+            <field name="sequence" eval="1"/>
+            <field name="code">1</field>
+            <field name="name">Agitador de plaquetas con cámara de temperatura (incubadora) de 22°C+-2°C</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_a_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_a" />
+            <field name="sequence" eval="2"/>
+            <field name="code">2</field>
+            <field name="name">Centrífuga de inmunohematología</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_a_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_a" />
+            <field name="sequence" eval="3"/>
+            <field name="code">3</field>
+            <field name="name">Congeladora de -20°C ó menos con registro de temperatura y alarma audiovisual</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_a_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_a" />
+            <field name="sequence" eval="4"/>
+            <field name="code">4</field>
+            <field name="name">Congeladora de -70°C ó menos con registro de temperatura y alarma audiovisual</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_a_5" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_a" />
+            <field name="sequence" eval="5"/>
+            <field name="code">5</field>
+            <field name="name">Conservadora de sangre de 4°C +-2°C con registro de temperatura y alarma audiovisual</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 20 -->
+        <record id="_selection_sub_tipo_equipamiento_critico_b_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="1"/>
+            <field name="code">1</field>
+            <field name="name">Autoclave</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="2"/>
+            <field name="code">2</field>
+            <field name="name">Balanza de doble patillo o digital</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="3"/>
+            <field name="code">3</field>
+            <field name="name">Balanza de pie con tallímetro</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="4"/>
+            <field name="code">4</field>
+            <field name="name">Baño maría</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_5" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="5"/>
+            <field name="code">5</field>
+            <field name="name">Camilla rodante con baranda y soporte</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_6" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="6"/>
+            <field name="code">6</field>
+            <field name="name">Centrífuga para hematocrito </field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_7" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="7"/>
+            <field name="code">7</field>
+            <field name="name">Cronómetro</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_8" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="8"/>
+            <field name="code">8</field>
+            <field name="name">Esfingomanómetro</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_9" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="9"/>
+            <field name="code">9</field>
+            <field name="name">Equipo de reanimación cardiopulmonar básico</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_10" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="10"/>
+            <field name="code">10</field>
+            <field name="name">Estetoscopio</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_11" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="11"/>
+            <field name="code">11</field>
+            <field name="name">Hemoglobinómetro</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_12" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="12"/>
+            <field name="code">12</field>
+            <field name="name">Microscopio óptico</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_13" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="13"/>
+            <field name="code">13</field>
+            <field name="name">Pinza exprimidora de tubuladura</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_14" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="14"/>
+            <field name="code">14</field>
+            <field name="name">Pipeta automática</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_15" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="15"/>
+            <field name="code">15</field>
+            <field name="name">Sellador de tubuladura</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_16" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="16"/>
+            <field name="code">16</field>
+            <field name="name">Silla de ruedas</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_17" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="17"/>
+            <field name="code">17</field>
+            <field name="name">Termómetro de uso clínico</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_18" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="18"/>
+            <field name="code">18</field>
+            <field name="name">Centrífuga para procesamiento de tarjetas gel</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_19" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="19"/>
+            <field name="code">19</field>
+            <field name="name">Centrífuga de tubos</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_20" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="20"/>
+            <field name="code">20</field>
+            <field name="name">Centrífuga refrigerada</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_21" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="21"/>
+            <field name="code">21</field>
+            <field name="name">Conector estéril </field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_22" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="22"/>
+            <field name="code">22</field>
+            <field name="name">Conservadora de reactivos de 4°C +-2°C con registro de temperatura y alarma audiovisual</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_23" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="23"/>
+            <field name="code">23</field>
+            <field name="name">Conservadora portátil para transporte de sangre con controlador de temperatura</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_24" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="24"/>
+            <field name="code">24</field>
+            <field name="name">Descongelador de plasma </field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_25" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="25"/>
+            <field name="code">25</field>
+            <field name="name">Equipo automatizado de hematología  (hemograma)</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_26" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="26"/>
+            <field name="code">26</field>
+            <field name="name">Equipo automatizado o semiautomatizado de fraccionamiento</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_27" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="27"/>
+            <field name="code">27</field>
+            <field name="name">Equipo automatizado o semiautomatizado para inmunohematología</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_28" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="28"/>
+            <field name="code">28</field>
+            <field name="name">Equipo automatizado o semiautomatizado de inmunoserología</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_29" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="29"/>
+            <field name="code">29</field>
+            <field name="name">Equipo automatizado para test de ácidos nucleicos (NAT)</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_30" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="30"/>
+            <field name="code">30</field>
+            <field name="name">Equipo de aféresis</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_31" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="31"/>
+            <field name="code">31</field>
+            <field name="name">Hemobáscula</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_32" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="32"/>
+            <field name="code">32</field>
+            <field name="name">Incubadora para tarjetas gel</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_33" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="33"/>
+            <field name="code">33</field>
+            <field name="name">Sillón de hemodonación</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_critico_b_34" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_critico_b" />
+            <field name="sequence" eval="34"/>
+            <field name="code">34</field>
+            <field name="name">Termómetro/termohigrómetro con rango para temperatura ambiente y/o equipos</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <!-- 21 -->
+        <record id="_selection_sub_tipo_equipamiento_otros_indispensables_1" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_otros_indispensables" />
+            <field name="sequence" eval="1"/>
+            <field name="code">1</field>
+            <field name="name">Equipo de cómputo</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_otros_indispensables_2" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_otros_indispensables" />
+            <field name="sequence" eval="2"/>
+            <field name="code">2</field>
+            <field name="name">Impresora</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_otros_indispensables_3" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_otros_indispensables" />
+            <field name="sequence" eval="3"/>
+            <field name="code">3</field>
+            <field name="name">Equipo de aire acondicionado o calefacción</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_otros_indispensables_4" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_otros_indispensables" />
+            <field name="sequence" eval="4"/>
+            <field name="code">4</field>
+            <field name="name">Grupo electrógeno o alimentación de emergencia </field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_otros_indispensables_5" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_otros_indispensables" />
+            <field name="sequence" eval="5"/>
+            <field name="code">5</field>
+            <field name="name">Equipo de radiotelefonía</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_otros_indispensables_6" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_otros_indispensables" />
+            <field name="sequence" eval="6"/>
+            <field name="code">6</field>
+            <field name="name">Servicio de telefonía fija o móvil</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_otros_indispensables_7" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_otros_indispensables" />
+            <field name="sequence" eval="7"/>
+            <field name="code">7</field>
+            <field name="name">Servicio de internet</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_otros_indispensables_8" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_otros_indispensables" />
+            <field name="sequence" eval="8"/>
+            <field name="code">8</field>
+            <field name="name">Sistema eléctrico con punto a tierra</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_otros_indispensables_9" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_otros_indispensables" />
+            <field name="sequence" eval="9"/>
+            <field name="code">9</field>
+            <field name="name">Agua y desagüe</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_otros_indispensables_10" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_otros_indispensables" />
+            <field name="sequence" eval="10"/>
+            <field name="code">10</field>
+            <field name="name">Sistema contra incendios</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+        <record id="_selection_sub_tipo_equipamiento_otros_indispensables_11" model="basecatalogo.catalogo">
+            <field name="parent_id"  ref="_selection_sub_tipo_equipamiento_otros_indispensables" />
+            <field name="sequence" eval="11"/>
+            <field name="code">11</field>
+            <field name="name">Señalización para evacuación en situaciones de emergencia</field>
+            <field name="valor1"></field>
+            <field name="valor2"></field>
+            <field name="valor3"></field>
+            <field name="active" eval="1"/>
+        </record>
+    </data>
+</odoo>

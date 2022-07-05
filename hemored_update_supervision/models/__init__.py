@@ -1,0 +1,1 @@
+from . import hemored_ficha_supervision  # noqa

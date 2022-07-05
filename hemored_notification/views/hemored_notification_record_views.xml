@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="hemored_notification_tree_view">
+            <field name="name">Registro de notificaciones</field>
+            <field name="model">hemored_notification.notification_record</field>
+            <field name="arch" type="xml">
+                <tree string="Registro de notificaciones">
+                    <field name="remitente_id" readonly="True"/>
+                    <field name="destinatario_id" invisible="True"/>
+                    <field name="fecha_notificacion" readonly="True"/>
+                    <field name="tipo_notificacion" required="True"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="hemored_notification_form_view">
+            <field name="name">Registro de notificaciones</field>
+            <field name="model">hemored_notification.notification_record</field>
+            <field name="arch" type="xml">
+                <form string="Registro de notificaciones">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="acion_send" string="Mensaje de Whatsapp"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-whatsapp"
+                            />
+                        </div>
+                        <field name="mensaje_registrado" invisible="True"/>
+                        <group>
+                            <group>
+                                <field name="remitente_id" readonly="True"/>
+                            </group>
+                            <group>
+                                <field name="destinatario_id" invisible="True"/>
+                                <field name="nombre_reponsable" readonly="True"/>
+                                <field name="numero_destinatario" readonly="True"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="tipo_notificacion"
+                                   required="True"
+                                   attrs="{'readonly': [('mensaje_registrado', '=', True)]}"
+                            />
+                            <field name="mensaje"
+                                   required="True"
+                                   attrs="{'readonly': [('mensaje_registrado', '=', True)]}"
+                            />
+                        </group>
+                        <div class="text-center">
+                            <h1>Término de uso del botón WhatsApp</h1>
+                            <h5 align="justify">
+                                Estimado usuario, recuerde que el mensaje digitado en el formulario,
+                                no debe ser modificado al momento de usar el botón de Mensaje de WhatsApp desde
+                                la aplicación WhatsApp Web.
+                            </h5>
+                            <h5 align="justify">
+                                Nota: No se olvide dar clic en el botón enviar cuando se encuntre en la pagina de WhatsApp,
+                                el sistema no se hace responsable de los mensajes modificados al momento del envío.
+                            </h5>
+                            <h5>
+                                Aceptar términos de uso <field name="accept_send"/>
+                            </h5>
+                        </div>
+                        <group>
+                            <field name="observacion"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_notification_action" model="ir.actions.act_window">
+            <field name="name">Registro de notificaciones</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored_notification.notification_record</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="limit">25</field>
+        </record>
+
+
+
+    </data>
+</odoo>

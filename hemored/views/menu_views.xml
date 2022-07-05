@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <!-- MENU DE LA APLICACION -->
+        <menuitem
+            id="menu_main"
+            name="HEMORED"
+            web_icon="hemored,static/description/icon.png"
+            sequence="3"
+        />
+
+       <!-- MENU Datos Generales de CHBS -->
+        <menuitem id="menu_reportes"
+            name="Reportes"
+            parent="menu_main"
+            groups="hemored.group_administrador"
+            sequence="3" />
+
+       <!-- MENU DONACION SANGRE -->
+        <menuitem id="menu_hemored_catalogo"
+                  name="Catálogo"
+                  parent="menu_main"
+                  action="basecatalogo.view_catalogo_action"
+                  groups="hemored.group_administrador"
+                  sequence="6"
+        />
+
+   </data>
+</odoo>

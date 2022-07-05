@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <record model="ir.ui.view" id="hemored_update_supervision_form_view">
+            <field name="name">hemored_update_supervision.updateexcel.form</field>
+            <field name="model">hemored_update_supervision.updateexcel</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div class="col-xs-12 text-center">
+                        <h1>
+                            Carga Automática de Ficha de Supervisión
+                        </h1>
+                    </div>
+                    <div class="col-xs-12 text-left">
+                        <p>El formato que debe ser usado para la carga automática es el Formato estadístico colocado en el apartado Documentación: 'formato de supervisión para carga automatica.xlsx', otro formato puede no ser aceptado por el sistema</p>
+                        <p>La estructura de la Ficha debe coincidir en las casillas respectivas, caso contrario el sistema marcara “0” como valor por defecto, recordamos que la ficha solo puede llenarse en estado "Borrador".</p>
+                        <p>Debemos recordar que la única validación que contiene la carga automática para la supervisión es en relación al codigo ipress del banco, por lo tanto el usuario debe asegurarse haber seleccionado la supervisión correcta.</p>
+                    </div>
+                    <group>
+                        <div class="col-xs-6 text-center">
+                            <field name="txt_ficha_supervision" invisible="1"/>
+                            <field name="ficha_supervision" filename="txt_ficha_supervision" required="True"/>
+                        </div>
+                        <div class="col-xs-6 text-left">
+                            <p style="color: red">Peso máximo propuesto 2.5 Mb</p>
+                        </div>
+                    </group>
+                    <footer>
+                        <button name="cargar_excel_ficha" type="object" class="oe_highlight" string="Cargar"/>
+                    </footer>
+              </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

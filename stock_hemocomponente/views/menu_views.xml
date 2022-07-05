@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+       <!-- MENU DE LA APLICACION -->
+        <menuitem
+            id="menu_stock_hemocomponente_main"
+            name="Stock Hemocomponentes"
+            web_icon="stock_hemocomponente,static/description/icon.png"
+            groups="hemored.group_administrador,hemored.group_coordinador_diris_diresa_hemored,stock_hemocomponente.group_establecimiento_tipo_ii_hemored"
+            sequence="6"
+        />
+
+   </data>
+</odoo>

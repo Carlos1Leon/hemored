@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <record id="hemored_supervision_record_supervision_form_inherit_almacenamiento" model="ir.ui.view">
+            <field name="name">hemored.banco_sangre.form.inherit.almacenamiento</field>
+            <field name="model">hemored_supervision.record_supervision</field>
+            <field name="inherit_id" ref="hemored_supervision.hemored_supervision_record_supervision_form_inherit_calidad"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@id='calidad']" position="after">
+                    <field name="p_alm_1" invisible="True"/>
+                    <field name="g_alm_1" invisible="True"/>
+                    <field name="p_alm_2" invisible="True"/>
+                    <field name="g_alm_2" invisible="True"/>
+                    <field name="p_alm_3" invisible="True"/>
+                    <field name="g_alm_3" invisible="True"/>
+                    <field name="p_alm_4" invisible="True"/>
+                    <field name="g_alm_4" invisible="True"/>
+                    <field name="p_alm_5" invisible="True"/>
+                    <field name="g_alm_5" invisible="True"/>
+                    <field name="p_alm_6" invisible="True"/>
+                    <field name="g_alm_6" invisible="True"/>
+                    <field name="p_alm_7" invisible="True"/>
+                    <field name="g_alm_7" invisible="True"/>
+                    <field name="p_alm_8" invisible="True"/>
+                    <field name="g_alm_8" invisible="True"/>
+                    <field name="p_alm_9" invisible="True"/>
+                    <field name="g_alm_9" invisible="True"/>
+                    <field name="p_alm_10" invisible="True"/>
+                    <field name="g_alm_10" invisible="True"/>
+                    <field name="p_alm_11" invisible="True"/>
+                    <field name="g_alm_11" invisible="True"/>
+                    <field name="p_alm_12" invisible="True"/>
+                    <field name="g_alm_12" invisible="True"/>
+                    <field name="p_alm_13" invisible="True"/>
+                    <field name="g_alm_13" invisible="True"/>
+                    <field name="p_alm_14" invisible="True"/>
+                    <field name="g_alm_14" invisible="True"/>
+                    <page string="ALMACENAMIENTO" id="almacenamiento">
+                        <group>
+                            <table class="table table-bordered mb64">
+                                <tbody style="border: 1px solid #ccc;">
+                                    <tr>
+                                        <td style="width:15%;" align="center">
+                                            DESCRIPCIÓN
+                                        </td>
+                                        <td style="width:10%;" align="center">
+                                            MARCAR (SI o NO) / OPCIONES (SÍ HUBIERA)
+                                        </td>
+                                        <td style="width:20%;" align="center">
+                                            ESPECIFICAR
+                                        </td>
+                                        <td style="width:15%;" colspan="2" align="center">
+                                            OBSERVACIÓN / VERIFICADOR / RECOMENDACIONES
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            Stock de Plaquetas Simple:
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_alm_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="esp_alm_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;" align="justify" rowspan="5">
+                                            Verificar registro de stock de hemocomponentes y el equipo de almacenamiento de hemocomponentes
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            Stock de Plaquetas Aferesis:
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_alm_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="esp_alm_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            Stock de Paquete Globular
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_alm_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="esp_alm_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            Stock de Plasma Fresco Congelado
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_alm_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="esp_alm_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            Stock de Crioprecipitado
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_alm_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="esp_alm_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Se dispone de conservadores/congeladores o cámaras frías específicas para
+                                            banco de sangre para almacenamiento de acuerdo a su demanda?
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="alm_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_alm_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;" align="justify">
+                                            Verificar demanda a traves de cantidad de unidades que procesan por día.
+                                            Referencia: Criterio de Calidad EG03-CC05, numeral 1.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Se registra la temperatura de acuerdo al SGC?
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="alm_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_alm_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;" align="justify">
+                                            Verificar temperatura de conservadoras, congeladoras e incubador-rotador de plaquetas
+                                            Referencia: Criterio de Calidad EG03-CC05 acápite 4
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Se tiene en cuenta la temperatura para la distribución externa y el
+                                            transporte de sangre y componentes sanguíneos?
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="alm_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_alm_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;" align="justify">
+                                            Como realizan el control de la cadena de frió (Describir)
+                                            Referencia: Criterio de Calidad EG05-CC06, literal E.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                         Producción de Hemocomponentes Anual:
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                           Paquete Globular:
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="esp_alm_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_alm_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;" align="justify" rowspan="4">
+                                            Verificar producción de hemocomponentes
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            Plaquetas:
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="esp_alm_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_alm_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                           Plasma Fresco Congelado:
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="esp_alm_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_alm_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                           Crioprecipitado:
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="esp_alm_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_alm_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            Demanda Anual en el Establecimiento de Salud
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="esp_alm_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_alm_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;" align="justify" rowspan="2">
+                                            Verificar informes y registros
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            Demanda Anual a través de convenio con CH y BS tipo I
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="esp_alm_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_alm_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+   </data>
+</odoo>

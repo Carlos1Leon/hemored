@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <record model="ir.ui.view" id="hemored_update_form_view">
+            <field name="name">hemored.update.updateexcel.form</field>
+            <field name="model">hemored_update.updateexcel</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div class="col-xs-12 text-center">
+                        <h1>
+                            Carga Automática de Ficha Estadística
+                        </h1>
+                    </div>
+                    <div class="col-xs-12 text-left">
+                        <p>El formato que debe ser usado para la carga automática es el Formato estadístico colocado en el apartado Documentación: 'formato estadistico de carga automatica.xlsx', otro formato puede no ser aceptado por el sistema</p>
+                        <p>La estructura de la Ficha debe coincidir en las casillas respectivas, caso contrario el sistema marcara “0” como valor por defecto, en caso los datos “Periodo” y “Codigo Ipress” no coincidan, saldrá el mensaje “Datos de Validación Incorrectos”, así mismo recordamos que la ficha solo puede llenarse en estado "Borrado", "Enviado" y si la fecha de llenado se encuentra entre las fechas "Inicio de Fecha de Registro" y "Fin de Fecha de Registro".</p>
+                    </div>
+                    <group>
+                        <div class="col-xs-6 text-center">
+                            <field name="txt_ficha_estadistica" invisible="1"/>
+                            <field name="ficha_estadistica" filename="txt_ficha_estadistica" required="True"/>
+                        </div>
+                        <div class="col-xs-6 text-left">
+                            <p style="color: red">Peso máximo propuesto 2.5 Mb</p>
+                        </div>
+                    </group>
+                    <footer>
+                        <button name="cargar_excel_ficha" type="object" class="oe_highlight" string="Cargar"/>
+                    </footer>
+              </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

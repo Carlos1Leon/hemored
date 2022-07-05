@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <record model="ir.ui.view" id="hemored_supervision_wizarconfirm_form_view">
+            <field name="name">hemored_supervision.wizarconfirm.form</field>
+            <field name="model">hemored_supervision.wizarconfirm</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="fecha" required="True"/>
+                    </group>
+                    <footer>
+                        <button name="action_confirm" type="object" string="Confirmar" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+              </form>
+            </field>
+        </record>
+
+       <record model="ir.ui.view" id="hemored_supervision_wizarpostponed_form_view">
+            <field name="name">hemored_supervision.wizarpostponed.form</field>
+            <field name="model">hemored_supervision.wizarpostponed</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="motivo" required="True"/>
+                        <field name="fecha" required="True"/>
+                    </group>
+                    <footer>
+                        <button name="action_postponed" type="object" string="Postergar" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+              </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

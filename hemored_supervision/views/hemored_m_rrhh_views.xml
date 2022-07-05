@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hemored_supervision_record_supervision_form_inherit_rrhh_m" model="ir.ui.view">
+            <field name="name">hemored.banco_sangre.form.inherit.almacenamiento.monitoreo</field>
+            <field name="model">hemored_supervision.record_supervision</field>
+            <field name="inherit_id"
+                   ref="hemored_supervision.hemored_supervision_record_supervision_form_inherit_respon_gerencia_m"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@id='responsibilidad_gerencia']" position="after">
+                    <field name="p_rh_1" invisible="True"/>
+                    <field name="g_rh_1" invisible="True"/>
+                    <field name="p_rh_2" invisible="True"/>
+                    <field name="g_rh_2" invisible="True"/>
+                    <field name="p_rh_3" invisible="True"/>
+                    <field name="g_rh_3" invisible="True"/>
+                    <field name="p_rh_4" invisible="True"/>
+                    <field name="g_rh_4" invisible="True"/>
+                    <field name="p_rh_5" invisible="True"/>
+                    <field name="g_rh_5" invisible="True"/>
+                    <field name="p_rh_6" invisible="True"/>
+                    <field name="g_rh_6" invisible="True"/>
+                    <field name="p_rh_7" invisible="True"/>
+                    <field name="g_rh_7" invisible="True"/>
+                    <field name="p_rh_8" invisible="True"/>
+                    <field name="g_rh_8" invisible="True"/>
+                    <field name="p_rh_9" invisible="True"/>
+                    <field name="g_rh_9" invisible="True"/>
+                    <field name="p_rh_10" invisible="True"/>
+                    <field name="g_rh_10" invisible="True"/>
+                    <page string="RECURSOS HUMANOS" id="rrhh">
+                        <group
+                            string="Indicar relación y número de personal que cumpla con el SGC con el que cuenta:">
+                            <table class="table table-bordered mb64">
+                                <tbody style="border: 1px solid #ccc;">
+                                    <tr>
+                                        <td style="width:15%; vertical-align:middle;" align="center">
+                                            DESCRIPCIÓN
+                                        </td>
+                                        <td style="width:10%; vertical-align:middle;" align="center">
+                                            MARCAR (SI o NO) / OPCIONES (SÍ HUBIERA)
+                                        </td>
+                                        <td style="width:20%; vertical-align:middle;" align="center">
+                                            ESPECIFICAR
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;" colspan="2"
+                                            align="center">
+                                            OBSERVACIÓN / VERIFICADOR - RECOMENDACIONES
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Jefe del servicio: Médico Cirujano Patólogo Clínico o Hematólogo Clínico
+                                        </td>
+                                        <td style="width:10%; vertical-align:middle;">
+                                            <field name="rh_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;">
+                                            <field name="esp_rh_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:20%; vertical-align:middle;">
+                                            <field name="obs_rh_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Verificar cv actualizado y de acuerdo a SGC Grupo ocupacional:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Médicos Cirujanos Patólogos Clínicos o Hematólogos Clínicos asistentes
+                                        </td>
+                                        <td style="width:10%; vertical-align:middle;">
+                                            <field name="rh_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;">
+                                            <field name="esp_rh_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:20%; vertical-align:middle;">
+                                            <field name="obs_rh_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Verificar cv actualizado y de acuerdo a SGC Grupo ocupacional:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Tecnólogos Médicos
+                                        </td>
+                                        <td style="width:10%; vertical-align:middle;">
+                                            <field name="rh_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;">
+                                            <field name="esp_rh_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:20%; vertical-align:middle;">
+                                            <field name="obs_rh_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Verificar cv actualizado y de acuerdo a SGC Grupo ocupacional:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Técnicos de Laboratorio
+                                        </td>
+                                        <td style="width:10%; vertical-align:middle;">
+                                            <field name="rh_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;">
+                                            <field name="esp_rh_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:20%; vertical-align:middle;">
+                                            <field name="obs_rh_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Verificar CV Grupo ocupacional:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Biólogos
+                                        </td>
+                                        <td style="width:10%; vertical-align:middle;">
+                                            <field name="rh_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;">
+                                            <field name="esp_rh_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:20%; vertical-align:middle;">
+                                            <field name="obs_rh_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Verificar CV Grupo ocupacional:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Enfermeras
+                                        </td>
+                                        <td style="width:10%; vertical-align:middle;">
+                                            <field name="rh_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;">
+                                            <field name="esp_rh_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:20%; vertical-align:middle;">
+                                            <field name="obs_rh_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Verificar CV Grupo ocupacional:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Otros profesionales (indicar cantidad y profesión)
+                                        </td>
+                                        <td style="width:10%; vertical-align:middle;">
+                                            <field name="rh_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;">
+                                            <field name="esp_rh_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:20%; vertical-align:middle;">
+                                            <field name="obs_rh_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Verificar CV Grupo ocupacional:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Secretaria
+                                        </td>
+                                        <td style="width:10%; vertical-align:middle;">
+                                            <field name="rh_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;">
+                                            <field name="esp_rh_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:20%; vertical-align:middle;">
+                                            <field name="obs_rh_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Verificar CV Grupo ocupacional:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Digitador
+                                        </td>
+                                        <td style="width:10%; vertical-align:middle;">
+                                            <field name="rh_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;">
+                                            <field name="esp_rh_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:20%; vertical-align:middle;">
+                                            <field name="obs_rh_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Verificar CV Grupo ocupacional:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            ¿Cuenta con personal profesional en Banco de Sangre para atención de 24 hrs?
+                                        </td>
+                                        <td style="width:10%; vertical-align:middle;" colspan="2">
+                                            <field name="rh_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:20%; vertical-align:middle;">
+                                            <field name="obs_rh_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%; vertical-align:middle;" align="justify">
+                                            Adjuntar rol de guardias Referencia: Directiva Sanitaria N°
+                                            011-MINSA/DGSP V.01
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- MENU DE LA APLICACION -->
+        <menuitem
+            id="menu_hemored_tutor_promotor_main"
+            name="Tutores y Promotores"
+            web_icon="hemored_tutor_promotor,static/description/icon.png"
+            groups="hemored.group_administrador,hemored.group_coordinador_diris_diresa_hemored,hemored_tutor_promotor.group_tutores_hemored"
+            sequence="10"
+        />
+
+    </data>
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <!--Email template -->
+
+        <record id="email_template_hemored_notification_reminder" model="mail.template">
+            <field name="name">Notificación de Fichas Estadísticas en estado Borrador...!!</field>
+            <field name="subject">Hola ${object.name or 'n/a' }</field>
+            <field name="email_from"><![CDATA[${object.usuario_id.company_id.name} <${object.usuario_id.company_id.email}>]]></field>
+            <field name="model_id" ref="hemored.model_hemored_banco_sangre" />
+            <field name="auto_delete" eval="False"/>
+            <field name="built_in" eval="True"/>
+            <field name="body_html">
+                <![CDATA[
+                    <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+                        <p>Estimado encargado de Banco de sangre</p>
+                        <p>Reciba los cordiales saludos del equipo de PRONAHEBAS, este es un mensaje automático del sistema HEMORED, el cual le recuerda que, aún cuenta con fichas estadísticas en estado borrador</p>
+                        <p>Corresponden a las fichas mensuales y/o anuales de los siguientes periodos y/o años: </p>
+                        <p> ${(object.body_periodo_borrador or "")| safe} </p>
+                        <p> ${(object.body_anual_borrador or "")| safe} </p>
+                        <p>Le recordamos que es importante culminar con el registro de las fichas pendientes, porfavor cumplir con el registro de las estadísticas correspondientes.</p>
+                        <p>Sin más que decir nos despedimos, Estaremos en contacto.</p>
+                        <p align='right'> SISTEMA HEMORED </p>
+                    </div>
+                ]]>
+            </field>
+        </record>
+
+
+        <record id="email_template_hemored_notification_reminder_coordinador" model="mail.template">
+            <field name="name">Notificación de Fichas Estadísticas en estado Enviado...!!</field>
+            <field name="subject">Estimado Coordinado de Banco de Sangre - ${object.name or 'n/a' }</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="built_in" eval="True"/>
+            <field name="body_html">
+                <![CDATA[
+                    <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+                        <p>Estimado Coordinador DIRIS/DIRESA/GERESA</p>
+                        <p>Reciba los cordiales saludos del equipo de PRONAHEBAS, este es un mensaje automático del sistema HEMORED, el cual le recuerda que, aún cuenta con fichas estadísticas pendientes de validación</p>
+                        <p>Corresponden a las fichas mensuales y/o anuales de los siguientes periodos y/o años: </p>
+                        <p style="font-size: 20px;"> ${(object.body_periodo_enviado or "")| safe} </p>
+                        <p style="font-size: 20px;"> ${(object.body_anual_enviado or "")| safe} </p>
+                        <p>Le recordamos que es importante validar las fichas pendientes, solo así podemos estar seguros que la información colocada es la correcta, porfavor cumplir con el proceso de validación.</p>
+                        <p>Sin más que decir nos despedimos, Estaremos en contacto.</p>
+                        <p align='right'> SISTEMA HEMORED </p>
+                    </div>
+                ]]>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

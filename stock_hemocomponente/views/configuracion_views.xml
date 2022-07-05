@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="stock_hemocomponente_configuracion_tree_view">
+            <field name="name">Configuración</field>
+            <field name="model">stock_hemocomponente.configuracion</field>
+            <field name="arch" type="xml">
+                <tree string="Configuración" duplicate="0">
+                    <field name="periodicidad"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="stock_hemocomponente_configuracion_form_view">
+            <field name="name">Configuración</field>
+            <field name="model">stock_hemocomponente.configuracion</field>
+            <field name="arch" type="xml">
+                <form string="Configuración" duplicate="0">
+                    <group>
+                        <field name="periodicidad"/>
+                        <field name="company_id" invisible="True"/>
+                    </group>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="stock_hemocomponente_configuracion_action" model="ir.actions.act_window">
+            <field name="name">Configuración</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">stock_hemocomponente.configuracion</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="limit">25</field>
+        </record>
+
+        <!-- MENU -->
+        <menuitem id="menu_stock_hemocomponente_configuracion"
+                  name="Configuración"
+                  parent="stock_hemocomponente.menu_stock_hemocomponente_main"
+                  sequence="2"
+                  action="stock_hemocomponente_configuracion_action"
+        />
+
+
+    </data>
+</odoo>

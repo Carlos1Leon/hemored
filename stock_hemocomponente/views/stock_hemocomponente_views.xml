@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA SEARCH -->
+        <record model="ir.ui.view" id="stock_hemocomponente_hemocomponente_search_view">
+            <field name="name">Stock de hemocomponentes busqueda</field>
+            <field name="model">stock_hemocomponente.hemocomponente</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="banco_id" string="CHBS"/>
+                    <field name="diresa_id" string="DIRIS/DIRESA/GERESA"/>
+                    <field name="state" string="Estado"/>
+                    <field name="fecha" string="Fecha"/>
+                    <group string="Agrupar por">
+                        <filter name="by_banco_id" string="CHBS" context="{'group_by': 'banco_id'}"/>
+                        <filter name="by_diresa_id" string="DIRIS/DIRESA/GERESA" context="{'group_by': 'diresa_id'}"/>
+                        <filter name="by_state" string="Estado" context="{'group_by': 'state'}"/>
+                        <filter name="group_day_register"
+                            string="Fecha"
+                            icon="terp-partner"
+                            context="{'order_by':'fecha', 'group_by':'fecha:day'}"
+
+                        />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="stock_hemocomponente_hemocomponente_tree_view">
+            <field name="name">Stock de hemocomponentes</field>
+            <field name="model">stock_hemocomponente.hemocomponente</field>
+            <field name="arch" type="xml">
+                <tree string="Stock de hemocomponentes" create='false' duplicate="0"
+                      decoration-danger="state == 'no_reporto'" decoration-success="state == 'reporto'"
+                >
+                    <field name="banco_id"/>
+                    <field name="diresa_id" string="Región" readonly="True"/>
+                    <field name="fecha"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="stock_hemocomponente_hemocomponente_form_view">
+            <field name="name">Stock de hemocomponentes</field>
+            <field name="model">stock_hemocomponente.hemocomponente</field>
+            <field name="arch" type="xml">
+                <form string="Stock de hemocomponentes" create='false' duplicate="0">
+                    <style>
+                        .o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled[data-value="reporto"] {
+                            background: #9ed7ab;
+                        }
+                        .o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled[data-value="reporto"]::after {
+                            border-left-color: #9ed7ab;
+                        }
+                        .o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled[data-value="no_reporto"] {
+                            background: #e9838d;
+                        }
+                        .o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled[data-value="no_reporto"]::after {
+                            border-left-color: #e9838d;
+                        }
+                    </style>
+                    <header>
+                        <button name="action_send" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="Reportar" attrs="{'invisible': [('state', 'in', 'reporto')]}"
+                                confirm="Verifique los datos ingresados" groups="hemored.group_coordinador_establecimiento_hemored,hemored.group_administrador"
+                        />
+                        <button name="action_draft" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="Regresar" attrs="{'invisible': [('state', 'in', 'no_reporto')]}"
+                                confirm="El registro regresara a estado no reporto" groups="hemored.group_administrador"
+                        />
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="banco_id" readonly="True"/>
+                            <field name="diresa_id" readonly="True"/>
+                            <field name="fecha" readonly="True"/>
+                        </group>
+                        <group>
+                            <table class="table table-condensed">
+                                <tbody style="border: 1px solid #ccc;">
+                                    <tr class="text-center">
+                                        <td colspan="9">PAQUETE GLOBULAR</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td>O+</td>
+                                        <td>A+</td>
+                                        <td>B+</td>
+                                        <td>AB+</td>
+                                        <td>O-</td>
+                                        <td>A-</td>
+                                        <td>B-</td>
+                                        <td>AB-</td>
+                                        <td>TOTAL</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td>
+                                            <field name="o_positivo_paquete_globular"/>
+                                        </td>
+                                        <td>
+                                            <field name="a_positivo_paquete_globular"/>
+                                        </td>
+                                        <td>
+                                            <field name="b_positivo_paquete_globular"/>
+                                        </td>
+                                        <td>
+                                            <field name="ab_positivo_paquete_globular"/>
+                                        </td>
+                                        <td>
+                                            <field name="o_negativo_paquete_globular"/>
+                                        </td>
+                                        <td>
+                                            <field name="a_negativo_paquete_globular"/>
+                                        </td>
+                                        <td>
+                                            <field name="b_negativo_paquete_globular"/>
+                                        </td>
+                                        <td>
+                                            <field name="ab_negativo_paquete_globular"/>
+                                        </td>
+                                        <td>
+                                            <field name="total_paquete_globular"
+                                                   readonly="True"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="9">PLASMA FRESCO CONGELADO</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td>O+</td>
+                                        <td>A+</td>
+                                        <td>B+</td>
+                                        <td>AB+</td>
+                                        <td>O-</td>
+                                        <td>A-</td>
+                                        <td>B-</td>
+                                        <td>AB-</td>
+                                        <td>TOTAL</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td>
+                                            <field name="o_positivo_plasma_fresco"/>
+                                        </td>
+                                        <td>
+                                            <field name="a_positivo_plasma_fresco"/>
+                                        </td>
+                                        <td>
+                                            <field name="b_positivo_plasma_fresco"/>
+                                        </td>
+                                        <td>
+                                            <field name="ab_positivo_plasma_fresco"/>
+                                        </td>
+                                        <td>
+                                            <field name="o_negativo_plasma_fresco"/>
+                                        </td>
+                                        <td>
+                                            <field name="a_negativo_plasma_fresco"/>
+                                        </td>
+                                        <td>
+                                            <field name="b_negativo_plasma_fresco"/>
+                                        </td>
+                                        <td>
+                                            <field name="ab_negativo_plasma_fresco"/>
+                                        </td>
+                                        <td>
+                                            <field name="total_plasma_fresco"
+                                                   readonly="True"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="9">TOTAL DE PLAQUETAS SIMPLES</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="9">
+                                            <field name="total_plaquetas_simple"/>
+                                        </td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="9">TOTAL DE CONCENTRADO DE PLAQUETAS POR AFÉRESIS</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="9">
+                                            <field name="total_concentrado_plaquetas"/>
+                                        </td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="9">TOTAL DE CRIOPRECIPITADO</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="9">
+                                            <field name="total_crioprecipitado"/>
+                                        </td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="9">TOTAL DE UNIDADES PENDIENTES DE TAMIZAJE</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="9">
+                                            <field name="total_unidades_pendientes_tamisaje"/>
+                                        </td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="9">DONACIONES DE SANGRE / DÍA</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="9">
+                                            <field name="total_donaciones_sangre_x_dia"/>
+                                        </td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="9">TRANSFUSIONES DE P.GLOB./ DÍA</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="9">
+                                            <field name="total_transfuciones_x_dia"/>
+                                        </td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="9">TRANSFUSIONES DE PLAQUETAS</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td colspan="9">
+                                            <field name="total_transfuciones_plaquetas_x_dia"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="stock_hemocomponente_hemocomponente_action" model="ir.actions.act_window">
+            <field name="name">Stock de hemocomponentes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">stock_hemocomponente.hemocomponente</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="limit">25</field>
+            <field name="context">{'search_default_group_day_register': 1}</field>
+        </record>
+
+        <!-- MENU -->
+        <menuitem id="menu_stock_hemocomponente_hemocomponente"
+                  name="Stock de hemocomponentes"
+                  parent="stock_hemocomponente.menu_stock_hemocomponente_main"
+                  sequence="1"
+                  action="stock_hemocomponente_hemocomponente_action"
+        />
+
+
+    </data>
+</odoo>

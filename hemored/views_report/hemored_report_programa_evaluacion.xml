@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA SEARCH -->
+        <record id="report_programa_evaluacion_search_view" model="ir.ui.view">
+            <field name="name">hemored.report_programa_evaluacion.search</field>
+            <field name="model">hemored.report_programa_evaluacion</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="fecha_reporte" string="Fecha de reporte"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="estado_fichas_estadistica_tree_view">
+            <field name="name">hemored.report_programa_evaluacion.tree</field>
+            <field name="model">hemored.report_programa_evaluacion</field>
+            <field name="arch" type="xml">
+                <tree duplicate="0">
+                    <field name="fecha_reporte"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="view_report_programa_evaluacion_xls_form">
+            <field name="name">Porcentaje - Bancos de sangre que participan en el programa de evaluación externa</field>
+            <field name="model">hemored.report_programa_evaluacion</field>
+            <field name="arch" type="xml">
+                <form string="Porcentajes">
+                    <header>
+                        <button name="action_generated" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="Generar" attrs="{'invisible': [('state', 'in', ['borrador', 'generado'])]}"
+                                groups="hemored.group_administrador"
+                        />
+                        <button class="oe_stat_button" type="object"
+                                name="print_excel_porcentaje"
+                                string="Exportar Excel"
+                                icon="fa-file-text-o" attrs="{'invisible': [('state', 'in', ['borrador', 'registrado'])]}"
+                        />
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group string="Datos">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:60%;"><label for="fecha_reporte"/></td>
+                                        <td><field name="fecha_reporte" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:60%;"><label for="porc_vih"/></td>
+                                        <td><field name="porc_vih" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:60%;"><label for="porc_hbsag"/></td>
+                                        <td><field name="porc_hbsag" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:60%;"><label for="porc_hep_c"/></td>
+                                        <td><field name="porc_hep_c" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:60%;"><label for="porc_anti_hbc"/></td>
+                                        <td><field name="porc_anti_hbc" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:60%;"><label for="porc_htlv_i_ii"/></td>
+                                        <td><field name="porc_htlv_i_ii" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:60%;"><label for="porc_sifilis"/></td>
+                                        <td><field name="porc_sifilis" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:60%;"><label for="porc_chagas"/></td>
+                                        <td><field name="porc_chagas" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:60%;"><label for="porc_otros"/></td>
+                                        <td><field name="porc_otros" readonly="True"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="report_programa_evaluacion_action" model="ir.actions.act_window">
+            <field name="name">Porcentaje - Bancos de sangre que participan en el programa de evaluación externa</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored.report_programa_evaluacion</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <menuitem id="menu_report_programa_evaluacion_action"
+            name="Porcentaje - Bancos de sangre que participan en los programas de evaluación externa"
+            parent="menu_reportes"
+            action="report_programa_evaluacion_action"
+            sequence="2" />
+
+    </data>
+</odoo>

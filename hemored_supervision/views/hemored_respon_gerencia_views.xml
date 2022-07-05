@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hemored_supervision_record_supervision_form_inherit_respon_gerencia" model="ir.ui.view">
+            <field name="name">hemored.banco_sangre.form.inherit.almacenamiento</field>
+            <field name="model">hemored_supervision.record_supervision</field>
+            <field name="inherit_id" ref="hemored_supervision.record_supervision_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@id='datos']" position="after">
+                    <group id="guia">
+                        <notebook>
+                            <field name="p_rg_1" invisible="True"/>
+                            <field name="g_rg_1" invisible="True"/>
+                            <field name="p_rg_2" invisible="True"/>
+                            <field name="g_rg_2" invisible="True"/>
+                            <field name="p_rg_3" invisible="True"/>
+                            <field name="g_rg_3" invisible="True"/>
+                            <field name="p_rg_4" invisible="True"/>
+                            <field name="g_rg_4" invisible="True"/>
+                            <field name="p_rg_5" invisible="True"/>
+                            <field name="g_rg_5" invisible="True"/>
+                            <field name="p_rg_6" invisible="True"/>
+                            <field name="g_rg_6" invisible="True"/>
+                            <field name="p_rg_8" invisible="True"/>
+                            <field name="g_rg_8" invisible="True"/>
+                            <field name="p_rg_9" invisible="True"/>
+                            <field name="g_rg_9" invisible="True"/>
+                            <field name="p_rg_10" invisible="True"/>
+                            <field name="g_rg_10" invisible="True"/>
+                            <field name="p_rg_11" invisible="True"/>
+                            <field name="g_rg_11" invisible="True"/>
+                            <field name="p_rg_12" invisible="True"/>
+                            <field name="g_rg_12" invisible="True"/>
+                            <field name="p_rg_13" invisible="True"/>
+                            <field name="g_rg_13" invisible="True"/>
+                            <field name="p_rg_14" invisible="True"/>
+                            <field name="g_rg_14" invisible="True"/>
+                            <field name="p_rg_15" invisible="True"/>
+                            <field name="g_rg_15" invisible="True"/>
+                            <field name="p_rg_16" invisible="True"/>
+                            <field name="g_rg_16" invisible="True"/>
+                            <field name="p_rg_17" invisible="True"/>
+                            <field name="g_rg_17" invisible="True"/>
+                            <field name="p_rg_18" invisible="True"/>
+                            <field name="g_rg_18" invisible="True"/>
+                            <field name="p_rg_19" invisible="True"/>
+                            <field name="g_rg_19" invisible="True"/>
+                            <field name="p_rg_20" invisible="True"/>
+                            <field name="g_rg_20" invisible="True"/>
+                            <field name="p_rg_21" invisible="True"/>
+                            <field name="g_rg_21" invisible="True"/>
+                            <field name="p_rg_22" invisible="True"/>
+                            <field name="g_rg_22" invisible="True"/>
+                            <field name="p_rg_23" invisible="True"/>
+                            <field name="g_rg_23" invisible="True"/>
+                            <field name="p_rg_24" invisible="True"/>
+                            <field name="g_rg_24" invisible="True"/>
+                            <field name="p_rg_25" invisible="True"/>
+                            <field name="g_rg_25" invisible="True"/>
+                            <field name="p_rg_26" invisible="True"/>
+                            <field name="g_rg_26" invisible="True"/>
+                            <field name="p_rg_28" invisible="True"/>
+                            <field name="g_rg_28" invisible="True"/>
+                            <field name="p_rg_29" invisible="True"/>
+                            <field name="g_rg_29" invisible="True"/>
+                            <field name="p_rg_30" invisible="True"/>
+                            <field name="g_rg_30" invisible="True"/>
+                            <page string="RESPONSABILIDAD GERENCIAL" id="responsibilidad_gerencia">
+                                <group string="I. ORGANIZACIÓN">
+                                    <table class="table table-bordered mb64">
+                                        <tbody>
+                                            <tr>
+                                                <td align="center" style="width:15%; vertical-align:middle;">
+                                                    DESCRIPCIÓN
+                                                </td>
+                                                <td align="center" style="width:10%; vertical-align:middle;">
+                                                    MARCAR (SI o NO) / OPCIONES (SÍ HUBIERA) / ESPECIFICAR
+                                                </td>
+                                                <td align="center" style="width:20%; vertical-align:middle;">
+                                                    OBSERVACIÓN
+                                                </td>
+                                                <td align="center" style="width:15%; vertical-align:middle;"
+                                                    colspan="2">
+                                                    VERIFICADOR / RECOMENDACIONES
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuenta con manual de organización y funciones (MOF) institucional
+                                                    u otro equivalente?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_1"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_1"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="2"
+                                                    align="justify">
+                                                    El MOF del CH y BS puede estar incluido dentro del MOF del
+                                                    servicio de Laboratorio o de Patología Clínica
+                                                    Verificar fecha de aprobación
+                                                    Referencia: Directiva Sanitaria N° 011-MINSA/DGSP - V.01
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuenta con el reglamento de organización y funciones (ROF) del
+                                                    Banco de Sangre u otro equivalente?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_2"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_2"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td colspan="2" style="width:15%; vertical-align:middle;">
+                                                    ROF institucional
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cómo está considerado en el ROF institucional el Centro de
+                                                    Hemoterapia y Banco de Sangre como Servicio / Departamento / Área?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="t_rg_3"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_3"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="2">
+                                                    Fecha de resolución del ROF:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Esta publicado el organigrama?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_4"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_4"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="2">
+                                                    Verificar Organigrama
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuenta con flujo de trabajo del Centro de Hemoterapia y Banco de Sangre?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_5"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_5"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="2">
+                                                    Solicitar y verificar Diagrama de flujo de trabajo
+                                                </td>
+                                            </tr>
+                                            <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuenta con flujo de atención al Postulante / Donante ?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_6"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_6"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="2"
+                                                    align="justify">
+                                                    Diagrama de flujo de atención.
+                                                    Referencia: Diagrama de Flujo EG05-PC01-A/B y EG05-PC02-A/B,
+                                                    EG05-PC03. EG05-PC04-A/B
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Tiene designado un responsable del sistema de calidad del Centro de
+                                                    Hemoterapia y Banco de Sangre?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_8"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_8"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="2"
+                                                    align="justify">
+                                                    Documento de designación ¿Está definida su función por escrito?
+                                                    Referencia: EG01-CC04
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuenta con un manual de gestión de la calidad de acuerdo al
+                                                    Sistema de Gestión de la Calidad de Pronahebas?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_9"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_9"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="2"
+                                                    align="justify">
+                                                    Verificar
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    Reporta estadistica mensual de manera oportuna a traves de HEMORED
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_10"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_10"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="2"
+                                                    align="justify">
+                                                    Solicitar copia de la estadística mensual y cargo.
+                                                    Referencia: Directiva Sanitaria N° 011-MINSA/DGSP-v.01
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuenta con registro de stock diario de hemocomponentes?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_11"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_11"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuenta con manual de procedimientos operativos estandarizados (POE)
+                                                    institucional que incluya procedimientos técnicos y administrativos?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_12"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_12"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="2"
+                                                    align="justify">
+                                                    Verificar Fecha de aprobación y fecha de vigencia
+                                                    Referencia: D.S. 03-95-SA, Capitulo III, Art. 15°
+                                                    Indice maestro de POE
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuenta con Manual de Bioseguridad?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_13"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_13"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="2"
+                                                    align="justify">
+                                                    Verificar, la existencia de un Manual de Bioseguridad Institucional
+                                                    vigente.
+                                                    Referencia: NT N° 015-MINSA/DGSP - V.01
+                                                </td>
+                                            </tr>
+                                            <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuenta con guía de procedimientos para tratar reacciones adversas
+                                                    en los donantes en el área de extracción?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_14"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_14"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="2"
+                                                    align="justify">
+                                                    Referencia: Criterio de Calidad EG07-CC02
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuenta con un plan aprobado  para la promoción de la donación
+                                                    voluntaria de sangre?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_15"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_15"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="2"
+                                                    align="justify">
+                                                    Verificar el Plan vigente y debidamente aprobado.
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Se aplica y se cumple el plan para la promoción de la donación
+                                                    voluntaria de sangre?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_16"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_16"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="2">
+                                                    Verificar
+                                                </td>
+                                            </tr>
+                                            <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cual es el porcentaje de donación voluntaria en el Centro de
+                                                    Hemoterapia y Banco de Sangre?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="esp_rg_17"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_17"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="2" align="justify">
+                                                    Verifcar registro de donación voluntaria de sangre del útlimo año
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuenta con plan de capacitación anual, aprobado e incluido en el
+                                                    plan institucional?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_18"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_18"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="4"
+                                                    align="justify">
+                                                    Se verifica:
+                                                    Certificados  de última capacitación realizada
+                                                    Capacitación efectuada por:
+                                                    r Institución educativa
+                                                    r Sociedad científicas
+                                                    r Colegios Profesionales
+                                                    Referencia: Criterio de Calidad EG02-CC03 y EG02-CC04
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </group>
+                                <group string="II. DIRECCIÓN">
+                                    <table class="table table-bordered mb64">
+                                        <tbody style="border: 1px solid #ccc;">
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="center">
+                                                    DESCRIPCIÓN
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;" align="center">
+                                                    MARCAR (SI o NO) / OPCIONES (SÍ HUBIERA) / ESPECIFICAR
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;" align="center">
+                                                    OBSERVACIÓN
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="2"
+                                                    align="center">
+                                                     VERIFICADOR / RECOMENDACIONES
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuentan con jefe del Centro de Hemoterapia y Banco de Sangre
+                                                    designado con documento oficial?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_19"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_19"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    Documento y fecha de designación:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    Tipo de condición laboral
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;">
+                                                    <field name="t_rg_20"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                    <field name="esp_rg_20" attrs="{'invisible': [('t_rg_20', '!=', 'otro')]}"/>
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_20"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </group>
+                                <group string="III. DOCUMENTOS NORMATIVOS">
+                                    <table class="table table-bordered mb64">
+                                        <tbody style="border: 1px solid #ccc;">
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="center">
+                                                    DESCRIPCIÓN
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;" align="center">
+                                                    MARCAR (SI o NO) / OPCIONES (SÍ HUBIERA) / ESPECIFICAR
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;" align="center">
+                                                    OBSERVACIÓN
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" colspan="2"
+                                                    align="center">
+                                                    VERIFICADOR / RECOMENDACIONES
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuenta con convenios para la provisión de servicios autorizados
+                                                    y avalados por la dirección de la institución?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_21"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_21"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    Referencia: Directiva Sanitaria N° 011 -MINSA/DGSP - V.01,
+                                                    Organización - Gestión.
+                                                </td>
+                                            </tr>
+                                            <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    Indique con cuantas instituciones tiene convenios
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="t_rg_22"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_22"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    Vigente
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Se dispone en el servicio de copias de leyes, normas, reglamentos
+                                                    actualizados del PRONAHEBAS así como los documentos de las últimas
+                                                    supervisiones realizadas (PRONAHEBAS y las DIRIS/DIRESAS/GERESAS)?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_23"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_23"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    Verificar existencia y disponibilidad, Ley, Reglamento y SGC
+                                                    Referencia: D.S. 03-95-SA, Capitulo III, Art. 15° y Criterio de
+                                                    calidad EG06-CC01, cuarto punto
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuenta con formatos estandarizados de acuerdo al SGC?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_24"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_24"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    Verificar Referencia: Criterio de calidad EG06-CC01, segundo punto
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Realiza el registro de los formatos de acuerdo al SGC?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_25"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_25"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    Completo / Parcial
+                                                </td>
+                                            </tr>
+                                            <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuenta con registro de donantes de acuerdo al SGC?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_26"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_26"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td>
+                                                    Tipo: Manual y/o Informático Referencia: EG05-FR06
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Se realiza el registro en el libro de transfusiones de acuerdo al SGC?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_28"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_28"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:15%; vertical-align:middle;" rowspan="3"
+                                                    align="justify">
+                                                    Tipo: Manual y/o Informático Referencia: EG05-FR07
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuenta con archivo de reacciones adversas en el receptor de acuerdo al SGC?
+                                                </td>
+                                                <td style="width:10%; vertical-align:middle;">
+                                                    <field name="rg_29"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%; vertical-align:middle;">
+                                                    <field name="obs_rg_29"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:15%; vertical-align:middle;" align="justify">
+                                                    ¿Cuenta con registro de reportes de incidentes, errores, accidentes
+                                                    y no conformidades de acuerdo al SGC?
+                                                </td>
+                                                <td style="width:10%">
+                                                    <field name="rg_30"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                                <td style="width:20%">
+                                                    <field name="obs_rg_30"
+                                                           attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                                    />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </group>
+                            </page>
+                        </notebook>
+                    </group>
+                    <group>
+                        <field name="observacion"/>
+                    </group>
+                    <group>
+                        <span>
+                            Siendo las <field name="hora" widget="float_time"/> hrs del día <field name="dia"/>
+                            se procede a la firma de la presente guía dando por concluido la supervisión.
+                        </span>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

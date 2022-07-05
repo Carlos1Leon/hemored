@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA SEARCH -->
+        <record model="ir.ui.view" id="hemored_registro_actividad_search_view">
+            <field name="name">Actividades busqueda</field>
+            <field name="model">hemored.registro.actividad</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Nombre de la actividad"/>
+                    <group string="Agrupar por">
+                        <filter name="by_fecha_actividad" string="Fecha" context="{'group_by': 'fecha_actividad'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="hemored_registro_actividad_tree_view">
+            <field name="name">Actividades</field>
+            <field name="model">hemored.registro.actividad</field>
+            <field name="arch" type="xml">
+                <tree string="Actividades">
+                    <field name="name"/>
+                    <field name="fecha_actividad"/>
+                    <field name="descripcion"/>
+                    <field name="tipo_actividad"/>
+                    <field name="diresa_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="hemored_registro_actividad_form_view">
+            <field name="name">Actividades</field>
+            <field name="model">hemored.registro.actividad</field>
+            <field name="arch" type="xml">
+                <form string="Actividades">
+                    <header>
+                        <button name="action_send" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="Reportar" attrs="{'invisible': [('state', 'in', ('realizada'))]}"
+                                confirm="Verifique los datos ingresados"
+                        />
+                        <button name="action_draft" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="Regresar a borrador" attrs="{'invisible': [('state', 'in', ('borrador'))]}"
+                                confirm="El registro regresara a estado borrador"
+                        />
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="diresa_id" required="True"/>
+                            <field name="name" required="True"/>
+                            <field name="fecha_actividad" required="True"/>
+                            <field name="descripcion" required="True"/>
+                            <field name="lugar_actividad" required="True"/>
+                            <field name="departamento_id" options="{'no_open': True, 'no_create': True, 'no_edit': True}"/>
+                            <field name="provincia_id" options="{'no_open': True, 'no_create': True, 'no_edit': True}"/>
+                            <field name="distrito_id" options="{'no_open': True, 'no_create': True, 'no_edit': True}"/>
+                            <field name="enlace" widget="url"/>
+                            <field name="tipo_actividad"/>
+                            <field name="cantidad_colectado" attrs="{'invisible': [('tipo_actividad', '!=', 'campaña')], 'required': [('tipo_actividad', '=', 'campaña')]}"/>
+                            <field name="banco_id"
+                                domain="[('diresa_id','=', diresa_id)]"
+                                options="{'no_open': True, 'no_create': True, 'no_edit': True}"
+                                attrs="{'invisible': [('tipo_actividad', '!=', 'campaña')], 'required': [('tipo_actividad', '=', 'campaña')]}"
+                            />
+                            <field name="especificar" attrs="{'invisible': [('tipo_actividad', '!=', 'otros')], 'required': [('tipo_actividad', '=', 'otros')]}"/>
+                            <field name="tutor_id" invisible="True"/>
+                            <field name="usuario_tutor_id" invisible="True"/>
+                            <field name="uso_promotor"/>
+                        </group>
+                        <group string="Promotores" attrs="{'invisible': [('uso_promotor', '=', False)]}">
+                            <field name="promotor_ids" nolabel="1"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_registro_actividad_action" model="ir.actions.act_window">
+            <field name="name">Actividades</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored.registro.actividad</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="hemored_registro_actividad_search_view"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_datos_actividad_view_form">
+            <field name="act_window_id" ref="hemored_registro_actividad_action"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hemored_registro_actividad_form_view"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_datos_actividad_view_tree">
+            <field name="act_window_id" ref="hemored_registro_actividad_action"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="hemored_registro_actividad_tree_view"/>
+        </record>
+
+         <!-- MENU FORMULARIO-->
+        <menuitem id="menu_hemored_registro_actividad"
+                  name="Actividades"
+                  parent="menu_hemored_tutor_promotor_main"
+                  sequence="3"
+                  groups="hemored.group_administrador,hemored.group_coordinador_diris_diresa_hemored,hemored_tutor_promotor.group_tutores_hemored"
+                  action="hemored_registro_actividad_action"
+        />
+
+    </data>
+</odoo>

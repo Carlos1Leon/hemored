@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_hemored_wizard_eliminacion_sellos_wizard" model="ir.ui.view">
+            <field name="name">Eliminación de sellos de calidad</field>
+            <field name="model">hemored.wizard.eliminacion.sellos</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div class="col-xs-12 text-center">
+                        <p>Eliminación Sellos de Calidad</p>
+                    </div>
+                    <group>
+                        <field name="lines_ids" nolabel="1">
+                            <tree string="Sellos de Calidad" editable="bottom" create="0" delete="0">
+                                <field name="eliminacion_id" invisible="True"/>
+                                <field name="registro_id" invisible="True"/>
+                                <field name="banco_id" readonly="True"/>
+                                <field name="serie" readonly="True"/>
+                                <field name="num_serie" readonly="True"/>
+                                <field name="componente" readonly="True"/>
+                                <field name="num_unidad" required="True"/>
+                                <field name="grupo_sanguineo" required="True"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <footer>
+                        <button name="action_delete" type="object" class="oe_highlight" string="Eliminar Sellos"/>
+                    </footer>
+              </form>
+            </field>
+     	</record>
+
+        <record id="hemored_wizard_eliminacion_sellos_action" model="ir.actions.act_window">
+            <field name="name">Eliminación de sellos de calidad</field>
+            <field name="res_model">hemored.wizard.eliminacion.sellos</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_hemored_wizard_eliminacion_sellos_wizard"/>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="model_hemored_sellos_calidad_registro"/>
+        </record>
+
+
+        <record id="view_hemored_eliminacion_sellos_acta_wizard" model="ir.ui.view">
+            <field name="name">Acta eliminación de sellos de calidad</field>
+            <field name="model">hemored.eliminacion.sellos.acta</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div class="col-xs-12 text-center">
+                        <p>Generar acta de eliminación sellos de calidad</p>
+                    </div>
+                    <group>
+                        <field name="lines_ids" nolabel="1">
+                            <tree string="Sellos de Calidad" editable="bottom" create="0" delete="0">
+                                <field name="eliminacion_id" invisible="True"/>
+                                <field name="registro_id" invisible="True"/>
+                                <field name="banco_id" readonly="True"/>
+                                <field name="serie" readonly="True"/>
+                                <field name="num_serie" readonly="True"/>
+                                <field name="componente" readonly="True"/>
+                                <field name="num_unidad" readonly="True"/>
+                                <field name="grupo_sanguineo" readonly="True"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <footer>
+                        <button name="set_register" type="object" class="oe_highlight" string="Imprimir acta"/>
+                    </footer>
+              </form>
+            </field>
+     	</record>
+
+        <record id="hemored_eliminacion_sellos_acta_action" model="ir.actions.act_window">
+            <field name="name">Generación de acta de eliminación de sellos de calidad</field>
+            <field name="res_model">hemored.eliminacion.sellos.acta</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_hemored_eliminacion_sellos_acta_wizard"/>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="model_hemored_sellos_calidad_registro"/>
+        </record>
+    </data>
+</odoo>

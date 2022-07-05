@@ -1,0 +1,2553 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <record id="hemored_supervision_record_supervision_form_inherit_proceso_m" model="ir.ui.view">
+            <field name="name">hemored.banco_sangre.form.inherit.proceso.monitoreo</field>
+            <field name="model">hemored_supervision.record_supervision</field>
+            <field name="inherit_id" ref="hemored_supervision.hemored_supervision_record_supervision_form_inherit_rrhh_m"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@id='rrhh']" position="after">
+                    <field name="p_pros_1" invisible="True"/>
+                    <field name="g_pros_1" invisible="True"/>
+                    <field name="p_pros_2" invisible="True"/>
+                    <field name="g_pros_2" invisible="True"/>
+                    <field name="p_pros_3" invisible="True"/>
+                    <field name="g_pros_3" invisible="True"/>
+                    <field name="p_pros_4" invisible="True"/>
+                    <field name="g_pros_4" invisible="True"/>
+                    <field name="p_pros_5" invisible="True"/>
+                    <field name="g_pros_5" invisible="True"/>
+                    <field name="p_pros_6" invisible="True"/>
+                    <field name="g_pros_6" invisible="True"/>
+                    <field name="p_pros_7" invisible="True"/>
+                    <field name="g_pros_7" invisible="True"/>
+                    <field name="p_pros_8" invisible="True"/>
+                    <field name="g_pros_8" invisible="True"/>
+                    <field name="p_pros_9" invisible="True"/>
+                    <field name="g_pros_9" invisible="True"/>
+                    <field name="p_pros_10" invisible="True"/>
+                    <field name="g_pros_10" invisible="True"/>
+                    <field name="p_pros_11" invisible="True"/>
+                    <field name="g_pros_11" invisible="True"/>
+                    <field name="p_pros_12" invisible="True"/>
+                    <field name="g_pros_12" invisible="True"/>
+                    <field name="p_pros_13" invisible="True"/>
+                    <field name="g_pros_13" invisible="True"/>
+                    <field name="p_pros_14" invisible="True"/>
+                    <field name="g_pros_14" invisible="True"/>
+                    <field name="p_pros_15" invisible="True"/>
+                    <field name="g_pros_15" invisible="True"/>
+                    <field name="p_pros_16" invisible="True"/>
+                    <field name="g_pros_16" invisible="True"/>
+                    <field name="p_pros_17" invisible="True"/>
+                    <field name="g_pros_17" invisible="True"/>
+                    <field name="p_pros_18" invisible="True"/>
+                    <field name="g_pros_18" invisible="True"/>
+                    <field name="p_pros_19" invisible="True"/>
+                    <field name="g_pros_19" invisible="True"/>
+                    <field name="p_pros_20" invisible="True"/>
+                    <field name="g_pros_20" invisible="True"/>
+                    <field name="p_pros_21" invisible="True"/>
+                    <field name="g_pros_21" invisible="True"/>
+                    <field name="p_pros_22" invisible="True"/>
+                    <field name="g_pros_22" invisible="True"/>
+                    <field name="p_pros_23" invisible="True"/>
+                    <field name="g_pros_23" invisible="True"/>
+                    <field name="p_pros_24" invisible="True"/>
+                    <field name="g_pros_24" invisible="True"/>
+                    <field name="p_pros_25" invisible="True"/>
+                    <field name="g_pros_25" invisible="True"/>
+                    <field name="p_pros_26" invisible="True"/>
+                    <field name="g_pros_26" invisible="True"/>
+                    <field name="p_pros_27" invisible="True"/>
+                    <field name="g_pros_27" invisible="True"/>
+                    <field name="p_pros_28" invisible="True"/>
+                    <field name="g_pros_28" invisible="True"/>
+                    <field name="p_pros_29" invisible="True"/>
+                    <field name="g_pros_29" invisible="True"/>
+                    <field name="p_pros_30" invisible="True"/>
+                    <field name="g_pros_30" invisible="True"/>
+                    <field name="p_pros_31" invisible="True"/>
+                    <field name="g_pros_31" invisible="True"/>
+                    <field name="p_pros_32" invisible="True"/>
+                    <field name="g_pros_32" invisible="True"/>
+                    <field name="p_pros_33" invisible="True"/>
+                    <field name="g_pros_33" invisible="True"/>
+                    <field name="p_pros_34" invisible="True"/>
+                    <field name="g_pros_34" invisible="True"/>
+                    <field name="p_pros_35" invisible="True"/>
+                    <field name="g_pros_35" invisible="True"/>
+                    <field name="p_pros_36" invisible="True"/>
+                    <field name="g_pros_36" invisible="True"/>
+                    <field name="p_pros_37" invisible="True"/>
+                    <field name="g_pros_37" invisible="True"/>
+                    <field name="p_pros_38" invisible="True"/>
+                    <field name="g_pros_38" invisible="True"/>
+                    <field name="p_pros_39" invisible="True"/>
+                    <field name="g_pros_39" invisible="True"/>
+                    <field name="p_pros_40" invisible="True"/>
+                    <field name="g_pros_40" invisible="True"/>
+                    <field name="p_pros_41" invisible="True"/>
+                    <field name="g_pros_41" invisible="True"/>
+                    <field name="p_pros_42" invisible="True"/>
+                    <field name="g_pros_42" invisible="True"/>
+                    <field name="p_pros_43" invisible="True"/>
+                    <field name="g_pros_43" invisible="True"/>
+                    <field name="p_pros_44" invisible="True"/>
+                    <field name="g_pros_44" invisible="True"/>
+                    <field name="p_pros_45" invisible="True"/>
+                    <field name="g_pros_45" invisible="True"/>
+                    <field name="p_pros_47" invisible="True"/>
+                    <field name="g_pros_47" invisible="True"/>
+                    <field name="p_pros_49" invisible="True"/>
+                    <field name="g_pros_49" invisible="True"/>
+                    <field name="p_pros_50" invisible="True"/>
+                    <field name="g_pros_50" invisible="True"/>
+                    <field name="p_pros_51" invisible="True"/>
+                    <field name="g_pros_51" invisible="True"/>
+                    <field name="p_pros_52" invisible="True"/>
+                    <field name="g_pros_52" invisible="True"/>
+                    <field name="p_pros_53" invisible="True"/>
+                    <field name="g_pros_53" invisible="True"/>
+                    <field name="p_r_pros_53" invisible="True"/>
+                    <field name="g_r_pros_53" invisible="True"/>
+                    <field name="p_pros_54" invisible="True"/>
+                    <field name="g_pros_54" invisible="True"/>
+                    <field name="p_pros_55" invisible="True"/>
+                    <field name="g_pros_55" invisible="True"/>
+                    <field name="p_pros_56" invisible="True"/>
+                    <field name="g_pros_56" invisible="True"/>
+                    <field name="p_pros_57" invisible="True"/>
+                    <field name="g_pros_57" invisible="True"/>
+                    <field name="p_pros_58" invisible="True"/>
+                    <field name="g_pros_58" invisible="True"/>
+                    <field name="p_pros_59" invisible="True"/>
+                    <field name="g_pros_59" invisible="True"/>
+                    <field name="p_pros_60" invisible="True"/>
+                    <field name="g_pros_60" invisible="True"/>
+                    <field name="p_pros_61" invisible="True"/>
+                    <field name="g_pros_61" invisible="True"/>
+                    <field name="p_pros_62" invisible="True"/>
+                    <field name="g_pros_62" invisible="True"/>
+                    <field name="p_pros_63" invisible="True"/>
+                    <field name="g_pros_63" invisible="True"/>
+                    <field name="p_pros_64" invisible="True"/>
+                    <field name="g_pros_64" invisible="True"/>
+                    <field name="p_pros_65" invisible="True"/>
+                    <field name="g_pros_65" invisible="True"/>
+                    <field name="p_pros_66" invisible="True"/>
+                    <field name="g_pros_66" invisible="True"/>
+                    <field name="p_pros_68" invisible="True"/>
+                    <field name="g_pros_68" invisible="True"/>
+                    <field name="p_pros_69" invisible="True"/>
+                    <field name="g_pros_69" invisible="True"/>
+                    <field name="p_pros_70" invisible="True"/>
+                    <field name="g_pros_70" invisible="True"/>
+                    <field name="p_pros_73" invisible="True"/>
+                    <field name="g_pros_73" invisible="True"/>
+                    <field name="p_pros_74" invisible="True"/>
+                    <field name="g_pros_74" invisible="True"/>
+                    <field name="p_pros_75" invisible="True"/>
+                    <field name="g_pros_75" invisible="True"/>
+                    <field name="p_pros_76" invisible="True"/>
+                    <field name="g_pros_76" invisible="True"/>
+                    <field name="p_pros_77" invisible="True"/>
+                    <field name="g_pros_77" invisible="True"/>
+                    <field name="p_pros_78" invisible="True"/>
+                    <field name="g_pros_78" invisible="True"/>
+                    <field name="p_pros_79" invisible="True"/>
+                    <field name="g_pros_79" invisible="True"/>
+                    <field name="p_pros_80" invisible="True"/>
+                    <field name="g_pros_80" invisible="True"/>
+                    <field name="p_pros_81" invisible="True"/>
+                    <field name="g_pros_81" invisible="True"/>
+                    <field name="p_pros_82" invisible="True"/>
+                    <field name="g_pros_82" invisible="True"/>
+                    <field name="p_pros_83" invisible="True"/>
+                    <field name="g_pros_83" invisible="True"/>
+                    <field name="p_pros_84" invisible="True"/>
+                    <field name="g_pros_84" invisible="True"/>
+                    <field name="p_pros_85" invisible="True"/>
+                    <field name="g_pros_85" invisible="True"/>
+                    <field name="p_pros_87" invisible="True"/>
+                    <field name="g_pros_87" invisible="True"/>
+                    <field name="p_pros_88" invisible="True"/>
+                    <field name="g_pros_88" invisible="True"/>
+                    <field name="p_pros_89" invisible="True"/>
+                    <field name="g_pros_89" invisible="True"/>
+                    <field name="p_pros_90" invisible="True"/>
+                    <field name="g_pros_90" invisible="True"/>
+                    <field name="p_pros_91" invisible="True"/>
+                    <field name="g_pros_91" invisible="True"/>
+                    <field name="p_pros_92" invisible="True"/>
+                    <field name="g_pros_92" invisible="True"/>
+                    <field name="p_pros_93" invisible="True"/>
+                    <field name="g_pros_93" invisible="True"/>
+                    <field name="p_pros_94" invisible="True"/>
+                    <field name="g_pros_94" invisible="True"/>
+                    <field name="p_pros_95" invisible="True"/>
+                    <field name="g_pros_95" invisible="True"/>
+                    <field name="p_pros_96" invisible="True"/>
+                    <field name="g_pros_96" invisible="True"/>
+                    <field name="p_pros_97" invisible="True"/>
+                    <field name="g_pros_97" invisible="True"/>
+                    <field name="p_pros_98" invisible="True"/>
+                    <field name="g_pros_98" invisible="True"/>
+                    <field name="p_pros_99" invisible="True"/>
+                    <field name="g_pros_99" invisible="True"/>
+                    <field name="p_pros_100" invisible="True"/>
+                    <field name="g_pros_100" invisible="True"/>
+                    <field name="p_pros_101" invisible="True"/>
+                    <field name="g_pros_101" invisible="True"/>
+                    <field name="p_pros_102" invisible="True"/>
+                    <field name="g_pros_102" invisible="True"/>
+                    <field name="p_pros_103" invisible="True"/>
+                    <field name="g_pros_103" invisible="True"/>
+                    <page string="PROCESO" id="proceso">
+                        <group>
+                            <table class="table table-bordered mb64">
+                                <tbody style="border: 1px solid #ccc;">
+                                    <tr>
+                                        <td style="width:20%;" align="center">
+                                            DESCRIPCIÓN
+                                        </td>
+                                        <td style="width:20%;" align="center">
+                                            MARCAR (SÍ o NO) / OPCIONES (SI HUBIERA)
+                                        </td>
+                                        <td style="width:20%;" align="center">
+                                            ESPECIFICAR (SI LO REQUIRIERA)
+                                        </td>
+                                        <td style="width:20%;" align="center">
+                                            OBSERVACIÓN
+                                        </td>
+                                        <td style="width:20%;" align="center">
+                                            VERIFICADOR - RECOMENDACIONES
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <h3>I. DONANTES, INSUMOS Y SERVICIOS</h3>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Cuál es el horario de atención efectiva para postulantes?
+                                        </td>
+                                        <td/>
+                                        <td>
+                                            <field name="esp_pros_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar si se encuentra publicado en el área de
+                                            recepción o sala de espera
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Cuenta con Registro de Postulantes de acuerdo al SGC?
+                                        </td>
+                                        <td>
+                                            <field name="pros_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Tipo: Manual y/o Informático
+                                            Referencia: Diagrama EG05-PC01-A/B/C/D
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Verifica identidad del postulante con DNI vigente?
+                                        </td>
+                                        <td>
+                                            <field name="pros_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar proceso
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Qué Documentos de Identidad son aceptados?
+                                        </td>
+                                        <td>
+                                            <field name="t_pros_4_1" type="checkbox"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            DNI
+                                            <br/>
+                                            <field name="t_pros_4_2" type="checkbox"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            PASAPORTE
+                                            <br/>
+                                            <field name="t_pros_4_3" type="checkbox"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            CARNET DE EXTRANJERIA
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify"/>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Aplica ficha de selección vigente del Postulante?
+                                        </td>
+                                        <td>
+                                            <field name="pros_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar formato
+                                            Referencia: Formato EG05-FR01
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Aplica la ficha edipemiológica para diferimiento por COVID 19?
+                                        </td>
+                                        <td>
+                                            <field name="pros_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Aplica metodología de entrevista o autoaplicado?
+                                        </td>
+                                        <td>
+                                            <field name="t_pros_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar y recomendar entrevista
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Quién realiza la selección del postulante/donante?:
+                                        </td>
+                                        <td>
+                                            <field name="t_pros_8_1" type="checkbox"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            Médico Cirujano, Patólogo Clínico o Hematólogo Clínico
+                                            <br/>
+                                            <field name="t_pros_8_2" type="checkbox"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            Tecnólogo Médico
+                                            <br/>
+                                            <field name="t_pros_8_3" type="checkbox"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            Otros
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Aplica ficha de autoexclusión previa información?
+                                        </td>
+                                        <td>
+                                            <field name="pros_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Registro
+                                            Referencia: Criterio de Calidad EG05-CC04, literal B, numeral 1, texto final donde señala: Los donantes prospectivos serán informados de la importancia de abandonar por ellos mismos el proceso de donación si creen que su sangre no es apta para transfusión.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿El área de entrevista es adecuada para guardar la confidencialidad?
+                                        </td>
+                                        <td>
+                                            <field name="pros_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar área de entrevista
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Aplica ficha de consentimiento informado al donante?
+                                        </td>
+                                        <td>
+                                            <field name="pros_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Registro
+                                            Referencia: Criterio de Calidad EG05-CC02, literal A, numeral 1. Formato EG05-FR05.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Realiza examen físico?
+                                        </td>
+                                        <td>
+                                            <field name="t_pros_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Señalar que se evalúa. Se con considera examen completo aquel que contempla pesom talla, PA, pulso, examen de piel.
+                                            Referencia: Formato EG05-FR05.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Las fichas de selección son validadas por el jefe del CH y BS?
+                                        </td>
+                                        <td>
+                                            <field name="pros_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Revisar sello y firma.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Registra causas de diferimiento?
+                                        </td>
+                                        <td>
+                                            <field name="pros_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Revisar ficha y  Registros de postulante.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Registran los donantes diferidos temporal y permanentemente?
+                                        </td>
+                                        <td>
+                                            <field name="pros_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Revisar ficha y  Registros de postulante.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Realiza determinación de grupo sanguíneo y hemoglobina/hematocrito?
+                                        </td>
+                                        <td>
+                                            <field name="pros_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Revisar Registro.
+                                            Referencia: Criterio de Calidad EG05--TB05 del SGC.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Realizan pruebas de tamizaje?
+                                        </td>
+                                        <td>
+                                            <field name="pros_17"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <p attrs="{'invisible': [('pros_17', '!=', 'S')]}">Tipo:</p>
+                                            <br/>
+                                            <field name="t_pros_17"
+                                                   attrs="{
+                                                   'readonly': [('state', 'in', ('terminado'))],
+                                                   'invisible': [('pros_17', '!=', 'S')]
+                                                   }"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_17"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Cumplen con requisitos (Verificar etiquetado de muestras).
+                                            Referencia: Diagrama de Flujo EG05-PC02: Selección del Postulante.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Se entregan resultados de las pruebas de tamizaje al donante?
+                                        </td>
+                                        <td>
+                                            <field name="pros_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Registro de entrega.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Cuál es el medio de entrega de los resultados no reactivos?
+                                        </td>
+                                        <td>
+                                            <field name="t_pros_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Registro de entrega.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            En caso de obtener algún resultado Reactivo, ¿qué procedimiento se sigue?
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="esp_pros_20"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_20"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Reporta a Epidemiología / VIH / Metaxénicas (Verificar cumplimiento).
+                                            Referencia: Proceso EG05-PC15 del SGC.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <h3>II. DE LA EXTRACCION</h3>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Cuenta con sillones  para hemodonación ?
+                                        </td>
+                                        <td>
+                                            <field name="pros_21"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_21"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar posición invertida.
+                                            Referencia: NTS N° 110-MINSA/DGIEM-V01, Anexo 20.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Utiliza hemobascula durante la extracción?
+                                        </td>
+                                        <td>
+                                            <field name="pros_22"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_22"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar.
+                                            Referencia: Directiva Sanitaria N° 011-MINSA/DGSP V.01.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            Forma de sellado de tubuladura:
+                                        </td>
+                                        <td>
+                                            <field name="t_pros_23"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_23"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            Indicar que tipo de bolsa colectora utilizan.
+                                        </td>
+                                        <td>
+                                            <field name="t_pros_24"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_24"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Realiza procedimientos de flebotomía terapéutica?
+                                        </td>
+                                        <td>
+                                            <field name="pros_33"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_33"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Referencia: Criterio de Calidad EG05-CC06, literal G.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <h3>III. CONTROL Y PROCESAMIENTO DE PRODUCTOS  AUTÓLOGOS</h3>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Aplica procedimiento del SGC para donación autologa?
+                                        </td>
+                                        <td>
+                                            <field name="pros_25"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_25"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Aplica formato de interconsulta para donación autologa?
+                                        </td>
+                                        <td>
+                                            <field name="pros_26"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_26"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar archivo.
+                                            Referencia: Formato EG05-FR02.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Aplica formato para donación autologa y el consentimiento del paciente?
+                                        </td>
+                                        <td>
+                                            <field name="pros_27"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_27"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar el registro.
+                                            Referencia: Formato EG05-FR03.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Se aplica requisitos especificados en el SGC para la donación autóloga  por Aféresis?
+                                        </td>
+                                        <td>
+                                            <field name="pros_28"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_28"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar si los conoce el personal. Verificar Hoja de Lectura del SGC
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Realiza  pruebas de tamizaje a sangre autóloga?
+                                        </td>
+                                        <td>
+                                            <field name="pros_29"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_29"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar.
+                                            Referencia: Criterio de Calidad EG05-CC08, acápite E.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿La etiqueta de sangre autóloga contiene frases como: "Donante Autólogo", "Para uso autólogo"?
+                                        </td>
+                                        <td>
+                                            <field name="pros_30"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_30"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar en la Unidad.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Se almacena la sangre para transfusión autóloga separada de los componentes no autólogos?
+                                        </td>
+                                        <td>
+                                            <field name="pros_31"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_31"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar en conservadora.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Utiliza otros procedimientos  para recoger sangre autóloga?
+                                        </td>
+                                        <td>
+                                            <field name="pros_32"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_32"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Indicar otros procedimientos.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <h3>IV. IDENTIFICACIÓN Y TRAZABILIDAD DE COMPONENTES SANGUÍNEOS</h3>
+                                    </tr>
+                                    <tr>
+                                        <td align="justify">
+                                            ¿Es posible realizar la trazabilidad de los componentes sanguíneos?
+                                        </td>
+                                        <td>
+                                            <field name="pros_34"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            <p attrs="{'invisible': [('pros_34', '!=', 'S')]}">Tipo:</p>
+                                            <br/>
+                                            <field name="t_pros_34"
+                                                   attrs="{
+                                                   'readonly': [('state', 'in', ('terminado'))],
+                                                   'invisible': [('pros_34', '!=', 'S')]
+                                                   }"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_34"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Realizar la trazabilidad.
+                                            Referencia: Criterio de Calidad EG05-CC01, literal F, numeral 2: Rastreo de la sangre, componentes y tejido. (Glosario de Términos del SGC. Pág. 85).
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Se usa sistema de identificación  única (Alfanumérico) a cada unidad de sangre y componentes?
+                                        </td>
+                                        <td>
+                                            <field name="pros_35"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_35"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificación visual.
+                                            Referencia: Criterio de Calidad EG05-CC01,  literal F, numeral 5.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Los Sellos de Calidad son colocados previo al almacenamiento final de los mismos de acuerdo a lo establecido en el SGC?
+                                        </td>
+                                        <td>
+                                            <field name="pros_36"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_36"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar.
+                                            Referencia: Diagrama de Flujo EG05-PC09: Almacenamiento.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <h3>V. PRUEBAS A  LA SANGRE DEL  DONANTE</h3>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Se realizan todas las pruebas de tamizaje serológico en el Servicio de Banco de Sangre?
+                                        </td>
+                                        <td>
+                                            <field name="pros_37"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_37"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar todas las pruebas infecciosas.
+                                            Referencia:  Criterio de Calidad EG05-CC08, literal D y E del SGC.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Pruebas para VIH 1-2.
+                                        </td>
+                                        <td>
+                                            <field name="pros_38"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            <p attrs="{'invisible': [('pros_38', '!=', 'S')]}">Tipo:</p>
+                                            <br/>
+                                            <field name="t_pros_38"
+                                                   attrs="{
+                                                   'readonly': [('state', 'in', ('terminado'))],
+                                                   'invisible': [('pros_38', '!=', 'S')]
+                                                   }"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_38"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Pruebas para HBsAg.
+                                        </td>
+                                        <td>
+                                            <field name="pros_39"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            <p attrs="{'invisible': [('pros_39', '!=', 'S')]}">Tipo: </p>
+                                            <br/>
+                                            <field name="t_pros_39"
+                                                   attrs="{
+                                                   'readonly': [('state', 'in', ('terminado'))],
+                                                   'invisible': [('pros_39', '!=', 'S')]
+                                                   }"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_39"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Pruebas para anti-HBc Total.
+                                        </td>
+                                        <td>
+                                            <field name="pros_40"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            <p attrs="{'invisible': [('pros_40', '!=', 'S')]}">Tipo: </p>
+                                            <br/>
+                                            <field name="t_pros_40"
+                                                   attrs="{
+                                                   'readonly': [('state', 'in', ('terminado'))],
+                                                   'invisible': [('pros_40', '!=', 'S')]
+                                                   }"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_40"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Pruebas para VHC.
+                                        </td>
+                                        <td>
+                                            <field name="pros_41"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            <p attrs="{'invisible': [('pros_41', '!=', 'S')]}">Tipo: </p>
+                                            <br/>
+                                            <field name="t_pros_41"
+                                                   attrs="{
+                                                   'readonly': [('state', 'in', ('terminado'))],
+                                                   'invisible': [('pros_41', '!=', 'S')]
+                                                   }"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_41"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Pruebas para HTLV I-II.
+                                        </td>
+                                        <td>
+                                            <field name="pros_42"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            <p attrs="{'invisible': [('pros_42', '!=', 'S')]}">Tipo: </p>
+                                            <br/>
+                                            <field name="t_pros_42"
+                                                   attrs="{
+                                                   'readonly': [('state', 'in', ('terminado'))],
+                                                   'invisible': [('pros_42', '!=', 'S')]
+                                                   }"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_42"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Pruebas para Chagas (Trypanosoma cruzi).
+                                        </td>
+                                        <td>
+                                            <field name="pros_43"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            <p attrs="{'invisible': [('pros_43', '!=', 'S')]}">Tipo: </p>
+                                            <br/>
+                                            <field name="t_pros_43"
+                                                   attrs="{
+                                                   'readonly': [('state', 'in', ('terminado'))],
+                                                   'invisible': [('pros_43', '!=', 'S')]
+                                                   }"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_43"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Pruebas para Sífilis (Treponema pallidum).
+                                        </td>
+                                        <td>
+                                            <field name="pros_44"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            <p attrs="{'invisible': [('pros_44', '!=', 'S')]}">Tipo: </p>
+                                            <br/>
+                                            <field name="t_pros_44"
+                                                   attrs="{
+                                                   'readonly': [('state', 'in', ('terminado'))],
+                                                   'invisible': [('pros_44', '!=', 'S')]
+                                                   }"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_44"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Otras Pruebas.
+                                        </td>
+                                        <td>
+                                            <field name="pros_45"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <field name="esp_pros_45"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_45"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Especificar.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            Indique frecuencia para realizar el tamizaje serológico.
+                                        </td>
+                                        <td>
+                                            <field name="t_pros_47"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_47"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            Indique el promedio de pruebas que se tamizan por corrida.
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="esp_pros_48"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_48"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar estadística de los últimos 3 meses.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Se procesan por duplicado las muestras reactivas o en zona gris?
+                                        </td>
+                                        <td>
+                                            <field name="pros_49"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_49"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar archivo.
+                                            Referencia: NT N° 014-MINSA/DGSP V.01, Árbol de decisiones para las pruebas de tamizaje donantes de sangre.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Las muestras reactivas inicialmente se re-evalúan?
+                                        </td>
+                                        <td>
+                                            <field name="pros_50"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            <p attrs="{'invisible': [('pros_50', '!=', 'S')]}">¿con cual?: </p>
+                                            <br/>
+                                            <field name="t_pros_50"
+                                                   attrs="{
+                                                   'readonly': [('state', 'in', ('terminado'))],
+                                                   'invisible': [('pros_50', '!=', 'S')]
+                                                   }"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_50"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Indicar tipo de muestra con la que re-evalúan.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Se realizan en el CH y BS, pruebas confirmatorias si el resultado de una o más análisis es reactivo?
+                                        </td>
+                                        <td>
+                                            <field name="pros_51"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_51"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar e indicar a que marcador serológico.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Se determina sistemáticamente el grupo sanguíneo ABO y factor Rh(D) globular?
+                                        </td>
+                                        <td>
+                                            <field name="pros_52"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_52"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Referencia: Criterio de Calidad EG05-CC08, literal A y B del SGC.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Se determina sistemáticamente el grupo sanguíneo ABO y factor Rh(D) sérico?
+                                        </td>
+                                        <td>
+                                            <field name="pros_53"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_53"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Referencia: Criterio de Calidad EG05-CC08, literal A y B del SGC.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Se realiza estudio de fenotipo Rh?
+                                        </td>
+                                        <td>
+                                            <field name="r_pros_53"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="r_obs_53"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Referencia: Formato EG05-FR01 / Formato de Selección del Donante, pág.
+                                            02, Exámenes complementarios.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Se realiza el estudio confirmatorio de las muestras/unidades Rh(D) negativas?
+                                        </td>
+                                        <td>
+                                            <field name="pros_54"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_54"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Indicar método.
+                                            Referencia: Criterio de Calidad EG05-CC08, literal B: Tipificación Rh de todas las unidades recolectadas.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿A las Unidades se le realiza el rastreo para anticuerpos irregulares de acuerdo a lo establecido en el SGC?
+                                        </td>
+                                        <td>
+                                            <field name="pros_55"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_55"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Indicar método.
+                                            Referencia: Criterio de Calidad EG05-CC08, literal C: Detección de anticuerpos irregulares.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <h3>VI. FRACCIONAMIENTO Y ETIQUETADO</h3>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Que metología utiliza para el fraccionamiento?
+                                        </td>
+                                        <td>
+                                            <field name="t_pros_56"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_56"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            .
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Se utilizan etiquetas para la identificación de la unidad de sangre y componentes sanguíneos?
+                                        </td>
+                                        <td>
+                                            <field name="pros_57"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_57"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar.
+                                            Referencia: Diagrama de Flujo EG05-PC08: Etiquetaje, y Tabla EG05-TB01: Requisitos para el etiquetado de sangre y componentes.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Identificación de la institución recolectora.
+                                        </td>
+                                        <td>
+                                            <field name="pros_58"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_58"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Identificación numérica o alfanumérica de la unidad.
+                                        </td>
+                                        <td>
+                                            <field name="pros_59"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_59"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Tipo, volumen o cantidad del componente sanguíneo:
+                                        </td>
+                                        <td>
+                                            <field name="pros_60"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_60"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Tipo y volumen de anticoagulante:
+                                        </td>
+                                        <td>
+                                            <field name="pros_61"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_61"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Grupo ABO y tipo Rh(D)
+                                        </td>
+                                        <td>
+                                            <field name="pros_62"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_62"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Fecha de recolección:
+                                        </td>
+                                        <td>
+                                            <field name="pros_63"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_63"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Resultado de las pruebas de tamizaje:
+                                        </td>
+                                        <td>
+                                            <field name="pros_64"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_64"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Fecha de expiración:
+                                        </td>
+                                        <td>
+                                            <field name="pros_65"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_65"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            - Otras etiquetas especiales:
+                                        </td>
+                                        <td>
+                                            <field name="pros_66"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <field name="esp_pros_66"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_66"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Se utiliza en determinados procesos etiquetados especiales?
+                                        </td>
+                                        <td>
+                                            <field name="pros_68"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            <p attrs="{'invisible': [('pros_68', '!=', 'S')]}">¿cual?: </p><br/>
+                                            <field name="t_pros_68"
+                                                   attrs="{
+                                                   'readonly': [('state', 'in', ('terminado'))],
+                                                   'invisible': [('pros_68', '!=', 'S')]
+                                                   }"
+                                            />
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_68"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar.
+                                            Referencia: Diagrama de Flujo EG05-PC08: Etiquetaje, y Tabla EG05-TB01: Requisitos para el etiquetado de sangre y componentes.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <h3>VII. DE LA TRANSFUSIÓN:</h3>
+                                    </tr>
+                                    <tr>
+                                        A. Documentos
+                                    </tr>
+                                    <tr>
+                                        <td align="justify">
+                                            ¿Se cuenta con solicitud transfusional de acuerdo al SGC?
+                                        </td>
+                                        <td>
+                                            <field name="pros_69"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_69"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Referencia: Formato EG05-FR08.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="justify">
+                                            ¿Las solicitudes transfusionales se llenan adecuadamente y de manera legible de acuerdo a lo establecido en el SGC?
+                                        </td>
+                                        <td>
+                                            <field name="pros_70"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_70"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar firma y sello del medico solicitante.
+                                            Referencia: Criterio de Calidad EG05-CC11, literal A.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        B. Pruebas al Receptor
+                                    </tr>
+                                    <tr>
+                                        <td align="justify">
+                                            ¿Se determina sistemáticamente el grupo ABO y factor Rh(D) globular de acuerdo a lo establecido en el SGC?
+                                        </td>
+                                        <td>
+                                            <field name="pros_73"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_73"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Referencia: Criterio de Calidad EG05-CC12, literal A y B del SGC
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="justify">
+                                            ¿Se determina sistemáticamente el grupo ABO y factor Rh(D) sérico de acuerdo a lo establecido en el SGC?
+                                        </td>
+                                        <td>
+                                            <field name="pros_74"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_74"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Referencia: Criterio de Calidad EG05-CC12, literal A y B del SGC
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="justify">
+                                            ¿Se realiza estudio de fenotipo Rh?
+                                        </td>
+                                        <td>
+                                            <field name="pros_75"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_75"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar estudio de Fenotipo Rh.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="justify">
+                                            ¿Se le realiza el rastreo para anticuerpos irregulares de acuerdo a lo establecido en el SGC?
+                                        </td>
+                                        <td>
+                                            <field name="pros_76"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_76"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Referencia: Criterio de Calidad EG05-CC12, literal C.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="justify">
+                                            ¿Se realiza la prueba cruzada serológica de acuerdo a lo establecido en el SGC?
+                                        </td>
+                                        <td>
+                                            <field name="pros_77"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            <p attrs="{'invisible': [('pros_77', '!=', 'S')]}">Tipo:</p>
+                                            <br/>
+                                            <field name="t_pros_77"
+                                                   attrs="{
+                                                   'readonly': [('state', 'in', ('terminado'))],
+                                                   'invisible': [('pros_77', '!=', 'S')]
+                                                   }"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_77"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            ¿Qué Técnica emplean?
+                                            Verificar registros.
+                                            Referencia: Criterio de Calidad EG05-CC13.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        C. Retención de muestras de Sangre
+                                    </tr>
+                                    <tr>
+                                        <td align="justify">
+                                            ¿Almacena muestras del donante/unidad y receptor de acuerdo al SGC?
+                                        </td>
+                                        <td>
+                                            <field name="pros_78"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_78"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar almacenamiento por 7 días.
+                                            Referencia: Criterio de Calidad EG05-CC11 acápite C.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        D. Hemovigilancia
+                                    </tr>
+                                    <tr>
+                                        <td align="justify">
+                                            ¿Se dispone de copia de la hoja de conducción de transfusión en Banco de Sangre?
+                                        </td>
+                                        <td>
+                                            <field name="pros_79"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_79"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar el archivo de las copias de las hojas de conducción, las que deben corresponder con el acta de eliminación de la bolsa de la unidad transfundida. (Referencia: Criterio de Calidad EG10-CC03, Descarte de sangre, componentes y Tejidos. Último párrafo).
+                                            Solicitar una Historia Clínica para evidenciar la Hoja de Conducción.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="justify">
+                                            ¿Los casos de reacción adversa transfusional, son notificados inmediatamente al Banco de Sangre?
+                                        </td>
+                                        <td>
+                                            <field name="pros_80"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_80"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Revisar hoja de conducción y Formato de reacciones adversas.
+                                            Referencia: Formato EG07-FR02.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <h3>VIII. SELECCIÓN DE SANGRE Y COMPONENTES EN CIRCUNSTANCIAS ESPECIALES</h3>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        A. PREPARACION DE COMPONENTES SANGUÍNEOS
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿En la preparación de hemocomponentes realizan procedimientos especiales?
+                                        </td>
+                                        <td>
+                                            <field name="pros_81"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_81"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            En caso de convenio, solicitar el convenio vigente.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            Irradiación
+                                        </td>
+                                        <td>
+                                            <field name="pros_82"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_82"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            En caso de convenio, solicitar el convenio vigente.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            Leucoreducción
+                                        </td>
+                                        <td>
+                                            <field name="pros_83"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_83"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            Inactivación de patógenos
+                                        </td>
+                                        <td>
+                                            <field name="pros_84"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_84"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        B. OTRAS CIRCUNSTANCIAS ESPECIALES
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿El establecimiento cuenta con Guia de Práctica Clinica para el manejo de pacientes con hemorragias masivas, validado conjuntamente con Banco de Sangre?
+                                        </td>
+                                        <td>
+                                            <field name="pros_85"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_85"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar documento.
+                                            Referencia: Criterio de Calidad EG05-CC15, literal D.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        C. CITAFÉRESIS PARA RECOLECTAR COMPONENTES
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Realiza otros procedimientos de aféresis?
+                                        </td>
+                                        <td>
+                                            <field name="pros_87"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_87"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        D. RECAMBIO PLASMÁTICO TERAPEUTICO
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Realiza procedimientos de plasmaféresis terapéuticas?
+                                        </td>
+                                        <td>
+                                            <field name="pros_88"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_88"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Indicar dónde se realiza.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': ['|', ('tipo_banco', '=', '1'), ('pros_88', '!=', 'S')]}">
+                                        <td align="justify">
+                                            ¿Se registran los procedimientos de plasmaféresis?
+                                        </td>
+                                        <td>
+                                            <field name="pros_89"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_89"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar registro.
+                                            Referencia: Formato EG05-FR06: Registro de Donantes.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': ['|', ('tipo_banco', '=', '1'), ('pros_88', '!=', 'S')]}">
+                                        <td align="justify">
+                                            ¿Disponen de atención médica de emergencia en caso de reacciones adversas durante la plasmaféresis?
+                                        </td>
+                                        <td>
+                                            <field name="pros_90"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_90"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar.
+                                            Referencia: Criterio de Calidad EG05-CC05, literal B, numeral 2.2.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': ['|', ('tipo_banco', '=', '1'), ('pros_88', '!=', 'S')]}">
+                                        <td align="justify">
+                                            ¿Cumple el sistema de plasmaféresis con las condiciones mínimas internacionalmente establecidas?
+                                        </td>
+                                        <td>
+                                            <field name="pros_91"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_91"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar en el POE.
+                                            Referencia: Criterio de Calidad EG05-CC05, literal B.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': ['|', ('tipo_banco', '=', '1'), ('pros_88', '!=', 'S')]}">
+                                        <td align="justify">
+                                            ¿Se ajustan en la plasmaféresis los volúmenes extraídos a la condición del donante?
+                                        </td>
+                                        <td>
+                                            <field name="pros_92"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_92"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar en el POE.
+                                            Referencia: Criterio de Calidad EG05-CC06, literal F, numeral 2.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        E. COLECTA DE CÉLULAS PROGENITORAS HEMATOPOYÉTICAS
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Se realiza procedimientos de colecta de Células Progenitoras Hematopoyéticas?
+                                        </td>
+                                        <td>
+                                            <field name="pros_93"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            <p attrs="{'invisible': [('pros_93', '!=', 'S')]}">Tipo: </p>
+                                            <br/>
+                                            <field name="t_pros_93"
+                                                   attrs="{
+                                                   'readonly': [('state', 'in', ('terminado'))],
+                                                   'invisible': [('pros_93', '!=', 'S')]
+                                                   }"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_93"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Indicar método y equipamiento.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        F. PLAQUETAFERESIS
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td align="justify">
+                                            ¿Realiza procedimientos de plaquetaferesis terapéuticas?
+                                        </td>
+                                        <td>
+                                            <field name="pros_99"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_99"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Indicar dónde se realiza.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': ['|', ('tipo_banco', '=', '1'), ('pros_99', '!=', 'S')]}">
+                                        <td align="justify">
+                                            ¿Se registran los procedimientos de plaquetaferesis?
+                                        </td>
+                                        <td>
+                                            <field name="pros_100"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_100"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar registro.
+                                            Referencia: Formato EG05-CC07: Registro de Donantes.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': ['|', ('tipo_banco', '=', '1'), ('pros_99', '!=', 'S')]}">
+                                        <td align="justify">
+                                            ¿Disponen de atención médica de emergencia en caso de reacciones adversas durante la plaquetaferesis?
+                                        </td>
+                                        <td>
+                                            <field name="pros_101"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_101"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar.
+                                            Referencia: Criterio de Calidad EG05-CC07, literal B, numeral 2.2.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': ['|', ('tipo_banco', '=', '1'), ('pros_99', '!=', 'S')]}">
+                                        <td align="justify">
+                                            ¿Cumple el sistema de plaquetaferesis con las condiciones mínimas internacionalmente establecidas?
+                                        </td>
+                                        <td>
+                                            <field name="pros_102"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_102"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar en el POE.
+                                            Referencia: Criterio de Calidad EG05-CC07, literal B.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': ['|', ('tipo_banco', '=', '1'), ('pros_99', '!=', 'S')]}">
+                                        <td align="justify">
+                                            ¿Se ajustan en la plaquetaferesis los volúmenes extraídos a la condición del donante?
+                                        </td>
+                                        <td>
+                                            <field name="pros_103"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_103"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar en el POE.
+                                            Referencia: Criterio de Calidad EG05-CC07, literal F, numeral 2.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <h3>IX. INSPECCIÓN FINAL DE LA SANGRE Y COMPONENTES ANTES DE SU LIBERACIÓN</h3>
+                                    </tr>
+                                    <tr>
+                                        <td align="justify">
+                                            ¿Antes de su liberación se rotulan las unidades de acuerdo a lo indicado en el SGC?
+                                        </td>
+                                        <td>
+                                            <field name="pros_94"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_94"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar rotulado.
+                                            Nombre y apellido del receptor, Grupo Sanguineo ABO/Rh(D) del receptor, Id. De la Unidad, Prueba de Compatibilidad.
+                                            Comprobar si cuenta con el respectivo Sello de Calidad.
+                                            Referencia: Criterio de Calidad  EG05-CC17, acápite A y B.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="justify">
+                                            ¿Se registra la fecha y hora de liberación, así como el personal que recepciona el producto?
+                                        </td>
+                                        <td>
+                                            <field name="pros_95"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_95"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Verificar registros.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="justify">
+                                            ¿En caso de emergencia se puede liberar un producto antes de completar las pruebas de compatibilidad?
+                                        </td>
+                                        <td>
+                                            <field name="pros_96"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_96"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Referencia: Criterio de Calidad EG05-CC17, literal D.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="justify">
+                                            ¿Se inspecciona de manera visual el producto antes de ser liberado?
+                                        </td>
+                                        <td>
+                                            <field name="pros_97"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_97"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Preguntar ¿Qué inspecciona?
+                                            Referencia: Criterio de Calidad EG05-CC16.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="justify">
+                                            ¿Se re-emite (re-utiliza) sangre que fue devuelta al CH y BS de acuerdo a lo establecido en el SGC?
+                                        </td>
+                                        <td>
+                                            <field name="pros_98"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <field name="obs_pros_98"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td align="justify">
+                                            Referencia: criterio de calidad EG05-CC17, literal C.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+   </data>
+</odoo>

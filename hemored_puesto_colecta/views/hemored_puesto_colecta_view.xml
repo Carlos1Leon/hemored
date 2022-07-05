@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- VISTA SEARCH -->
+        <record id="puesto_search_view" model="ir.ui.view">
+            <field name="name">hemored_puesto_colecta.puesto.search</field>
+            <field name="model">hemored_puesto_colecta.puesto</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Puesto de Colecta"/>
+                    <field name="diresa_id" string="DIRIS/DIRESA/GERESA"/>
+                    <field name="fecha_inicio" string="Fecha de Inicio"/>
+                    <field name="fecha_fin" string="Fecha de Fin"/>
+                    <field name="estado" string="Nombre"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="hemored_puesto_colecta_puesto_tree_view">
+            <field name="name">Puesto de Colecta</field>
+            <field name="model">hemored_puesto_colecta.puesto</field>
+            <field name="arch" type="xml">
+                <tree string="Puesto de Colecta" duplicate="0">
+                    <field name="name"/>
+                    <field name="direccion"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                    <field name="estado"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="hemored_puesto_colecta_puesto_form_view">
+            <field name="name">Puesto de Colecta</field>
+            <field name="model">hemored_puesto_colecta.puesto</field>
+            <field name="arch" type="xml">
+                <form string="Puesto de Colecta" duplicate="0">
+                    <header>
+                        <button name="action_close" type="object" class="oe_inline oe_stat_button"
+                                string="Finalizar puesto de colecta" attrs="{'invisible': [('estado', '=', 'cerrado')]}"
+                                confirm="¿Está seguro de cerrar el puesto de colecta?"
+                        />
+                        <button name="action_reopen" type="object" class="oe_inline oe_stat_button"
+                                string="Reaperturar puesto de colecta" attrs="{'invisible': [('estado', 'in', ('activo', 'vencido'))]}"
+                                confirm="¿Está seguro de reaperturar el puesto de colecta?"
+                        />
+                        <button name="action_vencimiento" type="object" class="oe_inline oe_stat_button"
+                                string="Puesto de colecta vencido" invisible="True"
+                        />
+                        <button name="_generar_ficha_puesto_colecta" type="object" 
+                                class="oe_inline oe_stat_button" string="Generar Fichas Puesto de Colecta" invisible="True"
+                        />
+                        <field name="estado" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td>Nombre</td>
+                                        <td><field name="name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="direccion"/></td>
+                                        <td><field name="direccion" placeholder="Direccion"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="diresa_id"/></td>
+                                        <td>
+                                            <field name="diresa_id" widget="many2many_tags" options="{'no_create': True, 'no_edit': True}"></field>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="fecha_inicio"/></td>
+                                        <td><field name="fecha_inicio" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="fecha_fin"/></td>
+                                        <td><field name="fecha_fin" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Día</td>
+                                        <td>Centro de Hemoterapia Bancos de Sangre</td>
+                                        <td>Fecha Inicio</td>
+                                        <td>Fecha Fin</td>
+                                        <td>Estado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lunes</td>
+                                        <td><field name="lunes_banco_id" domain="[('diresa_id','=',diresa_id), ('tipo_banco','=',2)]" options="{'no_create': True, 'no_edit': True}"/></td>
+                                        <td><field name="lunes_fecha_inicio" /></td>
+                                        <td><field name="lunes_fecha_fin" /></td>
+                                        <td><field name="lunes_estado" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Martes</td>
+                                        <td><field name="martes_banco_id"  domain="[('diresa_id','=',diresa_id), ('tipo_banco','=',2)]" options="{'no_create': True, 'no_edit': True}"/></td>
+                                        <td><field name="martes_fecha_inicio" /></td>
+                                        <td><field name="martes_fecha_fin" /></td>
+                                        <td><field name="martes_estado" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Miercoles</td>
+                                        <td><field name="miercoles_banco_id"  domain="[('diresa_id','=',diresa_id), ('tipo_banco','=',2)]" options="{'no_create': True, 'no_edit': True}"/></td>
+                                        <td><field name="miercoles_fecha_inicio" /></td>
+                                        <td><field name="miercoles_fecha_fin" /></td>
+                                        <td><field name="miercoles_estado" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jueves</td>
+                                        <td><field name="jueves_banco_id"  domain="[('diresa_id','=',diresa_id), ('tipo_banco','=',2)]" options="{'no_create': True, 'no_edit': True}"/></td>
+                                        <td><field name="jueves_fecha_inicio" /></td>
+                                        <td><field name="jueves_fecha_fin" /></td>
+                                        <td><field name="jueves_estado" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Viernes</td>
+                                        <td><field name="viernes_banco_id"  domain="[('diresa_id','=',diresa_id), ('tipo_banco','=',2)]" options="{'no_create': True, 'no_edit': True}"/></td>
+                                        <td><field name="viernes_fecha_inicio" /></td>
+                                        <td><field name="viernes_fecha_fin" /></td>
+                                        <td><field name="viernes_estado" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sabado</td>
+                                        <td><field name="sabado_banco_id"  domain="[('diresa_id','=',diresa_id), ('tipo_banco','=',2)]" options="{'no_create': True, 'no_edit': True}"/></td>
+                                        <td><field name="sabado_fecha_inicio" /></td>
+                                        <td><field name="sabado_fecha_fin" /></td>
+                                        <td><field name="sabado_estado" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_puesto_colecta_puesto_action" model="ir.actions.act_window">
+            <field name="name">Puesto de Colecta</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored_puesto_colecta.puesto</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="limit">25</field>
+        </record>
+
+        <record id="ir_cron_verificar_fecha" model="ir.cron">
+            <field name="name">Verificar Puesto de Colecta</field>
+            <field name="model_id" ref="model_hemored_puesto_colecta_puesto"/>
+            <field name="state">code</field>
+            <field name="code">model._verificar_fecha()</field>
+            <field name='interval_number'>1</field>
+            <field name='interval_type'>days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <record id="ir_cron_generar_ficha" model="ir.cron">
+            <field name="name">Generar Fichas de Puesto de Colecta</field>
+            <field name="model_id" ref="model_hemored_puesto_colecta_puesto"/>
+            <field name="state">code</field>
+            <field name="code">model._generar_ficha_puesto_colecta()</field>
+            <field name='interval_number'>1</field>
+            <field name='interval_type'>days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <!-- MENU -->
+        <menuitem id="menu_hemored_puesto_colecta_puesto"
+                  name="Puesto de Colecta"
+                  parent="menu_hemored_puesto_colecta_main"
+                  sequence="1"
+                  action="hemored_puesto_colecta_puesto_action"
+        />
+
+
+    </data>
+</odoo>

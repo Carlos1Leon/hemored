@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <record id="view_users_form_notify_inherit" model="ir.ui.view">
+            <field name="name">res.users.form.inherit</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="hemored.hemored_res_users_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="coordinador"/>
+                    <field name="mobile"/>
+                    <field name="body_periodo_enviado" invisible="True"/>
+                    <field name="body_anual_enviado" invisible="True"/>
+                </xpath>
+                <xpath expr="//field[@name='image']" position="before">
+                    <div class="oe_button_box" name="button_box">
+                        <button string="Notificaciones" type="object" name="action_record_notification"
+                                class="oe_stat_button" icon="fa-bars"
+                                groups="hemored.group_administrador"
+                        />
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

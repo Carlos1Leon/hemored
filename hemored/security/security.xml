@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Categoria HEMORED -->
+    <record id="module_category_hemored" model="ir.module.category">
+        <field name="name">HEMORED</field>
+        <field name="sequence">300</field>
+    </record>
+
+    <record id="group_administrador" model="res.groups">
+        <field name="name">Administrador</field>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        <field name="category_id" ref="module_category_hemored"/>
+    </record>
+
+    <record id="group_coordinador_diris_diresa_hemored" model="res.groups">
+        <field name="name">DIRIS/DIRESA</field>
+        <field name="category_id" ref="module_category_hemored"/>
+    </record>
+
+    <record id="group_coordinador_establecimiento_hemored" model="res.groups">
+        <field name="name">Establecimiento</field>
+        <field name="category_id" ref="module_category_hemored"/>
+    </record>
+
+    <record id="group_pre_inscripcion_hemored" model="res.groups">
+        <field name="name">Pre-inscripción</field>
+        <field name="category_id" ref="module_category_hemored"/>
+    </record>
+
+    <!-- regla para administrador hemored -->
+    <record id="erp_manager_pass_history_rule_admin_hemored" model="ir.rule">
+        <field name="name">Res Users Pass History Access admin hemored</field>
+        <field name="perm_read">0</field>
+        <field name="perm_write">0</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">0</field>
+        <field name="model_id" ref="password_security.model_res_users_pass_history"/>
+        <field name="groups" eval="[(4, ref('hemored.group_administrador'))]"/>
+        <field name="domain_force">[ (1, '=', 1) ]</field>
+    </record>
+
+    <!-- Regal para que el Banco solo vea su registro (Bancos) -->
+    <record id="regla_banco_hemored" model="ir.rule">
+        <field name="name">CHBS</field>
+        <field name="model_id" ref="hemored.model_hemored_banco_sangre"/>
+        <field name="domain_force">[('renipress_id','=', user.banco_id.renipress_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_establecimiento_hemored'))]"/>
+    </record>
+
+    <record id="regla_banco_pre_inscripcion_hemored" model="ir.rule">
+        <field name="name">CHBS</field>
+        <field name="model_id" ref="hemored.model_hemored_banco_sangre"/>
+        <field name="domain_force">[('renipress_id','=', user.banco_id.renipress_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_pre_inscripcion_hemored'))]"/>
+    </record>
+
+    <!-- Regal para que el Banco solo vea su registro (Diresa) -->
+    <record id="regla_diresa_banco_sangre_hemored" model="ir.rule">
+        <field name="name">CHBS</field>
+        <field name="model_id" ref="hemored.model_hemored_banco_sangre"/>
+        <field name="domain_force">[('diresa_id','=', user.diresa_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_diris_diresa_hemored'))]"/>
+    </record>
+
+    <!-- Regal para que el Banco solo vea su registro en la ficha estadistica (Banco) -->
+    <record id="regla_banco_ficha_estadistica_hemored" model="ir.rule">
+        <field name="name">CHBS - Ficha Estadística</field>
+        <field name="model_id" ref="hemored.model_hemored_ficha_estadistica"/>
+        <field name="domain_force">[('banco_id','=', user.banco_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_establecimiento_hemored'))]"/>
+    </record>
+
+    <!-- Regal para que el Banco solo vea su registro en la ficha estadistica (DIRESA) -->
+    <record id="regla_banco_ficha_estadistica_diresa_hemored" model="ir.rule">
+        <field name="name">CHBS - Ficha Estadística</field>
+        <field name="model_id" ref="hemored.model_hemored_ficha_estadistica"/>
+        <field name="domain_force">[('diresa_id','=', user.diresa_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_diris_diresa_hemored'))]"/>
+    </record>
+
+
+    <!-- Reglas para reporte -->
+    <record id="regla_reporte_ficha_estadistica_diresa_hemored" model="ir.rule">
+        <field name="name">CHBS - Ficha Estadística</field>
+        <field name="model_id" ref="hemored.model_hemored_ficha_estadistica_report"/>
+        <field name="domain_force">[('diresa_id','=', user.diresa_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_diris_diresa_hemored'))]"/>
+    </record>
+
+    <record id="regla_hemored_ficha_total_donante_line_hemored" model="ir.rule">
+        <field name="name">CHBS - Tipo Donante</field>
+        <field name="model_id" ref="hemored.model_hemored_ficha_total_donante_line"/>
+        <field name="domain_force">[('diresa_id','=', user.diresa_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_diris_diresa_hemored'))]"/>
+    </record>
+
+    <record id="regla_hemored_ficha_total_postulante_diferido_excluido_line" model="ir.rule">
+        <field name="name">CHBS - Tipo Postulante</field>
+        <field name="model_id" ref="hemored.model_hemored_ficha_total_postulante_diferido_excluido_line"/>
+        <field name="domain_force">[('diresa_id','=', user.diresa_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_diris_diresa_hemored'))]"/>
+    </record>
+
+    <record id="regla_hemored_ficha_donacion_segun_grupo_edad_donante_line" model="ir.rule">
+        <field name="name">CHBS - Donacion por edad</field>
+        <field name="model_id" ref="hemored.model_hemored_ficha_donacion_segun_grupo_edad_donante_line"/>
+        <field name="domain_force">[('diresa_id','=', user.diresa_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_diris_diresa_hemored'))]"/>
+    </record>
+
+    <record id="regla_hemored_ficha_donacion_sangre_total_line" model="ir.rule">
+        <field name="name">CHBS - Donacion sangre total</field>
+        <field name="model_id" ref="hemored.model_hemored_ficha_donacion_sangre_total_line"/>
+        <field name="domain_force">[('diresa_id','=', user.diresa_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_diris_diresa_hemored'))]"/>
+    </record>
+
+    <record id="regla_hemored_ficha_donacion_aferesis_line" model="ir.rule">
+        <field name="name">CHBS - Donacion de aferesis</field>
+        <field name="model_id" ref="hemored.model_hemored_ficha_donacion_aferesis_line"/>
+        <field name="domain_force">[('diresa_id','=', user.diresa_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_diris_diresa_hemored'))]"/>
+    </record>
+
+    <record id="regla_hemored_ficha_produccion_unidad_sangre_line" model="ir.rule">
+        <field name="name">CHBS - Hemocomponentes unidad de sangre</field>
+        <field name="model_id" ref="hemored.model_hemored_ficha_produccion_unidad_sangre_line"/>
+        <field name="domain_force">[('diresa_id','=', user.diresa_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_diris_diresa_hemored'))]"/>
+    </record>
+
+    <record id="regla_hemored_ficha_produccion_hemocomponente_line" model="ir.rule">
+        <field name="name">CHBS - Hemocomponentes</field>
+        <field name="model_id" ref="hemored.model_hemored_ficha_produccion_hemocomponente_line"/>
+        <field name="domain_force">[('diresa_id','=', user.diresa_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_diris_diresa_hemored'))]"/>
+    </record>
+
+    <record id="regla_hemored_ficha_causa_reaccion_adversa_line" model="ir.rule">
+        <field name="name">CHBS - Reacciones adversas</field>
+        <field name="model_id" ref="hemored.model_hemored_ficha_causa_reaccion_adversa_line"/>
+        <field name="domain_force">[('diresa_id','=', user.diresa_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_diris_diresa_hemored'))]"/>
+    </record>
+
+    <record id="regla_hemored_eliminacion_componente_report" model="ir.rule">
+        <field name="name">CHBS - Eliminacion de componentes</field>
+        <field name="model_id" ref="hemored.model_hemored_eliminacion_componente_report"/>
+        <field name="domain_force">[('diresa_id','=', user.diresa_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_diris_diresa_hemored'))]"/>
+    </record>
+
+    <record id="regla_hemored_hemocomponente_report_report" model="ir.rule">
+        <field name="name">CHBS - Hemocomponente (eliminado y producido)</field>
+        <field name="model_id" ref="hemored.model_hemored_hemocomponente_report"/>
+        <field name="domain_force">[('diresa_id','=', user.diresa_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_diris_diresa_hemored'))]"/>
+    </record>
+
+</odoo>

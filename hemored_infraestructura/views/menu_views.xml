@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+       <!-- MENU DE LA APLICACION -->
+        <menuitem
+            id="menu_hemored_infraestructura_main"
+            name="Infraestructura"
+            web_icon="hemored_infraestructura,static/description/icon.png"
+            sequence="3"
+        />
+
+   </data>
+</odoo>

@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="hemored_infraestructura_tree_view">
+            <field name="name">Infraestructura</field>
+            <field name="model">hemored_infraestructura.infraestructura</field>
+            <field name="arch" type="xml">
+                <tree string="Infraestructura" duplicate="0">
+                    <field name="banco_id"/>
+                </tree>
+            </field>
+        </record>
+
+        VISTA FORMULARIO
+        <record model="ir.ui.view" id="hemored_infraestructura_infraestructura_form_view">
+            <field name="name">Infraestructura</field>
+            <field name="model">hemored_infraestructura.infraestructura</field>
+            <field name="arch" type="xml">
+                <form string="Infraestructura" duplicate="0">
+                    <header>
+                        <button name="action_send" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="Enviar" attrs="{'invisible': [('estado', 'in', ('enviado', 'validado'))]}"
+                                confirm="Al enviar se validará los datos registrados" groups="hemored.group_coordinador_establecimiento_hemored,hemored.group_administrador"
+                        />
+                        <button name="action_validate" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="Validar" attrs="{'invisible': [('estado', 'in', ('borrador', 'validado'))]}"
+                                confirm="Verifique los datos antes de validar registro" groups="hemored.group_coordinador_diris_diresa_hemored,hemored.group_administrador"
+                        />
+                        <button name="action_draft" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="Observar" attrs="{'invisible': [('estado', 'in', ('borrador', 'validado'))]}"
+                                confirm="El registro regresará a estado borrador" groups="hemored.group_coordinador_diris_diresa_hemored,hemored.group_administrador"
+                        />
+                        <field name="estado" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <field name="diresa_id" invisible="True"/>
+                        <field name="archivo_nombre" invisible="True"/>
+                        <group>
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:20%;">CHBS</td>
+                                        <td><field name="banco_id" required="True" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:30%;"> <label for="tipo_banco"/></td>
+                                        <td><field name="tipo_banco" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="area_total"/></td>
+                                        <td><field name="area_total" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('special', '=', True)]}">
+                                        <td colspan="2"><p style="color: red;">ALERTA!, Actualmente la suma de los metros registrados no coincide con el área total</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="numero_pisos"/></td>
+                                        <td><field name="numero_pisos" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="ubicacion_piso"/></td>
+                                        <td><field name="ubicacion_piso" required="True" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tipos de acceso <p> (Puede marcar más de uno) </p></td>
+                                        <td>Directo: <field name="directo" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td/>
+                                        <td>Escaleras: <field name="escalera" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td/>
+                                        <td>Rampa: <field name="rampa" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td/>
+                                        <td>Ascensor: <field name="ascensor" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="archivo"/></td>
+                                        <td><field name="archivo" required="True" widget="binary"  filename="archivo_nombre" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><p style="color: red;">* Los datos obligatorios aparecen con este simbolo o resaltados en azúl</p></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group string="Área funcional de reconocimiento de donantes y extracción de sangre" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:70%;">Recepción de donantes y sala de espera</td>
+                                        <td style="width:30%;" ><field name="a_1_recepcion_donantes" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;">Consultorio / área para entrevista médica</td>
+                                        <td style="width:30%;" ><field name="a_1_entrevista_medica" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;">Número de consultorios</td>
+                                        <td style="width:30%;" ><field name="num_consultorios" required="True" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;">Área de extracción de sangre y de reposo</td>
+                                        <td style="width:30%;" ><field name="a_1_extraccion" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;">Área de aféresis</td>
+                                        <td style="width:30%;" ><field name="a_1_aferesis" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;">Servicios higiénicos para donantes</td>
+                                        <td style="width:30%;" ><field name="a_1_sshh" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('&amp;'), ('a_1_recepcion_donantes', '=', False), ('a_1_entrevista_medica', '=', False),
+                                     ('num_consultorios', '=', 0), ('a_1_extraccion', '=', False), ('a_1_aferesis', '=', False), ('a_1_sshh', '=', False)]}">
+                                        <td style="width:70%;"><label for="a_1_total"/></td>
+                                        <td style="width:30%;" ><field name="a_1_total" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group string="Área funcional de análisis de sangre (inmunoserología e inmunohematología)">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:70%;">Área de análisis de muestras de donantes</td>
+                                        <td style="width:30%;"><field name="a_2_toma_muestra" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;">Área de inmunohematología</td>
+                                        <td style="width:30%;" ><field name="a_2_inmunohematologia" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:70%;">Área de inmunoserología</td>
+                                        <td style="width:30%;"><field name="a_2_inmunoserologia" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;">Área de recepción de muestras y unidades de sangre</td>
+                                        <td style="width:30%;" ><field name="a_2_recepcion_muestra" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('&amp;'), ('a_2_toma_muestra', '=', False), ('a_2_inmunohematologia', '=', False),
+                                     ('a_2_inmunoserologia', '=', False), ('a_2_recepcion_muestra', '=', False)]}">
+                                        <td style="width:70%;"><label for="a_2_total"/></td>
+                                        <td style="width:30%;" ><field name="a_2_total" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group string="Área funcional de producción de componentes sanguíneos" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:70%;">Área de recepción de muestras y unidades de sangre</td>
+                                        <td style="width:30%;" ><field name="a_3_recepcion_muestras" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;">Área de fraccionamiento</td>
+                                        <td style="width:30%;"><field name="a_3_fraccionamiento" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;">Área de cuarentena</td>
+                                        <td style="width:30%;"><field name="a_3_cuarentena" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('&amp;'), ('a_3_recepcion_muestras', '=', False), ('a_3_fraccionamiento', '=', False),
+                                     ('a_3_cuarentena', '=', False)]}">
+                                        <td style="width:70%;"><label for="a_3_total"/></td>
+                                        <td style="width:30%;" ><field name="a_3_total" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group string="Área de control de calidad de hemocomponentes">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:70%;">Área de control de calidad de hemocomponentes</td>
+                                        <td style="width:30%;" ><field name="a_10_control_calidad" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('a_10_control_calidad', '=', False)]}">
+                                        <td style="width:70%;"><label for="a_10_total"/></td>
+                                        <td style="width:30%;" ><field name="a_10_total" attrs="{'readonly': [('estado', 'in', 'validado')], 'required': [('a_10_control_calidad', '=', True)]}"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group string="Área funcional de almacenamiento y distribución de hemocomponentes">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:70%;">Área para conservadora(s) de sangre de +/-2 °C a +6 °C</td>
+                                        <td style="width:30%;" ><field name="a_4_conservadora_sangre" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;">Área para congeladora(s) de -20 o menos °C</td>
+                                        <td style="width:30%;" ><field name="a_4_congeladora" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;">Área de almacenamiento de plaquetas de 20 a 24 °C</td>
+                                        <td style="width:30%;" ><field name="a_4_almacenamiento_plaqueta" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;">Área para seroteca</td>
+                                        <td style="width:30%;" ><field name="a_4_seroteca" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;">Área de distribución</td>
+                                        <td style="width:30%;" ><field name="a_4_distribucion" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('&amp;'), ('a_4_conservadora_sangre', '=', False), ('a_4_congeladora', '=', False),
+                                     ('a_4_almacenamiento_plaqueta', '=', False), ('a_4_seroteca', '=', False), ('a_4_distribucion', '=', False)]}">
+                                        <td style="width:70%;"><label for="a_4_total"/></td>
+                                        <td style="width:30%;" ><field name="a_4_total" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group string="Área de recepción, atención de solicitudes transfusionales y entrega de resultados">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:70%;">Área de recepción y atención de solicitudes transfusionales y entrega de resultados</td>
+                                        <td style="width:30%;" ><field name="a_5_recepcion" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('a_5_recepcion', '=', False)]}">
+                                        <td style="width:70%;"><label for="a_5_total"/></td>
+                                        <td style="width:30%;" ><field name="a_5_total" attrs="{'readonly': [('estado', 'in', 'validado')], 'required': [('a_5_recepcion', '=', True)]}"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group string="Área para transfusión">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:70%;">Área para transfusión</td>
+                                        <td style="width:30%;" ><field name="a_11_transfusion" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('a_11_transfusion', '=', False)]}">
+                                        <td style="width:70%;"><label for="a_11_total"/></td>
+                                        <td style="width:30%;" ><field name="a_11_total" attrs="{'readonly': [('estado', 'in', 'validado')], 'required': [('a_11_transfusion', '=', True)]}"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group string="Área de la promoción de la donación voluntaria de sangre">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:70%;">Área de la promoción de la donación voluntaria de sangre</td>
+                                        <td style="width:30%;" ><field name="a_12_promocion" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('a_12_promocion', '=', False)]}">
+                                        <td style="width:70%;"><label for="a_12_total"/></td>
+                                        <td style="width:30%;" ><field name="a_12_total" attrs="{'readonly': [('estado', 'in', 'validado')], 'required': [('a_12_promocion', '=', True)]}"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group string="Área funcional administrativa">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:70%;">Área administrativa</td>
+                                        <td style="width:30%;" ><field name="a_6_administrativo" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('a_6_administrativo', '=', False)]}">
+                                        <td style="width:70%;"><label for="a_6_total"/></td>
+                                        <td style="width:30%;" ><field name="a_6_total" attrs="{'readonly': [('estado', 'in', 'validado')], 'required': [('a_6_administrativo', '=', True)]}"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group string="Área funcional de lavado, autoclavado y descontaminación">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:70%;">Área funcional de lavado, autoclavado y descontaminación</td>
+                                        <td style="width:30%;" ><field name="a_7_lavado" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('a_7_lavado', '=', False)]}">
+                                        <td style="width:70%;"><label for="a_7_total"/></td>
+                                        <td style="width:30%;" ><field name="a_7_total" attrs="{'readonly': [('estado', 'in', 'validado')], 'required': [('a_7_lavado', '=', True)]}"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group string="Área de servicios higiénicos">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:70%;">Área de servicios higiénicos para el personal</td>
+                                        <td style="width:30%;" ><field name="a_8_sshh"  attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('a_8_sshh', '=', False)]}">
+                                        <td style="width:70%;"><label for="a_8_total"/></td>
+                                        <td style="width:30%;" ><field name="a_8_total" attrs="{'readonly': [('estado', 'in', 'validado')], 'required': [('a_8_sshh', '=', True)]}"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group string="Otros">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:70%;">Almacén</td>
+                                        <td style="width:30%;" ><field name="a_9_almacen" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;">Sala de reuniones</td>
+                                        <td style="width:30%;" ><field name="a_9_sala_reuniones" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;">Vestuario del personal</td>
+                                        <td style="width:30%;" ><field name="a_9_vestuario" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;">Otros</td>
+                                        <td style="width:30%;" ><field name="a_9_otro" attrs="{'readonly': [('estado', 'in', 'validado')]}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:70%;"><label for="a_9_total"/></td>
+                                        <td style="width:30%;" ><field name="a_9_total" attrs="{'readonly': [('estado', 'in', 'validado')], 'required': [('a_9_otro', '=', True)]}"/></td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('a_9_otro', '=', False)]}">
+                                        <td style="width:70%;">Especificar</td>
+                                        <td style="width:30%;" ><field name="a_9_otro_texto" attrs="{'readonly': [('estado', 'in', 'validado')], 'required': [('a_9_otro', '=', True)]}"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <field name="suma_total" invisible="True"/>
+                        <field name="special" invisible="True"/>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_infraestructura_action" model="ir.actions.act_window">
+            <field name="name">Infraestructura</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored_infraestructura.infraestructura</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="limit">25</field>
+        </record>
+
+        <!-- MENU -->
+        <menuitem id="menu_hemored_infraestructura"
+                  name="Infraestructura"
+                  parent="menu_hemored_infraestructura_main"
+                  sequence="20"
+                  action="hemored_infraestructura_action"
+        />
+
+    </data>
+</odoo>

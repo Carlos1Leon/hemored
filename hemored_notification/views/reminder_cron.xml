@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<odoo>
+    <data noupdate="0">
+
+        <record model="ir.cron" id="availability_update_data_chbs_cron">
+            <field name="name">Hemored - Actualización de estado de fichas para CHBS</field>
+            <field name="model_id" ref="hemored.model_hemored_banco_sangre"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_update_data_chbs()</field>
+        </record>
+
+        <record model="ir.cron" id="availability_update_porcentaje_fichas_chbs_cron">
+            <field name="name">Hemored - calcular porcentaje de fichas para CHBS</field>
+            <field name="model_id" ref="hemored.model_hemored_banco_sangre"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_update_porcentaje_fichas_chbs()</field>
+        </record>
+
+        <record model="ir.cron" id="availability_create_cron">
+            <field name="name">Hemored - Notificación de Fichas Estadísticas en estado Borrador</field>
+            <field name="model_id" ref="hemored.model_hemored_banco_sangre"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">weeks</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_reminder()</field>
+        </record>
+
+        <record model="ir.cron" id="availability_update_data_create_cron">
+            <field name="name">Hemored - Actualización de estado de fichas para coordinador</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_update_data_coordinador()</field>
+        </record>
+
+        <record model="ir.cron" id="availability1_create_cron">
+            <field name="name">Hemored - Notificación de Fichas Estadísticas en estado Enviado</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">weeks</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_reminder_coordinador()</field>
+        </record>
+
+    </data>
+
+</odoo>

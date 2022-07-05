@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <record id="view_users_form_inherit_dni" model="ir.ui.view">
+            <field name="name">res.users.form.inherit.dni</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="hemored.hemored_res_users_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//label[@for='name']" position="before">
+                    <label for="dni" class="oe_edit_only"/>
+                    <h1><field name="dni" required="1"/></h1>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

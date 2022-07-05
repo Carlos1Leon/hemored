@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <record id="view_ficha_form_inherit" model="ir.ui.view">
+            <field name="name">hemored.ficha_estadistica.form.inherit</field>
+            <field name="model">hemored.ficha_estadistica</field>
+            <field name="inherit_id" ref="hemored.view_hemored_ficha_estadistica_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='state']" position="before">
+                    
+                    <button class="oe_stat_button" type="object" name="cargar_excel_ficha" string="Importar Excel" icon="fa-file-text-o"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

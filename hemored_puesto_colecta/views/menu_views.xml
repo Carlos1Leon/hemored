@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+       <!-- MENU DE LA APLICACION -->
+        <menuitem
+            id="menu_hemored_puesto_colecta_main"
+            name="Puesto de Colecta"
+            web_icon="hemored_puesto_colecta,static/description/icon.png"
+            sequence="4"
+        />
+
+   </data>
+</odoo>

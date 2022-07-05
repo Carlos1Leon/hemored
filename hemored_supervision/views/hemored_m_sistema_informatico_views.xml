@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <record id="hemored_supervision_record_supervision_form_inherit_sig_m" model="ir.ui.view">
+            <field name="name">hemored.banco_sangre.form.inherit.sig.monitoreo</field>
+            <field name="model">hemored_supervision.record_supervision</field>
+            <field name="inherit_id" ref="hemored_supervision.hemored_supervision_record_supervision_form_inherit_almacenamiento_m"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@id='almacenamiento']" position="after">
+                    <field name="p_sis_inform_1" invisible="True"/>
+                    <field name="g_sis_inform_1" invisible="True"/>
+                    <field name="p_sis_inform_2" invisible="True"/>
+                    <field name="g_sis_inform_2" invisible="True"/>
+                    <field name="p_sis_inform_3" invisible="True"/>
+                    <field name="g_sis_inform_3" invisible="True"/>
+                    <field name="p_sis_inform_4" invisible="True"/>
+                    <field name="g_sis_inform_4" invisible="True"/>
+                    <field name="p_sis_inform_5" invisible="True"/>
+                    <field name="g_sis_inform_5" invisible="True"/>
+                    <page string="SISTEMA INFORMATICO" id="sig">
+                        <group>
+                            <table class="table table-bordered mb64">
+                                <tbody style="border: 1px solid #ccc;">
+                                    <tr>
+                                        <td style="width:15%;" align="center">
+                                            DESCRIPCIÓN
+                                        </td>
+                                        <td style="width:10%;" align="center">
+                                            MARCAR (SI o NO) / OPCIONES (SÍ HUBIERA) / ESPECIFICAR
+                                        </td>
+                                        <td style="width:20%;" align="center">
+                                            OBSERVACIÓN
+                                        </td>
+                                        <td style="width:15%;" colspan="2" align="center">
+                                            VERIFICADOR / RECOMENDACIONES
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Se utiliza en el servicio un sistema informatico para mantener los registros?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="sis_inform_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_sis_inform_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar Software informático
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Desde cuando utiliza un sistema informático?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="esp_sis_inform_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_sis_inform_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;" colspan="2" align="justify">
+                                            Verificar Software informático
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            Indicar ¿Cuál sistema informático viene utilizando?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="esp_sis_inform_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_sis_inform_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;" colspan="2" align="justify">
+                                            Verificar Software informático
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            El sistema informatico que viene utilizando es:
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="t_sis_inform_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_sis_inform_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar Software informático
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿La información es fácilmente recuperable (Cuenta con Backup)?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="sis_inform_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_sis_inform_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Solicitar recuperación de un registro backup dentro de los últimos 5 años
+                                            Referencia: EG06, Conservación y Mantenimiento
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+   </data>
+</odoo>

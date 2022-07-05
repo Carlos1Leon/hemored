@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="hemored_convenio_tree_view">
+            <field name="name">Convenio</field>
+            <field name="model">hemored_convenio.convenio</field>
+            <field name="arch" type="xml">
+                <tree string="Convenio" duplicate="0">
+                    <field name="name_eess" string="EESS con quien subscribe convenio"/>
+                    <field name="banco_id"/>
+                    <field name="description"/>
+                    <field name="estado"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="hemored_convenio_form_view">
+            <field name="name">Convenio</field>
+            <field name="model">hemored_convenio.convenio</field>
+            <field name="arch" type="xml">
+                <form string="Convenio" duplicate="0">
+                    <header>
+                        <button name="action_done" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="Finalizar convenio"
+                        />
+                        <button name="action_vencimiento" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="convenio vencido" invisible="True"
+                        />
+                        <field name="estado" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <field name="diresa_id" invisible="True"/>
+                        <field name="archivo_nombre" invisible="True"/>
+                        <group>
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td>CHBS</td>
+                                        <td><field name="banco_id"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="name"/></td>
+                                        <td><field name="name" placeholder="Código RENIPRESS"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="name_eess"/></td>
+                                        <td><field name="name_eess" required="True" placeholder="Nombre de EESS" readonly="True" force_save="1"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="convenio_id"/></td>
+                                        <td><field name="convenio_id" readonly="True" force_save="1"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="fecha_actual"/></td>
+                                        <td><field name="fecha_actual" required="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="fecha"/></td>
+                                        <td><field name="fecha" required="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="numero_expediente"/></td>
+                                        <td><field name="numero_expediente" required="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="archivo"/>* </td>
+                                        <td><field name="archivo" widget="binary"  filename="archivo_nombre" required="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="description"/></td>
+                                        <td><field name="description"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_convenio_action" model="ir.actions.act_window">
+            <field name="name">Convenio</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored_convenio.convenio</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="limit">25</field>
+        </record>
+
+        <record id="ir_cron_verificar_fecha" model="ir.cron">
+            <field name="name">Verificar convenio</field>
+            <field name="model_id" ref="model_hemored_convenio_convenio"/>
+            <field name="state">code</field>
+            <field name="code">model._verificar_fecha()</field>
+            <field name='interval_number'>1</field>
+            <field name='interval_type'>days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <!-- MENU -->
+        <menuitem id="menu_hemored_convenio"
+                  name="Convenio"
+                  parent="menu_hemored_convenio_main"
+                  sequence="18"
+                  action="hemored_convenio_action"
+        />
+
+
+    </data>
+</odoo>

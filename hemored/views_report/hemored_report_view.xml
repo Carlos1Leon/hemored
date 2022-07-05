@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA SEARCH -->
+        <record id="hemored_ficha_estadistica_report_search_view" model="ir.ui.view">
+            <field name="name">hemored.ficha_estadistica_report.search</field>
+            <field name="model">hemored.ficha_estadistica_report</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="banco_id" string="Codigo Ipress"/>
+                    <field name="tipo_banco" string="Tipo de Banco"/>
+                    <field name="diresa_id" string="Diresa"/>
+                    <field name="anho_id" string="Periodo Anual"/>
+                    <field name="periodo_id" string="Periodo Actual"/>
+                    <field name="inicio_fecha_registro"/>
+                    <field name="fin_fecha_registro"/>
+                    <field name="user_id" string="Usuario"/>
+                    <group string="Agrupar por">
+                        <filter name="by_banco_id" string="Banco" context="{'group_by': 'banco_id'}"/>
+                        <filter name="by_tipo_banco" string="Tipo de Banco" context="{'group_by': 'tipo_banco'}"/>
+                        <filter name="by_diresa_id" string="Diresa" context="{'group_by': 'diresa_id'}"/>
+                        <filter name="by_institucion" string="Institucion" context="{'group_by': 'institucion'}"/>
+                        <filter name="by_anho_id" string="Año" context="{'group_by': 'anho_id'}"/>
+                        <filter name="by_periodo_id" string="Periodo" context="{'group_by': 'periodo_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- VIEW GRAPH  -->
+        <record id="view_hemored_ficha_estadistica_report_graph" model="ir.ui.view">
+            <field name="name">Ficha Estadística</field>
+            <field name="model">hemored.ficha_estadistica_report</field>
+            <field name="arch" type="xml">
+                <graph>
+                    <field name="diresa_id" type="row"/>
+                </graph>
+            </field>
+        </record>
+
+
+        <!-- VIEW PIVOT  -->
+        <record model="ir.ui.view" id="hemored_ficha_estadistica_report_pivot_view">
+            <field name="name">Ficha Estadística</field>
+            <field name="model">hemored.ficha_estadistica_report</field>
+            <field name="arch" type="xml">
+                <pivot string="Ficha Estadística">
+                    <field name="diresa_id" type="row"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="hemored_ficha_estadistica_report_tree" model="ir.ui.view">
+            <field name="name">hemored.ficha_estadistica_report.tree</field>
+            <field name="model">hemored.ficha_estadistica_report</field>
+            <field name="arch" type="xml">
+                <tree string="Ficha Estadística" create="0" edit="0" duplicate="0">
+                    <field name="banco_id"/>
+                    <field name="diresa_id"/>
+                    <field name="tipo_banco"/>
+                    <field name="institucion"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record id="view_hemored_ficha_estadistica_report_form" model="ir.ui.view">
+            <field name="name">hemored.ficha_estadistica_report.form</field>
+            <field name="model">hemored.ficha_estadistica_report</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Ficha Estadística" create="0" edit="0" duplicate="0">
+                    <sheet>
+                        <group>
+                            <field name="banco_id"/>
+                            <field name="diresa_id"/>
+                            <field name="tipo_banco"/>
+                            <field name="institucion"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_ficha_estadistica_report_action" model="ir.actions.act_window">
+            <field name="name">Ficha Estadística</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored.ficha_estadistica_report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">pivot,graph,tree,form</field>
+        </record>
+
+        <!-- MENU DE LA APLICACION -->
+        <menuitem
+            id="menu_main_report"
+            name="Hemored reporte"
+            groups="hemored.group_administrador,hemored.group_coordinador_diris_diresa_hemored"
+            web_icon="hemored,static/img/pivot.png"
+            sequence="4"
+        />
+
+        <!-- MENU DONACION SANGRE -->
+        <menuitem id="menu_ficha_estadistica_reporte"
+            name="Ficha Estadística"
+            parent="menu_main_report"
+            action="hemored_ficha_estadistica_report_action"
+            sequence="1" />
+
+    </data>
+</odoo>

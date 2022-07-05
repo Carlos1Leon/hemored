@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Categoria HEMORED -->
+    <!-- Regal para que el Banco solo vea su registro (Bancos) -->
+    <record id="regla_banco_hemored_puesto_colecta_puesto" model="ir.rule">
+        <field name="name">CHBS</field>
+        <field name="model_id" ref="hemored_puesto_colecta.model_hemored_puesto_colecta_ficha"/>
+        <field name="domain_force">[('banco_id','=', user.banco_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_establecimiento_hemored'))]"/>
+    </record>
+
+    <!-- Regal para que el Banco solo vea su registro (Diresa) -->
+    <record id="regla_diresa_banco_sangre_hemored_puesto_de_colecta" model="ir.rule">
+        <field name="name">CHBS</field>
+        <field name="model_id" ref="hemored_puesto_colecta.model_hemored_puesto_colecta_ficha"/>
+        <field name="domain_force">[('diresa_id','=', user.diresa_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hemored.group_coordinador_diris_diresa_hemored'))]"/>
+    </record>
+
+</odoo>

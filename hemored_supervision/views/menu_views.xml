@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+       <!-- MENU DE LA APLICACION -->
+        <menuitem
+            id="menu_hemored_supervision_main"
+            name="Supervisión"
+            web_icon="hemored_supervision,static/description/icon.png"
+            groups="hemored.group_administrador"
+            sequence="8"
+        />
+
+   </data>
+</odoo>

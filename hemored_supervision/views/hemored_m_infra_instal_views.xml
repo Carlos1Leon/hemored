@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <record id="hemored_supervision_record_supervision_form_inherit_infra_instal_m" model="ir.ui.view">
+            <field name="name">hemored.banco_sangre.form.inherit.infra_instal.monitoreo</field>
+            <field name="model">hemored_supervision.record_supervision</field>
+            <field name="inherit_id" ref="hemored_supervision.hemored_supervision_record_supervision_form_inherit_rel_equipamiento_m"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@id='rel_equipamiento']" position="after">
+                    <field name="p_infra_instal_1" invisible="True"/>
+                    <field name="g_infra_instal_1" invisible="True"/>
+                    <field name="p_infra_instal_2" invisible="True"/>
+                    <field name="g_infra_instal_2" invisible="True"/>
+                    <field name="p_infra_instal_3" invisible="True"/>
+                    <field name="g_infra_instal_3" invisible="True"/>
+                    <field name="p_infra_instal_4" invisible="True"/>
+                    <field name="g_infra_instal_4" invisible="True"/>
+                    <field name="p_infra_instal_5" invisible="True"/>
+                    <field name="g_infra_instal_5" invisible="True"/>
+                    <field name="p_infra_instal_6" invisible="True"/>
+                    <field name="g_infra_instal_6" invisible="True"/>
+                    <field name="p_infra_instal_7" invisible="True"/>
+                    <field name="g_infra_instal_7" invisible="True"/>
+                    <field name="p_infra_instal_8" invisible="True"/>
+                    <field name="g_infra_instal_8" invisible="True"/>
+                    <field name="p_infra_instal_9" invisible="True"/>
+                    <field name="g_infra_instal_9" invisible="True"/>
+                    <field name="p_infra_instal_10" invisible="True"/>
+                    <field name="g_infra_instal_10" invisible="True"/>
+                    <field name="p_infra_instal_11" invisible="True"/>
+                    <field name="g_infra_instal_11" invisible="True"/>
+                    <field name="p_infra_instal_12" invisible="True"/>
+                    <field name="g_infra_instal_12" invisible="True"/>
+                    <field name="p_infra_instal_13" invisible="True"/>
+                    <field name="g_infra_instal_13" invisible="True"/>
+                    <field name="p_infra_instal_14" invisible="True"/>
+                    <field name="g_infra_instal_14" invisible="True"/>
+                    <field name="p_infra_instal_15" invisible="True"/>
+                    <field name="g_infra_instal_15" invisible="True"/>
+                    <field name="p_infra_instal_16" invisible="True"/>
+                    <field name="g_infra_instal_16" invisible="True"/>
+                    <field name="p_infra_instal_17" invisible="True"/>
+                    <field name="g_infra_instal_17" invisible="True"/>
+                    <field name="p_infra_instal_18" invisible="True"/>
+                    <field name="g_infra_instal_18" invisible="True"/>
+                    <field name="p_infra_instal_19" invisible="True"/>
+                    <field name="g_infra_instal_19" invisible="True"/>
+                    <field name="p_infra_instal_20" invisible="True"/>
+                    <field name="g_infra_instal_20" invisible="True"/>
+                    <field name="p_infra_instal_21" invisible="True"/>
+                    <field name="g_infra_instal_21" invisible="True"/>
+                    <field name="p_infra_instal_22" invisible="True"/>
+                    <field name="g_infra_instal_22" invisible="True"/>
+                    <field name="p_infra_instal_23" invisible="True"/>
+                    <field name="g_infra_instal_23" invisible="True"/>
+                    <field name="p_infra_instal_24" invisible="True"/>
+                    <field name="g_infra_instal_24" invisible="True"/>
+                    <field name="p_infra_instal_25" invisible="True"/>
+                    <field name="g_infra_instal_25" invisible="True"/>
+                    <field name="p_infra_instal_26" invisible="True"/>
+                    <field name="g_infra_instal_26" invisible="True"/>
+                    <page string="INFRAESTRUCTURA E INSTALACIONES" id="infra_instal">
+                        <group>
+                            <table class="table table-bordered mb64">
+                                <tbody style="border: 1px solid #ccc;">
+                                    <tr>
+                                        <td style="width:15%;" align="center">
+                                            DESCRIPCIÓN
+                                        </td>
+                                        <td style="width:10%;" align="center">
+                                            MARCAR (SI o NO) / OPCIONES (SÍ HUBIERA) / ESPECIFICAR
+                                        </td>
+                                        <td style="width:20%;" align="center">
+                                            OBSERVACIÓN
+                                        </td>
+                                        <td style="width:15%;" colspan="2" align="center">
+                                            VERIFICADOR / RECOMENDACIONES
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            Ubicación del Centro de Hemoterapia
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="t_infra_instal_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            Área m2:
+                                            <field name="esp_infra_instal_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            Tipo de accesos
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="t_infra_instal_2_1" type="checkbox"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            Directo
+                                            <br/>
+                                            <field name="t_infra_instal_2_2" type="checkbox"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            Escalera
+                                            <br/>
+                                            <field name="t_infra_instal_2_3" type="checkbox"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            Ascensor
+                                            <br/>
+                                            <field name="t_infra_instal_2_4" type="checkbox"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            Rampa
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" style="width:15%;" align="justify">
+                                            Área física:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            Número de ambientes
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="esp_infra_instal_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" rowspan="16" style="width:15%;" align="justify">
+                                            *Solicitar copia del plano en primera visita
+                                            Referencia: Directiva Sanitaria N° 011-MINSA/DGSP-V.01
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            Áreas de Trabajo:
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="esp_infra_instal_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con sala de espera y recepción de donantes?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con servicios higiénicos?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con consultorio médico o triaje o área de entrevista?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con área de extracción de sangre y reposo?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con sala de aféresis?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿La sala de aféresis es compartida?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con área de recepción de muestras y unidades de sangre?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con área de análisis de muestra de los postulantes?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con área para Laboratorio de Inmunoserología?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con área para Laboratorio de Inmunohematología?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con área de cuarentena?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con un área para fraccionamiento?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con un almacén propio para insumos y reactivos?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_17"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_17"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con un ambiente de almacenamiento diferenciado donde se ubique la congeladoras y conservadoras?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            El ambiente de almacenamiento se encuentra a temperatura entre los 20 y 24 °C
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar registro de temperatura
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con área administrativa?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_20"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_20"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Referencia: NT 011-MINSA/DGSP - V.01, Infraestructura.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con área para lavado, autoclavado y decontaminación?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_21"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <p attrs="{'invisible': [('infra_instal_21', '!=', 'S')]}"> es: </p>
+                                            <field name="t_infra_instal_21"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))], 'invisible': [('infra_instal_21', '!=', 'S')]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_21"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Referencia: NT 011-MINSA/DGSP - V.01, Infraestructura.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con área para transfusión?*
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_22"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_22"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            En caso la respuesta sea afirmativa se debe de verificar el área
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            Grupo electrógeno:
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_23"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            es:
+                                            <field name="t_infra_instal_23"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_23"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Referencia: NT 011-MINSA/DGSP - V.01, Equipos indispensables.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            Acceso a Internet
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_24"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_24"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Referencia: NT 011-MINSA/DGSP - V.01, Instalaciones.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            Medios de Comunicación (Teléfono, radiotelefonía, otros)
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_25"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_25"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Referencia: NT 011-MINSA/DGSP - V.01, Instalaciones.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            Existe hacinamiento de equipos y personal de acuerdo a la demanda
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_26"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_26"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Referencia: NT 011-MINSA/DGSP - V.01, Instalaciones.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con área de control de calidad?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_27"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_27"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify"/>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con área de distribución?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="infra_instal_28"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_infra_instal_28"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify"/>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+   </data>
+</odoo>

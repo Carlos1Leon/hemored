@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA CALENDARIO -->
+        <record id="view_hemored_supervision_record_date_supervision_calendar" model="ir.ui.view">
+            <field name="name">hemored_supervision.record_date_supervision.calendar</field>
+            <field name="model">hemored_supervision.record_date_supervision</field>
+            <field name="arch" type="xml">
+                <calendar string="Supervisiones" date_start="fecha_ejecucion" color="state">
+                    <field name="banco_id"/>
+                    <field name="state"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="hemored_supervision_record_date_supervision_tree_view">
+            <field name="name">Registro de notificaciones</field>
+            <field name="model">hemored_supervision.record_date_supervision</field>
+            <field name="arch" type="xml">
+                <tree string="Registro de Fecha de Supervisión">
+                    <field name="banco_id"/>
+                    <field name="fecha_ejecucion"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="hemored_supervision_record_date_supervision_form_view">
+            <field name="name">Registro de notificaciones</field>
+            <field name="model">hemored_supervision.record_date_supervision</field>
+            <field name="arch" type="xml">
+                <form string="Registro de Fecha de Supervisión">
+                    <header>
+                        <button name="action_confirmar" type="object" class="oe_inline oe_stat_button"
+                                string="Confirmar" attrs="{'invisible': [('state', 'in', ('borrador', 'confirmado', 'postergado'))]}"
+                        />
+                        <button name="action_postergar" type="object" class="oe_inline oe_stat_button"
+                                string="Postergar" attrs="{'invisible': [('state', 'in', ('borrador', 'propuesto', 'postergado'))]}"
+                        />
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button string="Supervisión" type="object" name="action_record_supervision"
+                                    class="oe_stat_button" icon="fa-bars"
+                                    groups="hemored.group_administrador"
+                            />
+                        </div>
+                        <group string="Datos">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:30%;"><label for="fecha_registro"/></td>
+                                        <td><field name="fecha_registro" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:30%;"><label for="banco_id"/></td>
+                                        <td>
+                                            <field name="banco_id"
+                                                   required="True"
+                                                   options="{'no_open': True, 'no_create': True, 'no_edit': True}"
+                                                   attrs="{'readonly': [('state', 'in', ('confirmado', 'postergado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:30%;"><label for="tipo_banco"/></td>
+                                        <td>
+                                            <field name="tipo_banco"
+                                                   readonly="True"
+                                                   force_save="1"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('state', 'in', ('confirmado', 'postergado'))]}">
+                                        <td style="width:30%;"><label for="fecha_realizacion"/></td>
+                                        <td>
+                                            <field name="fecha_realizacion"
+                                                   required="True"
+                                                   attrs="{'readonly': [('state', 'in', ('confirmado', 'postergado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('state', 'in', ('borrador','propuesto'))]}">
+                                        <td style="width:30%;"><label for="fecha_ejecucion"/></td>
+                                        <td>
+                                            <field name="fecha_ejecucion"
+                                                   attrs="{'readonly': [('state', 'in', ('confirmado', 'postergado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:30%;"><label for="user_id"/></td>
+                                        <td>
+                                            <field name="user_id"
+                                                   required="True"
+                                                   options="{'no_open': True, 'no_create': True, 'no_edit': True}"
+                                                   attrs="{'readonly': [('state', 'in', ('confirmado', 'postergado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:30%;"><label for="observacion"/></td>
+                                        <td><field name="observacion" readonly="True"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_supervision_record_date_supervision_action" model="ir.actions.act_window">
+            <field name="name">Registro de Fecha de Supervisión</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored_supervision.record_date_supervision</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="view_type">form</field>
+            <field name="limit">25</field>
+        </record>
+
+        <!-- MENU -->
+        <menuitem id="menu_hemored_supervision_record_date_supervision_main"
+                  name="Registro de Fecha de supervisión"
+                  parent="hemored_supervision.menu_hemored_supervision_main"
+                  sequence="1"
+                  action="hemored_supervision_record_date_supervision_action"
+        />
+
+    </data>
+</odoo>

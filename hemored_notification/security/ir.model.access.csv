@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hemored_notification_record_administrador,hemored_notification_notification_record,model_hemored_notification_notification_record,hemored.group_administrador,1,1,1,0

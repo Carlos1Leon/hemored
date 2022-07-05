@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA SEARCH -->
+        <record id="ficha_estadistica_search_view" model="ir.ui.view">
+            <field name="name">hemored.ficha_estadistica.search</field>
+            <field name="model">hemored.ficha_estadistica</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="banco_id" string="Nombre del CHBS"/>
+                    <field name="tipo_banco" string="Tipo de Banco"/>
+                    <field name="diresa_id" string="DIRIS/DIRESA/GERESA"/>
+                    <field name="anho_id" string="Periodo Anual"/>
+                    <field name="periodo_id" string="Periodo Actual"/>
+                    <field name="inicio_fecha_registro"/>
+                    <field name="fin_fecha_registro"/>
+                    <field name="user_id" string="Usuario"/>
+                    <group string="Agrupar por">
+                        <filter name="by_banco_id" string="Banco" context="{'group_by': 'banco_id'}"/>
+                        <filter name="by_tipo_banco" string="Tipo de Banco" context="{'group_by': 'tipo_banco'}"/>
+                        <filter name="by_diresa_id" string="DIRIS/DIRESA/GERESA" context="{'group_by': 'diresa_id'}"/>
+                        <filter name="by_institucion" string="Institucion" context="{'group_by': 'institucion'}"/>
+                        <filter name="by_anho_id" string="Año" context="{'group_by': 'anho_id'}"/>
+                        <filter name="by_periodo_id" string="Periodo" context="{'group_by': 'periodo_id'}"/>
+                        <filter name="by_state" string="Estado" context="{'group_by': 'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="ficha_estadistica_tree_view">
+            <field name="name">hemored.ficha_estadistica.tree</field>
+            <field name="model">hemored.ficha_estadistica</field>
+            <field name="arch" type="xml">
+                <tree create='false' duplicate="0" decoration-warning="state == 'enviado'" decoration-danger="state == 'borrador'" decoration-success="state == 'validado'">
+                    <field name="banco_id"/>
+                    <field name="diresa_id" string="DIRIS/DIRESA/GERESA"/>
+                    <field name="periodo_id"/>
+                    <field name="anho_id"/>
+                    <field name="ficha_anual_mensual"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record id="view_hemored_ficha_estadistica_form" model="ir.ui.view">
+            <field name="name">hemored.ficha_estadistica.form</field>
+            <field name="model">hemored.ficha_estadistica</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form create='false' duplicate="0">
+                    <style>
+                        .o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled[data-value="validado"] {
+                            background: #9ed7ab;
+                        }
+                        .o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled[data-value="validado"]::after {
+                            border-left-color: #9ed7ab;
+                        }
+                        .o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled[data-value="enviado"] {
+                            background: #ffdb6f;
+                        }
+                        .o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled[data-value="enviado"]::after {
+                            border-left-color: #ffdb6f;
+                        }
+                        .o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled[data-value="borrador"] {
+                            background: #e9838d;
+                        }
+                        .o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled[data-value="borrador"]::after {
+                            border-left-color: #e9838d;
+                        }
+                    </style>
+                    <header>
+                        <button name="action_send" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="Enviar" attrs="{'invisible': ['|', ('state', 'in', ('enviado', 'validado')), ('special', '=', True)]}"
+                                confirm="Verifique los datos ingresados" groups="hemored.group_coordinador_establecimiento_hemored,hemored.group_administrador"
+                        />
+                        <button name="action_validate" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="Validar" attrs="{'invisible': ['|', ('state', 'in', ('borrador', 'validado')), ('special', '=', True)]}"
+                                confirm="Verifique los datos antes de validar registro" groups="hemored.group_coordinador_diris_diresa_hemored,hemored.group_administrador"
+                        />
+                        <button name="action_draft" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="Observar" attrs="{'invisible': ['|', ('state', 'in', ('borrador', 'validado')), ('special', '=', True)]}"
+                                confirm="El registro regresara a estado borrador" groups="hemored.group_coordinador_diris_diresa_hemored,hemored.group_administrador"
+                        />
+                        <button class="oe_stat_button" type="object"
+                                name="print_excel"
+                                string="Exportar Excel"
+                                icon="fa-file-text-o" attrs="{'invisible':[('id','=', False)]}"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <field name="special" invisible="True"/>
+                        <field name="consolidado" invisible="True"/>
+                        <div class="text-center">
+                            <h1>
+                                Ficha Estadística
+                            </h1>
+                        </div>
+                        <group>
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td><label for="banco_id"/></td>
+                                        <td><field name="banco_id" readonly="True"/></td>
+                                        <td><label for="tipo_banco"/></td>
+                                        <td><field name="tipo_banco" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="diresa_id"/></td>
+                                        <td><field name="diresa_id" readonly="True"/></td>
+                                        <td><label for="institucion"/></td>
+                                        <td><field name="institucion" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="anho_id"/></td>
+                                        <td><field name="anho_id" readonly="1"/></td>
+                                        <td><label for="inicio_fecha_registro"/></td>
+                                        <td><field name="inicio_fecha_registro" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="periodo_id"/></td>
+                                        <td><field name="periodo_id" readonly="True"/></td>
+                                        <td><label for="fin_fecha_registro"/></td>
+                                        <td><field name="fin_fecha_registro"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="fecha_envio"/></td>
+                                        <td><field name="fecha_envio" readonly="True"/></td>
+                                        <td><label for="fecha_validacion"/></td>
+                                        <td><field name="fecha_validacion" readonly="True"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <div>
+                            <span>
+                                <h2>El estado de su Ficha Estadística es:
+                                    <field name="nombre_state"
+                                           decoration-warning="state == 'enviado'"
+                                           decoration-danger="state == 'borrador'"
+                                           decoration-success="state == 'validado'"
+                                    />
+                                </h2>
+                            </span>
+                        </div>
+                        <div style="color:red;">
+                            <h4>
+                                No olvide guardar progresivamente la información
+                            </h4>
+                        </div>
+                        <notebook>
+                            <page string="DONACIÓN DE SANGRE" id="donacion_sangre" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                <group string="DONACIÓN DE SANGRE">
+                                    <table class="table table-condensed">
+                                        <tbody style="border: 2px solid #ccc;">
+                                            <tr>
+                                                <td style="width:20%;border: 2px solid #ccc;">Tipo postulante / Categoría</td>
+                                                <td style="width:16%;border: 2px solid #ccc;">Postulantes excluídos</td>
+                                                <td style="width:16%;border: 2px solid #ccc;">Postulantes diferidos</td>
+                                                <td style="width:16%;border: 2px solid #ccc;">Postulantes Aptos donación incompleta</td>
+                                                <td style="width:16%;border: 2px solid #ccc;">Postulantes Aptos donación completa</td>
+                                                <td style="width:16%;border: 2px solid #ccc; background-color: #7DADE7">Postulantes totales</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Autólogos</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_pe_x_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_pd_x_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_padi_x_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_padc_x_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center" style="background-color: #7DADE7"><field name="cantidad_total_x_ca" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Voluntario IM</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_pe_x_cvim" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_pd_x_cvim" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_padi_x_cvim" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_padc_x_cvim" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center" style="background-color: #7DADE7"><field name="cantidad_total_x_cvim" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Voluntario EM</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_pe_x_cvem" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_pd_x_cvem" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_padi_x_cvem" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_padc_x_cvem" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center" style="background-color: #7DADE7"><field name="cantidad_total_x_cvem" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Reposición</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_pe_x_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_pd_x_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_padi_x_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_padc_x_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center" style="background-color: #7DADE7"><field name="cantidad_total_x_cr" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">P. Remunerados</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_pe_x_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_pd_x_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_padi_x_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_padc_x_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center" style="background-color: #7DADE7"><field name="cantidad_total_x_cpr" readonly="True"/></td>
+                                            </tr>
+                                            <tr style="background-color: #7DADE7">
+                                                <td style="border: 2px solid #ccc;">TOTAL</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_total_x_pe" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_total_x_pd" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_total_x_padi" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_total_x_padc" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_total_donacion_sangre" readonly="True" invisible="True"/> <field name="cantidad_total_categorias_donacion_sangre" readonly="True" invisible="True"/> <field name="cantidad_total_postulantes_donacion_sangre" readonly="True"/></td>
+                                            </tr>
+                                            <field name="cantidad_porcentaje_postulantes_donacion_completa" readonly="True"  invisible="True"/>
+                                            <field name="cantidad_porcentaje_postulantes_diferidos" readonly="True"  invisible="True"/>
+                                            <field name="cantidad_porcentaje_postulantes_excluidos" readonly="True"  invisible="True"/>
+                                            <field name="cantidad_total_voluntarios" readonly="True"  invisible="True"/>
+                                            <field name="cantidad_total_no_voluntarios" readonly="True"  invisible="True"/>
+                                            <field name="porcentaje_total_voluntarios" readonly="True"  invisible="True"/>
+                                        </tbody>
+                                    </table>
+                                </group>
+                            </page>
+
+                            <page string="TOTAL DE DONANTES" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                <group string="TOTAL DE DONANTES">
+                                    <field name="total_donante_ids" nolabel="1" widget="one2many_list" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}">
+                                        <tree editable='bottom' delete='false' create='false' duplicate="0">
+                                            <field name="tipo_donante" readonly="True"/>
+                                            <field name="cantidad"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <table class="table table-condensed">
+                                    <tbody style="border: 2px solid #ccc;">
+                                        <tr style="background-color: #7DADE7">
+                                            <td width="50%"><b>Total</b></td>
+                                            <td width="50%" align="Right"><field name="cantidad_total_donante" readonly="True"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </page>
+
+                            <page string="TOTAL DE POSTULANTES QUE FUERON DIFERIDOS O EXCLUIDOS" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                <group string="TOTAL DE POSTULANTES QUE FUERON DIFERIDOS O EXCLUIDOS">
+                                    <field name="total_postulante_diferido_excluido_ids" nolabel="1" widget="one2many_list" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}">
+                                        <tree editable='bottom' delete='false' create='false' duplicate="0">
+                                            <field name="motivo_diferido_excluido" readonly="True"/>
+                                            <field name="cantidad"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <table class="table table-condensed">
+                                    <tbody style="border: 2px solid #ccc;">
+                                        <tr style="background-color: #7DADE7">
+                                            <td width="50%"><b>Total</b></td>
+                                            <td width="50%" align="Right"><field name="cantidad_total_postulante_diferido_excluido" readonly="True"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </page>
+
+                            <page string="DONACIONES DE SANGRE EXTRAÍDAS SEGÚN GÉNERO" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                <group string="DONACIONES DE SANGRE EXTRAÍDAS SEGÚN GÉNERO">
+                                    <table class="table table-condensed">
+                                        <tbody style="border: 2px solid #ccc;">
+                                            <tr>
+                                                <td style="width:30%;border: 2px solid #ccc;">Hombres</td>
+                                                <td style="width:30%;border: 2px solid #ccc;">Mujeres</td>
+                                                <td style="width:30%;border: 2px solid #ccc;">Total</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1" align="Center"><field name="cantidad_donacion_h" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_donacion_m" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_donacion_total" readonly="True"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </group>
+                            </page>
+
+                            <page string="DONACIONES DE SANGRE EXTRAÍDAS SEGÚN LA EDAD DEL DONANTE" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                <group string="DONACIONES DE SANGRE EXTRAÍDAS SEGÚN LA EDAD DEL DONANTE">
+                                    <field name="donacion_segun_grupo_edad_donante_ids" nolabel="1" widget="one2many_list" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}">
+                                        <tree editable='bottom' delete='false' create='false' duplicate="0">
+                                            <field name="grupo_edad_donante" readonly="True"/>
+                                            <field name="cantidad"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <table class="table table-condensed">
+                                    <tbody style="border: 2px solid #ccc;">
+                                        <tr style="background-color: #7DADE7">
+                                            <td width="50%"><b>Total</b></td>
+                                            <td width="50%" align="Right"><field name="cantidad_total_donacion_segun_grupo_edad" readonly="True"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </page>
+
+                            <page string="DONACIONES  DE SANGRE TOTAL" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                <group string="DONACIONES  DE SANGRE TOTAL">
+                                    <field name="donacion_sangre_total_ids" nolabel="1" widget="one2many_list" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}">
+                                        <tree editable='bottom' delete='false' create='false' duplicate="0">
+                                            <field name="tipo_donante" readonly="True"/>
+                                            <field name="cantidad"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <table class="table table-condensed" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                    <tbody style="border: 2px solid #ccc;">
+                                        <tr style="background-color: #7DADE7">
+                                            <td width="50%"><b>Total</b></td>
+                                            <td width="50%" align="Right"><field name="cantidad_total_donacion_sangre_total" readonly="True"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </page>
+
+                            <page string="DONACIONES POR AFÉRESIS" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                <group string="DONACIONES POR AFÉRESIS">
+                                    <field name="donacion_aferesis_ids" nolabel="1" widget="one2many_list" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}">
+                                        <tree editable='bottom' delete='false' create='false' duplicate="0">
+                                            <field name="tipo_donante" readonly="True"/>
+                                            <field name="cantidad"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <table class="table table-condensed" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                    <tbody style="border: 2px solid #ccc;">
+                                        <tr style="background-color: #7DADE7">
+                                            <td width="50%"><b>Total</b></td>
+                                            <td width="50%" align="Right"><field name="cantidad_total_donacion_aferesis" readonly="True"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </page>
+
+                            <page string="TAMIZAJE DE UNIDADES" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                <group string="TAMIZAJE DE UNIDADES">
+                                    <table class="table table-condensed">
+                                        <tbody style="border: 2px solid #ccc;">
+                                            <tr>
+                                                <td colspan="1" style="width:20%;border: 2px solid #ccc;">Marcadores</td>
+                                                <td colspan="3" style="width:20%;border: 2px solid #ccc;">VIH</td>
+                                                <td colspan="3" style="width:20%;border: 2px solid #ccc;">HBsAg</td>
+                                                <td colspan="3" style="width:20%;border: 2px solid #ccc;">Hep C</td>
+                                                <td colspan="3" style="width:20%;border: 2px solid #ccc;">Anti-HBc</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Clase</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Tamizados</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Reactivos</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Zona gris</td>
+
+                                                <td colspan="1" style="border: 2px solid #ccc;">Tamizados</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Reactivos</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Zona gris</td>
+
+                                                <td colspan="1" style="border: 2px solid #ccc;">Tamizados</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Reactivos</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Zona gris</td>
+
+                                                <td colspan="1" style="border: 2px solid #ccc;">Tamizados</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Reactivos</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Zona gris</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Voluntario</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mvih_clt_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mvih_clr_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mvih_clzg_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhbsag_clt_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhbsag_clr_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhbsag_clzg_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mhepc_clt_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhepc_clr_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhepc_clzg_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mantihbc_clt_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mantihbc_clr_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mantihbc_clzg_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Reposición</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mvih_clt_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mvih_clr_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mvih_clzg_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mhbsag_clt_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhbsag_clr_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhbsag_clzg_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mhepc_clt_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhepc_clr_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhepc_clzg_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mantihbc_clt_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mantihbc_clr_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mantihbc_clzg_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">P. Remunerado</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mvih_clt_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mvih_clr_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mvih_clzg_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mhbsag_clt_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhbsag_clr_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhbsag_clzg_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mhepc_clt_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhepc_clr_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhepc_clzg_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mantihbc_clt_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mantihbc_clr_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mantihbc_clzg_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Autologo</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mvih_clt_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mvih_clr_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mvih_clzg_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mhbsag_clt_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhbsag_clr_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhbsag_clzg_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mhepc_clt_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhepc_clr_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhepc_clzg_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mantihbc_clt_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mantihbc_clr_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mantihbc_clzg_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                            </tr>
+                                            <tr style="background-color: #7DADE7">
+                                                <td style="border: 2px solid #ccc;">TOTAL</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mvih_clt_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mvih_clr_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mvih_clzg_total" readonly="True"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mhbsag_clt_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhbsag_clr_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhbsag_clzg_total" readonly="True"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mhepc_clt_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhepc_clr_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhepc_clzg_total" readonly="True"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mantihbc_clt_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mantihbc_clr_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mantihbc_clzg_total" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Marcadores</td>
+                                                <td colspan="3" style="border: 2px solid #ccc;">HTLV I/II</td>
+                                                <td colspan="3" style="border: 2px solid #ccc;">Sifilis</td>
+                                                <td colspan="3" style="border: 2px solid #ccc;">Chagas</td>
+                                                <td colspan="3" style="border: 2px solid #ccc;">Otros</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Clase</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Tamizados</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Reactivos</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Zona gris</td>
+
+                                                <td colspan="1" style="border: 2px solid #ccc;">Tamizados</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Reactivos</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Zona gris</td>
+
+                                                <td colspan="1" style="border: 2px solid #ccc;">Tamizados</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Reactivos</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Zona gris</td>
+
+                                                <td colspan="1" style="border: 2px solid #ccc;">Tamizados</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Reactivos</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Zona gris</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Voluntario</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhtlv_clt_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhtlv_clr_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhtlv_clzg_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_msifilis_clt_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_msifilis_clr_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_msifilis_clzg_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mchagas_clt_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mchagas_clr_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mchagas_clzg_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_motros_clt_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_motros_clr_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_motros_clzg_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Reposición</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhtlv_clt_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhtlv_clr_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhtlv_clzg_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_msifilis_clt_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_msifilis_clr_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_msifilis_clzg_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mchagas_clt_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mchagas_clr_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mchagas_clzg_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_motros_clt_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_motros_clr_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_motros_clzg_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">P. Remunerado</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhtlv_clt_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhtlv_clr_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhtlv_clzg_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_msifilis_clt_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_msifilis_clr_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_msifilis_clzg_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mchagas_clt_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mchagas_clr_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mchagas_clzg_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_motros_clt_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_motros_clr_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_motros_clzg_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Autologo</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhtlv_clt_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhtlv_clr_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhtlv_clzg_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_msifilis_clt_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_msifilis_clr_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_msifilis_clzg_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mchagas_clt_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mchagas_clr_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mchagas_clzg_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_motros_clt_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_motros_clr_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_motros_clzg_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                            </tr>
+                                            <tr style="background-color: #7DADE7">
+                                                <td style="border: 2px solid #ccc;">TOTAL</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhtlv_clt_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhtlv_clr_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhtlv_clzg_total" readonly="True"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_msifilis_clt_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_msifilis_clr_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_msifilis_clzg_total" readonly="True"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_mchagas_clt_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mchagas_clr_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mchagas_clzg_total" readonly="True"/></td>
+
+                                                <td colspan="1" align="Center"><field name="cantidad_motros_clt_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_motros_clr_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_motros_clzg_total" readonly="True"/></td>
+                                            </tr>
+                                            <field name="reactivos_tamizados_vih" readonly="True"  invisible="True"/>
+                                            <field name="reactivos_tamizados_hbsag" readonly="True"  invisible="True"/>
+                                            <field name="reactivos_tamizados_hepc" readonly="True"  invisible="True"/>
+                                            <field name="reactivos_tamizados_antihbc" readonly="True"  invisible="True"/>
+                                            <field name="reactivos_tamizados_htlv" readonly="True"  invisible="True"/>
+                                            <field name="reactivos_tamizados_sifilis" readonly="True"  invisible="True"/>
+                                            <field name="reactivos_tamizados_chagas" readonly="True"  invisible="True"/>
+                                            <field name="reactivos_tamizados_otros" readonly="True"  invisible="True"/>
+                                        </tbody>
+                                    </table>
+                                </group>
+                            </page>
+
+                            <page string="REACTIVIDAD" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                <group string="REACTIVIDAD">
+                                    <table class="table table-condensed">
+                                        <tbody style="border: 2px solid #ccc;">
+                                            <tr>
+                                                <td style="width:25%;border: 2px solid #ccc;">Categoría</td>
+                                                <td style="width:25%;border: 2px solid #ccc;">Unidades no reactivas (aptas)</td>
+                                                <td style="width:25%;border: 2px solid #ccc;">Unidades reactivas</td>
+                                                <td style="width:25%;border: 2px solid #ccc;">Unidades zona gris (indeterminado)</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%;border: 2px solid #ccc;">Voluntario</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_unr_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ur_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_uzg_cv" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%;border: 2px solid #ccc;">Reposición</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_unr_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ur_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_uzg_cr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%;border: 2px solid #ccc;">P. Remunerado</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_unr_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ur_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_uzg_cpr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:25%;border: 2px solid #ccc;">Autologo</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_unr_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ur_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_uzg_ca" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                            </tr>
+                                            <tr style="background-color: #7DADE7">
+                                                <td style="width:25%;border: 2px solid #ccc;">TOTAL</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_unr_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ur_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_uzg_total" readonly="True"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </group>
+                            </page>
+
+                            <page string="PARTICIPACIÓN EN PROGRAMA DE EVALUACIÓN EXTERNA DE LA CALIDAD DE TAMIZAJE" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                <group string="PARTICIPACIÓN EN PROGRAMA DE EVALUACIÓN EXTERNA DE LA CALIDAD DE TAMIZAJE">
+                                    <table class="table table-condensed">
+                                        <tbody style="border: 2px solid #ccc;">
+                                            <tr>
+                                                <td colspan="1" style="border: 2px solid #ccc;">VIH</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">HBsAg</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Hep C</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Anti-HBc</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">HTLV I/II</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Sifilis</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Chagas</td>
+                                                <td colspan="1" style="border: 2px solid #ccc;">Otros</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1" align="Center"><field name="cantidad_mvih_s_o_n" widget="radio" nolabel="1" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhbsag_s_o_n" widget="radio" nolabel="1" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhepc_s_o_n" widget="radio" nolabel="1" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mantihbc_s_o_n" widget="radio" nolabel="1" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mhtlv_s_o_n" widget="radio" nolabel="1" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_msifilis_s_o_n" widget="radio" nolabel="1" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_mchagas_s_o_n" widget="radio" nolabel="1" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_motros_s_o_n" widget="radio" nolabel="1" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </group>
+                            </page>
+
+                            <page string="PRODUCCIÓN DE HEMOCOMPONENTES - SANGRE TOTAL" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                <group string="PRODUCCIÓN DE HEMOCOMPONENTES - SANGRE TOTAL">
+                                    <field name="produccion_unidad_sangre_ids" nolabel="1" widget="one2many_list" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}">
+                                        <tree editable='bottom' delete='false' create='false' duplicate="0">
+                                            <field name="tipo_unidad_sangre" readonly="True"/>
+                                            <field name="cantidad_tipo_unidad_sangre"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <table class="table table-condensed" invisible="True">
+                                    <tbody style="border: 2px solid #ccc;">
+                                        <tr style="background-color: #7DADE7">
+                                            <td width="50%"><b>Total</b></td>
+                                            <td width="50%" align="Right"><field name="cantidad_total_produccion_unidad_sangre" readonly="True"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </page>
+
+                            <page string="PRODUCCIÓN DE HEMOCOMPONENTES" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                <group string="PRODUCCIÓN DE HEMOCOMPONENTES">
+                                    <field name="hemocomponente_ids" nolabel="1" widget="one2many_list" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}">
+                                        <tree editable='bottom' delete='false' create='false' duplicate="0">
+                                            <field name="hemocomponente" readonly="True"/>
+                                            <field name="cantidad_hemocomponente"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <table class="table table-condensed">
+                                    <tbody style="border: 2px solid #ccc;">
+                                        <tr style="background-color: #7DADE7">
+                                            <td width="50%"><b>Total</b></td>
+                                            <td width="50%" align="Right"><field name="cantidad_total_hemocomponente" readonly="True"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </page>
+
+                            <page string="USO DE HEMOCOMPONENTES">
+                                <group string="USO DE HEMOCOMPONENTES">
+                                    <table class="table table-condensed">
+                                        <tbody style="border: 2px solid #ccc;">
+                                            <tr>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc;">Grupos de edad</td>
+                                                <td colspan="1" style="width:5%;border: 2px solid #ccc;">Número de pacientes transfundidos</td>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc;">Sangre total</td>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc;">Glóbulo rojos</td>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc;">Plasma fresco congelado</td>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc;">Crioprecipitado</td>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc;">Plaquetas</td>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc;">Aféresis de plaquetas</td>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc;">Aféresis de glóbulos rojos</td>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc;">Aféresis de plasma</td>
+                                                <td colspan="1" style="width:5%;border: 2px solid #ccc; background-color: #7DADE7">Total</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Menor a 5 años</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh1_pact" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh1_hst" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh1_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh1_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh1_hc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh1_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh1_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh1_hagr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh1_haplasma" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td style="border: 2px solid #ccc; background-color: #7DADE7"><field name="cantidad_gh1_total" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">5-9 años</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh2_pact" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh2_hst" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh2_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh2_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh2_hc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh2_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh2_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh2_hagr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh2_haplasma" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td style="border: 2px solid #ccc; background-color: #7DADE7"><field name="cantidad_gh2_total" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">10-19 años</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh3_pact" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh3_hst" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh3_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh3_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh3_hc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh3_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh3_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh3_hagr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh3_haplasma" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td style="border: 2px solid #ccc; background-color: #7DADE7"><field name="cantidad_gh3_total" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">20-34 años</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh4_pact" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh4_hst" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh4_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh4_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh4_hc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh4_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh4_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh4_hagr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh4_haplasma" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td style="border: 2px solid #ccc; background-color: #7DADE7"><field name="cantidad_gh4_total" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">35-49 años</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh5_pact" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh5_hst" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh5_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh5_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh5_hc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh5_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh5_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh5_hagr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh5_haplasma" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td style="border: 2px solid #ccc; background-color: #7DADE7"><field name="cantidad_gh5_total" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">50-64 años</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh6_pact" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh6_hst" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh6_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh6_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh6_hc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh6_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh6_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh6_hagr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh6_haplasma" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td style="border: 2px solid #ccc; background-color: #7DADE7"><field name="cantidad_gh6_total" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Mayor a 64 años</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh7_pact" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh7_hst" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh7_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh7_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh7_hc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh7_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh7_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh7_hagr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_gh7_haplasma" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td style="border: 2px solid #ccc; background-color: #7DADE7"><field name="cantidad_gh7_total" readonly="True"/></td>
+                                            </tr>
+                                            <tr style="background-color: #7DADE7">
+                                                <td style="border: 2px solid #ccc;">Total</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_pact_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_hst_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_hgr_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_hpfc_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_hc_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_hp_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_hap_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_hagr_total" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_haplasma_total" readonly="True"/></td>
+                                                <td style="border: 2px solid #ccc; background-color: #7DADE7"><field name="cantidad_uso_hemocomponentes_total" readonly="True" invisible="True"/> <field name="cantidad_uso_hemocomponentes_total_hemocomponentes" readonly="True" invisible="True"/> <field name="cantidad_uso_hemocomponentes_total_gh" readonly="True"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </group>
+                            </page>
+
+                            <page string="DEMANDA DE HEMOCOMPONENTES">
+                                <group string="DEMANDA DE HEMOCOMPONENTES">
+                                    <table class="table table-condensed">
+                                        <tbody style="border: 2px solid #ccc;">
+                                            <tr>
+                                                <td colspan="1" style="width:20%;border: 2px solid #ccc;">Número de unidades de sangre solicitadas y atendidas </td>
+                                                <td colspan="1" style="width:20%;border: 2px solid #ccc;">Glóbulos rojos</td>
+                                                <td colspan="1" style="width:20%;border: 2px solid #ccc;">Plasma fresco congelado</td>
+                                                <td colspan="1" style="width:20%;border: 2px solid #ccc;">Plaquetas</td>
+                                                <td colspan="1" style="width:20%;border: 2px solid #ccc;">Aféresis de plaquetas</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Solicitadas</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ds_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ds_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ds_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ds_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Atendidas</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_da_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_da_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_da_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_da_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </group>
+                            </page>
+
+                            <page string="TRANSFERENCIA DE HEMOCOMPONENTES">
+                                <group string="TRANSFERENCIA DE HEMOCOMPONENTES">
+                                    <table class="table table-condensed">
+                                        <tbody style="border: 2px solid #ccc;">
+                                            <tr>
+                                                <td colspan="1" style="width:20%;border: 2px solid #ccc;">Transferencia de unidades</td>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc;">Sangre total</td>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc;">Glóbulo rojos</td>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc;">Plasma fresco congelado</td>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc;">Crioprecipitado</td>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc;">Plaquetas</td>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc;">Aféresis de plaquetas</td>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc;">Aféresis de glóbulos rojos</td>
+                                                <td colspan="1" style="width:10%;border: 2px solid #ccc; background-color: #7DADE7">Total</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Unidades recibidas</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_tur_hst" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_tur_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_tur_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_tur_hc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_tur_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_tur_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_tur_hagr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td style="border: 2px solid #ccc; background-color: #7DADE7"><field name="cantidad_tur_total" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Unidades transferidas</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_tut_hst" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_tut_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_tut_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_tut_hc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_tut_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_tut_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_tut_hagr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td style="border: 2px solid #ccc; background-color: #7DADE7"><field name="cantidad_tut_total" readonly="True"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </group>
+                            </page>
+
+                            <page string="REACCIONES ADVERSAS GRAVES RELACIONADAS CON LAS TRANSFUSIONES">
+                                <group string="REACCIONES ADVERSAS GRAVES RELACIONADAS CON LAS TRANSFUSIONES">
+                                    <field name="causa_reaccion_adversa_ids" nolabel="1" widget="one2many_list" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}">
+                                        <tree editable='bottom' delete='false' create='false' duplicate="0">
+                                            <field name="tipo_reaccion_adversa" readonly="True"/>
+                                            <field name="cantidad"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <table class="table table-condensed">
+                                    <tbody style="border: 2px solid #ccc;">
+                                        <tr style="background-color: #7DADE7">
+                                            <td width="50%"><b>Total</b></td>
+                                            <td width="50%" align="Right"><field name="cantidad_total_causa_reaccion_adversa" readonly="True"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </page>
+
+                            <page string="ELIMINACIÓN DE SANGRE Y HEMOCOMPONENTES">
+                                <group string="ELIMINACIÓN DE SANGRE Y HEMOCOMPONENTES">
+                                    <table class="table table-condensed">
+                                        <tbody style="border: 2px solid #ccc;">
+                                            <tr>
+                                                <td colspan="1" align="Center" style="width:10%;border: 2px solid #ccc;">Causa de eliminación</td>
+                                                <td colspan="1" align="Center" style="width:10%;border: 2px solid #ccc;">Sangre total</td>
+                                                <td colspan="1" align="Center" style="width:10%;border: 2px solid #ccc;">Glóbulo rojos</td>
+                                                <td colspan="1" align="Center" style="width:10%;border: 2px solid #ccc;">Plasma fresco congelado</td>
+                                                <td colspan="1" align="Center" style="width:10%;border: 2px solid #ccc;">Crioprecipitado</td>
+                                                <td colspan="1" align="Center" style="width:10%;border: 2px solid #ccc;">Plaquetas</td>
+                                                <td colspan="1" align="Center" style="width:10%;border: 2px solid #ccc;">Aféresis de plaquetas</td>
+                                                <td colspan="1" align="Center" style="width:10%;border: 2px solid #ccc;">Aféresis de glóbulos rojos</td>
+                                                <td colspan="1" align="Center" style="width:10%;border: 2px solid #ccc;">Aféresis de plasma</td>
+                                                <td colspan="1" align="Center" style="width:10%;border: 2px solid #ccc;">Total</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Vencimiento</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cv_hst" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cv_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cv_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cv_hc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cv_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cv_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cv_hagr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cv_haplasma" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td style="border: 2px solid #ccc; background-color: #7DADE7"><field name="cantidad_cv_total" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Marcadores ITT</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cmitt_hst" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cmitt_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cmitt_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cmitt_hc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cmitt_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cmitt_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cmitt_hagr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cmitt_haplasma" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td style="border: 2px solid #ccc; background-color: #7DADE7"><field name="cantidad_cmitt_total" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Almacenamiento</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ca_hst" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ca_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ca_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ca_hc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ca_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ca_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ca_hagr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ca_haplasma" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td style="border: 2px solid #ccc; background-color: #7DADE7"><field name="cantidad_ca_total" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Transporte</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ct_hst" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ct_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ct_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ct_hc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ct_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ct_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ct_hagr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ct_haplasma" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td style="border: 2px solid #ccc; background-color: #7DADE7"><field name="cantidad_ct_total" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Procesamiento</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cp_hst" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cp_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cp_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cp_hc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cp_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cp_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cp_hagr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_cp_haplasma" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td style="border: 2px solid #ccc; background-color: #7DADE7"><field name="cantidad_cp_total" readonly="True"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 2px solid #ccc;">Otra</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_co_hst" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_co_hgr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_co_hpfc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_co_hc" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_co_hp" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_co_hap" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_co_hagr" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_co_haplasma" attrs="{'readonly': ['|', ('special', '=', True), ('state', 'in', 'validado')]}"/></td>
+                                                <td style="border: 2px solid #ccc; background-color: #7DADE7"><field name="cantidad_co_total" readonly="True"/></td>
+                                            </tr>
+                                            <tr style="background-color: #7DADE7">
+                                                <td style="border: 2px solid #ccc;">Total</td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ctotal_hst" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ctotal_hgr" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ctotal_hpfc" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ctotal_hc" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ctotal_hp" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ctotal_hap" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ctotal_hagr" readonly="True"/></td>
+                                                <td colspan="1" align="Center"><field name="cantidad_ctotal_haplasma" readonly="True"/></td>
+                                                <td style="border: 2px solid #ccc;"><field name="cantidad_ctotal" readonly="True" invisible="True"/> <field name="cantidad_ctotal_categorias" readonly="True"/> <field name="cantidad_ctotal_hemocomponentes" readonly="True" invisible="True"/></td>
+                                            </tr>
+                                            <field name="cantidad_ptotal_st" readonly="True"  invisible="True"/>
+                                            <field name="porcentaje_st" readonly="True"  invisible="True"/>
+                                            <field name="cantidad_ptotal_gl" readonly="True"  invisible="True"/>
+                                            <field name="porcentaje_gl" readonly="True"  invisible="True"/>
+                                            <field name="cantidad_ptotal_pfc" readonly="True"  invisible="True"/>
+                                            <field name="porcentaje_pfc" readonly="True"  invisible="True"/>
+                                            <field name="cantidad_ptotal_c" readonly="True"  invisible="True"/>
+                                            <field name="porcentaje_c" readonly="True"  invisible="True"/>
+                                            <field name="cantidad_ptotal_pla" readonly="True"  invisible="True"/>
+                                            <field name="porcentaje_pla" readonly="True"  invisible="True"/>
+                                            <field name="cantidad_ptotal_af" readonly="True"  invisible="True"/>
+                                            <field name="porcentaje_af" readonly="True"  invisible="True"/>
+                                            <field name="cantidad_ptotal_afgl" readonly="True"  invisible="True"/>
+                                            <field name="porcentaje_afgl" readonly="True"  invisible="True"/>
+                                            <field name="cantidad_ptotal_afpla" readonly="True"  invisible="True"/>
+                                            <field name="porcentaje_afpla" readonly="True"  invisible="True"/>
+                                        </tbody>
+                                    </table>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="ficha_estadistica_action" model="ir.actions.act_window">
+            <field name="name">Ficha Estadística</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored.ficha_estadistica</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="limit">25</field>
+            <field name="domain">[]</field>
+            <field name="context">{'search_default_by_anho_id': 1}</field>
+        </record>
+
+        <!-- MENU DONACION SANGRE -->
+        <menuitem id="menu_ficha_estadistica"
+            name="Ficha Estadística"
+            parent="menu_main"
+            action="ficha_estadistica_action"
+            sequence="1" />
+
+    </data>
+</odoo>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="hemored_generar_ficha_tree_view">
+            <field name="name">Generar Fichas</field>
+            <field name="model">hemored.generar_ficha</field>
+            <field name="arch" type="xml">
+                <tree string="Generar Fichas" duplicate="0">
+                    <field name="anho_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="hemored_generar_ficha_form_view">
+            <field name="name">Generar Fichas</field>
+            <field name="model">hemored.generar_ficha</field>
+            <field name="arch" type="xml">
+                <form string="Generar Fichas" duplicate="0">
+                    <div class="oe_button_box" name="button_box">
+                        <div class="oe_inline">
+                            <button class="oe_stat_button" type="object"
+                                name="action_crear_ficha"
+                                string="Crear Fichas Estadísticas"
+                                icon="fa-file-text-o" attrs="{'invisible':[('id','=', False)]}"/>
+                        </div>
+                    </div>
+                    <group>
+                        <field name="anho_id" options="{'no_open': True, 'no_create': True, 'no_edit': True}"/>
+                        <field name="periodo_id"
+                               attrs="{'invisible':[('consolidado','=', True)]}"
+                               domain="[('fiscalyear_id','=',anho_id)]"
+                               options="{'no_open': True, 'no_create': True, 'no_edit': True}"/>
+                        <field name="consolidado"/>
+                    </group>
+                    <group>
+                        <field name="banco_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="renipress_id" string="Bancos"/>
+                            </tree>
+                        </field>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- LIST ACTION -->
+        <record model="ir.actions.act_window" id="hemored_generar_ficha_action">
+            <field name="name">Generar Fichas</field>
+            <field name="res_model">hemored.generar_ficha</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="limit">25</field>
+        </record>
+
+        <record id="ir_cron_crea_ficha" model="ir.cron">
+            <field name="name">Crear Fichas</field>
+            <field name="model_id" ref="model_hemored_generar_ficha"/>
+            <field name="state">code</field>
+            <field name="code">model._crear_ficha()</field>
+            <field name='interval_number'>1</field>
+            <field name='interval_type'>months</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <!-- MENU  -->
+        <menuitem id="menu_generar_ficha"
+                  name="Generar Fichas"
+                  parent="menu_main"
+                  sequence="5"
+                  action="hemored_generar_ficha_action"
+        />
+
+
+    </data>
+</odoo>

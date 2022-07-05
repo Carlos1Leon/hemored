@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- VISTA SEARCH -->
+        <record id="hemored_sellos_calidad_search_view" model="ir.ui.view">
+            <field name="name">hemored.sellos.calidad.search</field>
+            <field name="model">hemored.sellos.calidad</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="diresa_id" string="DIRIS/DIRESA/GERESA"/>
+                    <field name="banco_id" string="CHBS"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="hemored_sellos_calidad_tree_view">
+            <field name="name">Sellos de Calidad</field>
+            <field name="model">hemored.sellos.calidad</field>
+            <field name="arch" type="xml">
+                <tree string="Sellos de Calidad" duplicate="0">
+                    <field name="diresa_id"/>
+                    <field name="banco_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="hemored_sellos_calidad_form_view">
+            <field name="name">Sellos de Calidad</field>
+            <field name="model">hemored.sellos.calidad</field>
+            <field name="arch" type="xml">
+                <form string="Sellos de Calidad">
+                    <sheet>
+                        <group>
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <label for="diresa_id"/>
+                                        </td>
+                                        <td>
+                                            <field
+                                                name="diresa_id"
+                                                required="True"
+                                                attrs="{'readonly': [('id', '!=', False)]}"
+                                                options="{'no_open': True, 'no_create': True, 'no_edit': True}">
+                                            </field>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="banco_id"/>
+                                        </td>
+                                        <td>
+                                            <field
+                                                name="banco_id"
+                                                required="True"
+                                                attrs="{'readonly': [('id', '!=', False)]}"
+                                                domain="[('diresa_id','=',diresa_id), ('tipo_banco','=', '2')]"
+                                                options="{'no_open': True, 'no_create': True, 'no_edit': True}">
+                                            </field>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group>
+                            <field name="solicitud_ids" nolabel="1">
+                                <tree>
+                                    <field name="fecha_solicitud"/>
+                                    <field name="num_expediente"/>
+                                    <field name="cant_solicitada"/>
+                                    <field name="cant_entregada"/>
+                                    <field name="fecha_entrega"/>
+                                    <field name="sellos_id" invisible="True"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="num_expediente"
+                                                   attrs="{'readonly': [('id', '!=', False)]}"
+                                                   required="True"
+                                            />
+                                            <field name="fecha_solicitud"
+                                                   attrs="{'readonly': [('id', '!=', False)]}"
+                                                   required="True"
+                                            />
+                                            <field name="cant_solicitada"
+                                                   attrs="{'readonly': [('id', '!=', False)]}"
+                                                   required="True"
+                                            />
+                                        </group>
+                                        <group>
+                                            <field name="cant_entregada"
+                                                   attrs="{'readonly': [('id', '!=', False)]}"
+                                                   required="True"
+                                            />
+                                            <field name="fecha_entrega"
+                                                   required="True"
+                                                   attrs="{'readonly': [('id', '!=', False)]}"
+                                            />
+                                            <field name="sellos_id"
+                                                   invisible="True"
+                                                   attrs="{'readonly': [('id', '!=', False)]}"
+                                            />
+                                        </group>
+                                    </group>
+                                    <group>
+                                        <field name="serie_ids" nolabel="1">
+                                            <tree editable="bottom">
+                                                <field name="serie"
+                                                       attrs="{'readonly': [('id', '!=', False)]}"
+                                                       required="True"
+                                                />
+                                                <field name="num_inicio"
+                                                       attrs="{'readonly': [('id', '!=', False)]}"
+                                                       required="True"
+                                                />
+                                                <field name="num_fin"
+                                                       required="True"
+                                                       attrs="{'readonly': [('id', '!=', False)]}"
+                                                />
+                                                <field name="is_generate" readonly="True"/>
+                                                <button
+                                                    class="oe_stat_button" type="object"
+                                                    name="action_crear_registros"
+                                                    string="Crear Registros"
+                                                    icon="fa-file-text-o"
+                                                />
+                                                <field name="solicitud_id" invisible="True"/>
+                                            </tree>
+                                            <form>
+                                                 <group>
+                                                     <field name="serie"/>
+                                                     <field name="num_inicio"/>
+                                                     <field name="num_fin"/>
+                                                    <field name="solicitud_id" invisible="True"/>
+                                                 </group>
+                                            </form>
+                                        </field>
+                                    </group>
+                                </form>
+                            </field>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_sellos_calidad_action" model="ir.actions.act_window">
+            <field name="name">Sellos de Calidad</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored.sellos.calidad</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+        </record>
+    </data>
+</odoo>

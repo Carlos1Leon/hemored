@@ -1,0 +1,15 @@
+from . import constants  # noqa
+from . import hemored_supervision  # noqa
+from . import hemored_supervision_wizards  # noqa
+from . import hemored_respon_gerencia  # noqa
+from . import hemored_rrhh  # noqa
+from . import hemored_sistema_calidad  # noqa
+from . import hemored_almacenamineto  # noqa
+from . import hemored_proceso  # noqa
+from . import hemored_sistema_informatico  # noqa
+from . import hemored_clasf_biologica  # noqa
+from . import hemored_rel_equipamiento  # noqa
+from . import hemored_equipamiento  # noqa
+from . import hemored_infra_instal  # noqa
+from . import hemored_bio_salud  # noqa
+from . import hemored_calc_peso  # noqa

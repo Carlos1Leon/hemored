@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <record id="hemored_banco_sangre_form_inherit" model="ir.ui.view">
+            <field name="name">hemored.banco_sangre.form.inherit</field>
+            <field name="model">hemored.banco_sangre</field>
+            <field name="inherit_id" ref="hemored.banco_sangre_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/group[1]" position="before">
+                    <div class="oe_button_box" name="button_box">
+                        <button string="Notificaciones" type="object" name="action_record_notification"
+                                class="oe_stat_button" icon="fa-bars"
+                                groups="hemored.group_administrador"
+                        />
+                    </div>
+                </xpath>
+                <xpath expr="/form/sheet/group[3]" position="after">
+                    <notebook>
+                        <page invisible="True" string="Fichas Estadísticas" id="fichas">
+                            <group invisible="True">
+                                <field name="body_periodo_borrador"/>
+                                <field name="body_anual_borrador"/>
+                            </group>
+                            <field name="fichas_ids" readonly="True">
+                                <tree editable='bottom' delete='false' create='false' duplicate="0">
+                                    <field name="ficha_anual_mensual"/>
+                                    <field name="anho_id"/>
+                                    <field name="periodo_id"/>
+                                    <field name="fin_fecha_registro"/>
+                                    <field name="state"/>
+                                    <field name="banco_id" invisible="True"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Estatus de fichas del Banco de sangre">
+                            <group>
+                                <table class="table table-condensed">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:30%;"><label for="porc_fichas_borrador"/></td>
+                                            <td><field name="porc_fichas_borrador" readonly="True" widget="progressbar"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:30%;"><label for="porc_fichas_enviadas"/></td>
+                                            <td><field name="porc_fichas_enviadas" readonly="True" widget="progressbar"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:30%;"><label for="porc_fichas_validadas"/></td>
+                                            <td><field name="porc_fichas_validadas" readonly="True" widget="progressbar"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </group>
+                        </page>
+                        <page string="PARTICIPACIÓN EN PROGRAMA DE EVALUACIÓN EXTERNA DE LA CALIDAD DE TAMIZAJE" attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                            <group string="PARTICIPACIÓN EN PROGRAMA DE EVALUACIÓN EXTERNA DE LA CALIDAD DE TAMIZAJE">
+                                <table class="table table-condensed">
+                                    <tbody style="border: 2px solid #ccc;">
+                                        <tr>
+                                            <td colspan="1" style="border: 2px solid #ccc;">VIH</td>
+                                            <td colspan="1" style="border: 2px solid #ccc;">HBsAg</td>
+                                            <td colspan="1" style="border: 2px solid #ccc;">Hep C</td>
+                                            <td colspan="1" style="border: 2px solid #ccc;">Anti-HBc</td>
+                                            <td colspan="1" style="border: 2px solid #ccc;">HTLV I/II</td>
+                                            <td colspan="1" style="border: 2px solid #ccc;">Sifilis</td>
+                                            <td colspan="1" style="border: 2px solid #ccc;">Chagas</td>
+                                            <td colspan="1" style="border: 2px solid #ccc;">Otros</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="1" align="Center"><field name="select_mvih_s_o_n" widget="radio" nolabel="1" readonly="True"/></td>
+                                            <td colspan="1" align="Center"><field name="select_mhbsag_s_o_n" widget="radio" nolabel="1" readonly="True"/></td>
+                                            <td colspan="1" align="Center"><field name="select_mhepc_s_o_n" widget="radio" nolabel="1" readonly="True"/></td>
+                                            <td colspan="1" align="Center"><field name="select_mantihbc_s_o_n" widget="radio" nolabel="1" readonly="True"/></td>
+                                            <td colspan="1" align="Center"><field name="select_mhtlv_s_o_n" widget="radio" nolabel="1" readonly="True"/></td>
+                                            <td colspan="1" align="Center"><field name="select_msifilis_s_o_n" widget="radio" nolabel="1" readonly="True"/></td>
+                                            <td colspan="1" align="Center"><field name="select_mchagas_s_o_n" widget="radio" nolabel="1" readonly="True"/></td>
+                                            <td colspan="1" align="Center"><field name="select_motros_s_o_n" widget="radio" nolabel="1" readonly="True"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+
+   </data>
+</odoo>

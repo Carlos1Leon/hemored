@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA SEARCH -->
+        <record model="ir.ui.view" id="hemored_tutor_registro_search_view">
+            <field name="name">Tutores busqueda</field>
+            <field name="model">hemored.registro.tutor</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="dni" string="DNI"/>
+                    <group string="Agrupar por">
+                        <filter name="by_dni" string="DNI" context="{'group_by': 'dni'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="hemored_tutor_registro_tree_view">
+            <field name="name">Tutores</field>
+            <field name="model">hemored.registro.tutor</field>
+            <field name="arch" type="xml">
+                <tree string="Tutores">
+                    <field name="tutor" invisible="True"/>
+                    <field name="dni"/>
+                    <field name="name"/>
+                    <field name="edad"/>
+                    <field name="ocupacion"/>
+                    <field name="correo"/>
+                    <field name="telefono"/>
+                    <field name="lugar_de_trabajo"/>
+                    <field name="diresa_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="hemored_tutor_registro_form_view">
+            <field name="name">Tutores</field>
+            <field name="model">hemored.registro.tutor</field>
+            <field name="arch" type="xml">
+                <form string="Tutores">
+                    <sheet>
+                        <group>
+                            <field name="dni" required="True"/>
+                            <field name="name" readonly="True" force_save="1"/>
+                            <field name="fecha_nacimiento" readonly="True" force_save="1"/>
+                            <field name="edad" readonly="True" force_save="1"/>
+                            <field name="sexo" readonly="True" force_save="1"/>
+                            <field name="departamento_name" readonly="True" force_save="1"/>
+                            <field name="provincia_name" readonly="True" force_save="1"/>
+                            <field name="distrito_name" readonly="True" force_save="1"/>
+                            <field name="departamento_id" options="{'no_open': True, 'no_create': True, 'no_edit': True}" force_save="1"/>
+                            <field name="provincia_id" options="{'no_open': True, 'no_create': True, 'no_edit': True}" force_save="1"/>
+                            <field name="distrito_id" options="{'no_open': True, 'no_create': True, 'no_edit': True}" force_save="1"/>
+                            <field name="ocupacion"/>
+                            <field name="correo" required="True"/>
+                            <field name="telefono"/>
+                            <field name="lugar_de_trabajo"/>
+                            <field name="usuario_id" force_save="1" invisible="True"/>
+                            <field name="diresa_id" force_save="1" invisible="True"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_tutor_registro_action" model="ir.actions.act_window">
+            <field name="name">Tutores</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored.registro.tutor</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="context">{'default_tutor': True}</field>
+            <field name="domain">[('tutor','=', True)]</field>
+            <field name="search_view_id" ref="hemored_tutor_registro_search_view"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_datos_tutor_view_form">
+            <field name="act_window_id" ref="hemored_tutor_registro_action"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hemored_tutor_registro_form_view"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_datos_tutor_view_tree">
+            <field name="act_window_id" ref="hemored_tutor_registro_action"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="hemored_tutor_registro_tree_view"/>
+        </record>
+
+
+         <!-- MENU FORMULARIO-->
+        <menuitem id="menu_hemored_tutor_registro"
+                  name="Tutores"
+                  parent="menu_hemored_tutor_promotor_main"
+                  sequence="1"
+                  groups="hemored.group_administrador,hemored.group_coordinador_diris_diresa_hemored,hemored_tutor_promotor.group_tutores_hemored"
+                  action="hemored_tutor_registro_action"
+        />
+
+        <!-- VISTA SEARCH -->
+        <record model="ir.ui.view" id="hemored_promotor_registro_search_view">
+            <field name="name">Promotores busqueda</field>
+            <field name="model">hemored.registro.promotor</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="dni" string="DNI"/>
+                    <group string="Agrupar por">
+                        <filter name="by_dni" string="DNI" context="{'group_by': 'dni'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="hemored_promotor_registro_tree_view">
+            <field name="name">Tutores</field>
+            <field name="model">hemored.registro.promotor</field>
+            <field name="arch" type="xml">
+                <tree string="Promotores">
+                    <field name="promotor" invisible="True"/>
+                    <field name="dni"/>
+                    <field name="name"/>
+                    <field name="edad"/>
+                    <field name="ocupacion"/>
+                    <field name="correo"/>
+                    <field name="telefono"/>
+                    <field name="lugar_de_trabajo"/>
+                    <field name="diresa_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="hemored_promotor_registro_form_view">
+            <field name="name">Promotores</field>
+            <field name="model">hemored.registro.promotor</field>
+            <field name="arch" type="xml">
+                <form string="Promotores">
+                    <sheet>
+                        <group>
+                            <field name="dni" required="True" attrs="{'readonly': [('id', '!=', False)]}"/>
+                            <field name="name" readonly="True" force_save="1"/>
+                            <field name="fecha_nacimiento" readonly="True" force_save="1"/>
+                            <field name="edad" readonly="True" force_save="1"/>
+                            <field name="sexo" readonly="True" force_save="1"/>
+                            <field name="departamento_name" readonly="True" force_save="1"/>
+                            <field name="provincia_name" readonly="True" force_save="1"/>
+                            <field name="distrito_name" readonly="True" force_save="1"/>
+                            <field name="departamento_id" options="{'no_open': True, 'no_create': True, 'no_edit': True}" force_save="1"/>
+                            <field name="provincia_id" options="{'no_open': True, 'no_create': True, 'no_edit': True}" force_save="1"/>
+                            <field name="distrito_id" options="{'no_open': True, 'no_create': True, 'no_edit': True}" force_save="1"/>
+                            <field name="ocupacion"/>
+                            <field name="correo" required="True"/>
+                            <field name="telefono"/>
+                            <field name="lugar_de_trabajo"/>
+                            <field name="tutor_id" options="{'no_open': True, 'no_create': True, 'no_edit': True}" force_save="1"/>
+                            <field name="usuario_id" force_save="1" invisible="True"/>
+                            <field name="diresa_id" force_save="1" invisible="True"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_promotor_registro_action" model="ir.actions.act_window">
+            <field name="name">Promotores</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored.registro.promotor</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="context">{'default_promotor': True}</field>
+            <field name="domain">[('promotor','=', True)]</field>
+            <field name="search_view_id" ref="hemored_promotor_registro_search_view"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_datos_promotor_view_form">
+            <field name="act_window_id" ref="hemored_promotor_registro_action"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hemored_promotor_registro_form_view"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_datos_promotor_view_tree">
+            <field name="act_window_id" ref="hemored_promotor_registro_action"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="hemored_promotor_registro_tree_view"/>
+        </record>
+
+         <!-- MENU FORMULARIO-->
+        <menuitem id="menu_hemored_promotor_registro"
+                  name="Promotores"
+                  parent="menu_hemored_tutor_promotor_main"
+                  sequence="2"
+                  groups="hemored.group_administrador,hemored.group_coordinador_diris_diresa_hemored,hemored_tutor_promotor.group_tutores_hemored"
+                  action="hemored_promotor_registro_action"
+        />
+
+    </data>
+</odoo>

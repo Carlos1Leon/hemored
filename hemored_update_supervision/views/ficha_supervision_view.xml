@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <record id="view_ficha_form_inherit" model="ir.ui.view">
+            <field name="name">hemored_supervision.record_supervision.form.inherit</field>
+            <field name="model">hemored_supervision.record_supervision</field>
+            <field name="inherit_id" ref="hemored_supervision.record_supervision_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='state']" position="before">
+
+                    <button class="oe_stat_button" type="object"
+                            name="print_excel"
+                            string="Exportar Excel"
+                            icon="fa-file-text-o" attrs="{'invisible':[('id','=', False)]}"/>
+
+                    <button class="oe_stat_button" type="object" name="cargar_excel_ficha" string="Importar Excel" icon="fa-file-text-o"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,2179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <record id="hemored_supervision_record_supervision_form_inherit_rel_equipamiento_m" model="ir.ui.view">
+            <field name="name">hemored.banco_sangre.form.inherit.rel.equipamiento.monitoreo</field>
+            <field name="model">hemored_supervision.record_supervision</field>
+            <field name="inherit_id" ref="hemored_supervision.hemored_supervision_record_supervision_form_inherit_equip_m"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@id='equip']" position="after">
+                    <page string="RELACIÓN DE EQUIPAMIENTO" id="rel_equipamiento">
+                        <group>
+                            <table class="table table-bordered mb64">
+                                <tbody style="border: 1px solid #ccc;">
+                                    <tr>
+                                        <td rowspan="2" style="vertical-align:middle;width:15%;" align="center">
+                                            DENOMINACION DEL EQUIPO CRITICO
+                                        </td>
+                                        <td style="width:10%;" colspan="2" align="center">
+                                            CANTIDAD
+                                        </td>
+                                        <td style="width:15%;" rowspan="2" colspan="2" align="center">
+                                            OBSERVACION
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:10%;" align="center">
+                                            Cesión en Uso
+                                        </td>
+                                        <td style="width:10%;" align="center">
+                                            Propios
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            1) Balanza digital o de 2 brazos hasta 3 Kg.
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            2) Balanza y tallimetro.
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            3) Baño María
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            4) Centrifuga de inmunohematologia.
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            5) Centrífuga de microhematocrito o hemoglobinometro
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            6) Centrífuga refrigerada
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            7) Conservadora de sangre de +2°C a +6 °C, con sistema de control de temperatura,
+                                            sistema de alarma audiovisual y aire forzado
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            8) Congeladora de – 20ª C o menos, con registro de temperatura y/o alarma audiovisual.
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            9) Congelador de -70 ° o ultrafrize
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            10) Equipo automatizado o semiautomatizado  para  la realización del estudio
+                                            de enfermedades infecciosas
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            11) Agitador de bolsas de sangre con báscula calibrada (HEMOBÁSCULA)
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            12) Rotador-incubador de plaquetas.
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_12"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            13) Separador de plasma (Manual o Automatizado)
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_13"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            14) Pipetas automáticas (rango variable o fijo adecuadas para el procesamiento
+                                            de las pruebas)
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            15) Cronómetro (Timer)
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            16) Termómetro para temperatura ambiental (termohidrometro)
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            17) Descongelador de plasma
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_17"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_17"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_17"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_17"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_17"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_17"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_17"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_17"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_17"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_17"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_17"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            18) Autoclave (propia o compartida).
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            19) Tensiometro
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            20) Estetoscopio
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_20"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_20"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_20"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_20"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_20"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_20"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_20"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_20"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_20"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_20"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_20"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            21) Termómetro clínico.
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_21"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_21"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_21"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_21"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_21"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_21"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_21"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_21"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_21"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_21"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_21"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            22) Transportador isotérmico (Cooler para transporte de unidades)
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_22"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_22"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_22"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_22"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_22"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_22"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_22"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_22"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_22"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_22"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_22"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            23) Selladores de tubuladura.(manual o electrónico)
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_23"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_23"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_23"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_23"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_23"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_23"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_23"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_23"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_23"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_23"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_23"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            24) Equipo automatizado para inmunohematologia .(método y modelo)
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_24"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_24"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_24"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_24"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_24"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_24"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_24"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_24"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_24"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_24"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_24"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            25) Sillones para hemodonación.
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_25"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_25"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_25"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_25"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_25"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_25"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_25"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_25"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_25"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_25"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_25"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            26) Equipo de aféresis
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_26"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_26"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_26"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_26"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_26"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_26"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_26"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_26"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_26"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_26"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_26"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            27) Centrifugas para tarjetas gel
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_31"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_31"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_31"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_31"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_31"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_31"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_31"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_31"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_31"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_31"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_31"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            28) Incubadora de tarjeta Gel
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_32"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_32"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_32"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_32"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_32"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_32"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_32"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_32"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_32"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_32"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_32"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            29) Fraccionador de Hemocomponentes Semiautomatizado
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_33"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_33"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_33"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_33"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_33"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_33"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_33"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_33"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_33"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_33"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_33"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            30) Conector Esteril de tubuladuras
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_34"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_34"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_34"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_34"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_34"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_34"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_34"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_34"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_34"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_34"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_34"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group>
+                            <table class="table table-bordered mb64">
+                                <tbody style="border: 1px solid #ccc;">
+                                    <tr>
+                                        <td rowspan="2" style="vertical-align:middle;width:15%;" align="center">
+                                            DENOMINACION DEL EQUIPO CRITICO
+                                        </td>
+                                        <td style="width:10%;" colspan="2" align="center">
+                                            CANTIDAD
+                                        </td>
+                                        <td style="width:15%;" rowspan="2" colspan="2" align="center">
+                                            OBSERVACION
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:10%;" align="center">
+                                            Cesión en Uso
+                                        </td>
+                                        <td style="width:10%;" align="center">
+                                            Propios
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            31) Equipo de cómputo con Internet e intranet.
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_27"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_27"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_27"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_27"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_27"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_27"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_27"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_27"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_27"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_27"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_27"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            32) Teléfono con línea externa.
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_28"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_28"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_28"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_28"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_28"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_28"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_28"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_28"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_28"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_28"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_28"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            33) Equipo de aire acondicionado o calefacción**
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_29"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_29"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_29"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_29"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_29"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_29"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_29"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_29"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_29"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_29"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_29"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            34) Equipo de radiotelefonía para quienes no cuenten con servicio telefónico. **
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_c_30"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_c_b_30"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_c_r_30"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_c_m_30"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_c_equip_30"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:10%;">
+                                            Total
+                                            <field name="rel_equip_cant_p_30"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Buenos
+                                            <field name="rel_equip_cant_p_b_30"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Regular
+                                            <field name="rel_equip_cant_p_r_30"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Malo
+                                            <field name="rel_equip_cant_p_m_30"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                            <br/>
+                                            Marcar si estan operativos
+                                            <field name="rel_p_equip_30"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_rel_equip_30"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+   </data>
+</odoo>

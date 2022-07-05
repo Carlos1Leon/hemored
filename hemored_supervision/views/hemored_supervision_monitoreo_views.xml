@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="ecord_monitoreo_tree_view">
+            <field name="name">Registro de Monitoreo</field>
+            <field name="model">hemored_supervision.record_supervision</field>
+            <field name="arch" type="xml">
+                <tree string="Registro de Monitoreo">
+                    <field name="fecha_supervision" readonly="True"/>
+                    <field name="banco_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="record_monitoreo_form_view">
+            <field name="name">Monitoreo</field>
+            <field name="model">hemored_supervision.record_supervision</field>
+            <field name="arch" type="xml">
+                <form string="Registro de Monitoreo">
+                    <header>
+                        <button name="action_supervisar" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="Monitoreo"
+                                attrs="{'invisible': [('state', 'in', ('supervision', 'observado', 'terminado'))]}"
+                        />
+                        <button name="action_observar" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="Observar"
+                                attrs="{'invisible': [('state', 'in', ('borrador', 'observado', 'terminado'))]}"
+                        />
+                        <button name="action_terminar" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="Terminar"
+                                attrs="{'invisible': [('state', 'in', ('borrador', 'terminado'))]}"
+                        />
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <group string="Datos" id="datos">
+                        <table class="table table-bordered mb64">
+                            <tbody>
+                                <tr>
+                                    <td style="width:30%;">
+                                        <label for="fecha_supervision"/>
+                                    </td>
+                                    <td>
+                                        <field name="fecha_supervision" readonly="True"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:30%;">
+                                        <label for="banco_id"/>
+                                    </td>
+                                    <td>
+                                        <field name="banco_id" readonly="True"/>
+                                        <field name="tipo_banco" readonly="True"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:30%;">
+                                        <label for="dirrecion"/>
+                                    </td>
+                                    <td>
+                                        <field name="dirrecion" readonly="True"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:30%;">
+                                        <label for="categoria"/>
+                                    </td>
+                                    <td>
+                                        <field name="categoria" readonly="True"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:30%;">
+                                        <label for="diresa_id"/>
+                                    </td>
+                                    <td>
+                                        <field name="diresa_id" readonly="True"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:30%;">
+                                        <label for="telefono"/>
+                                    </td>
+                                    <td>
+                                        <field name="telefono" readonly="True"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:30%;">
+                                        <label for="anexo"/>
+                                    </td>
+                                    <td>
+                                        <field name="anexo" readonly="True"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:30%;">
+                                        <label for="director"/>
+                                    </td>
+                                    <td>
+                                        <field name="director" readonly="True"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:30%;">
+                                        <label for="jefe_cbhs"/>
+                                    </td>
+                                    <td>
+                                        <field name="jefe_cbhs" readonly="True"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:30%;">
+                                        <label for="email_cbhs"/>
+                                    </td>
+                                    <td>
+                                        <field name="email_cbhs" readonly="True"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:30%;">
+                                        <label for="tipo_formulario"/>
+                                    </td>
+                                    <td>
+                                        <field name="tipo_formulario" readonly="True"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_monitoreo_action" model="ir.actions.act_window">
+            <field name="name">Registro de Monitoreo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored_supervision.record_supervision</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="limit">25</field>
+        </record>
+
+        <record id="hemored_supervision_action_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="hemored_supervision.ecord_monitoreo_tree_view"/>
+            <field name="act_window_id" ref="hemored_monitoreo_action"/>
+        </record>
+
+        <record id="hemored_supervision_action_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hemored_supervision.record_monitoreo_form_view"/>
+            <field name="act_window_id" ref="hemored_monitoreo_action"/>
+        </record>
+
+    </data>
+</odoo>

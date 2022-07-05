@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <template id="hemored_sellos_calidad.report_hemored_acta_">
+            <t t-call="web.html_container">
+                <style>
+                table, th, td 
+                {
+                    border: 1px solid black;
+                }
+                #cssTable td 
+                {
+                    text-align: center; 
+                    vertical-align: middle;
+                }
+                </style>
+                <div style="font-size:12px;text-align:center" class="text-center">
+                    <font face="arial">
+                        <h2>
+                            <b>ANEXO 2</b>
+                        </h2>
+                    </font>
+                </div>
+                <br/>
+                <div style="font-size:12px;text-align:center" class="text-center">
+                    <font face="arial">
+                        <h3>
+                            <b>
+                                ACTA DE ELIMINACIÓN DEL SELLO NACIONAL DE CALIDAD DE 
+                                SANGRE POR LA NO ELABORACIÓN DE HEMOCOMPONENTES
+                            </b>
+                        </h3>
+                    </font>
+                </div>
+                <br/>
+                <div style="font-size:14px;padding-top: 20px;text-align: justify" class="text-center">
+                    <font face="arial">
+                        <b>
+                            El día <sapn t-esc="dia"/> de <sapn t-esc="mes"/> de <sapn t-esc="año"/>,
+                            siendo las <sapn t-esc="hora"/> horas, en presencia de <sapn t-esc="responsable"/>,
+                            Jefe del Centro de Hemoterapia y Banco de Sangre del establecimiento de salud: 
+                            <sapn t-esc="establecimiento"/> en cumplimiento de la "DIRECTIVA SANITARIA
+                            N° 067-MINSA/DGSP V.01, DIRECTIVA SANITARIA PARA EL USO Y CONTROL DEL SELLO DE CALIDAD 
+                            NACIONAL DE CALIDAD DE SANGRE", se procede a la eliminación de los sellos de calidad
+                            que no fueron empleados por no haberse producido todos los hemocomponentes 
+                            de la unidad tamizada. Los cuales reúnen las siguientes características:
+                        </b>
+                    </font>
+                </div>
+                <br/>
+                <div style="font-size:10px;padding-top: 20px;">
+                    <font face="arial">
+                        <table class="table table-sm" id="cssTable">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">N° de la unidad</th>
+                                    <th class="text-center">Sello N° del Sello Nacional de Calidad de Sangre</th>
+                                    <th class="text-center">Nombre del Hemocomponente en el sello</th>
+                                    <th class="text-center">Grupo Sanguineo y Factor Rh de la unidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="datos" t-as="d">
+                                    <td>
+                                        <span style="text-center" t-esc="d['num_unidad']"/>
+                                    </td>
+                                    <td>
+                                        <span style="text-center"  t-esc="d['serie']"/>
+                                    </td>
+                                    <td>
+                                        <span style="text-center"  t-esc="d['componente']"/>
+                                    </td>
+                                    <td>
+                                        <span style="text-center"  t-esc="d['grupo_sanguineo']"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </font>
+                </div>
+                <div class="text-center" style="padding-top: 60px; font-size:14px;">
+                    <font face="arial">
+                        <sapn>_______________________________________________</sapn><br/>
+                        <sapn>Firma y sello </sapn><br/>
+                        <sapn>Jefe del Centro de Hemoterapia y Banco de Sangre:</sapn><br/>
+                    </font>
+                </div>
+            </t>
+        </template>
+
+        <template id="hemored_acta_">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="hemored_sellos_calidad.report_hemored_acta_"/>
+                </t>
+            </t>
+        </template>
+
+        <report
+            id="action_report_hemored_acta"
+            string="Acta de eliminación de sellos de calidad"
+            model="hemored.eliminacion.sellos.acta"
+            report_type="qweb-pdf"
+            name="hemored_sellos_calidad.report_hemored_acta_"
+            file="hemored_sellos_calidad.report_hemored_acta_"
+            print_report_name="Acta"
+            menu="False"
+        />
+
+    </data>
+</odoo>

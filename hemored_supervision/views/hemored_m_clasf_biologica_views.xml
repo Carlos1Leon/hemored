@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <record id="hemored_supervision_record_supervision_form_inherit_clasf_bio_m" model="ir.ui.view">
+            <field name="name">hemored.banco_sangre.form.inherit.clasf.bio.monitoreo</field>
+            <field name="model">hemored_supervision.record_supervision</field>
+            <field name="inherit_id" ref="hemored_supervision.hemored_supervision_record_supervision_form_inherit_sig_m"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@id='sig']" position="after">
+                    <field name="p_clasf_bio_2" invisible="True"/>
+                    <field name="g_clasf_bio_2" invisible="True"/>
+                    <field name="p_clasf_bio_3" invisible="True"/>
+                    <field name="g_clasf_bio_3" invisible="True"/>
+                    <field name="p_clasf_bio_4" invisible="True"/>
+                    <field name="g_clasf_bio_4" invisible="True"/>
+                    <field name="p_clasf_bio_5" invisible="True"/>
+                    <field name="g_clasf_bio_5" invisible="True"/>
+                    <field name="p_clasf_bio_6" invisible="True"/>
+                    <field name="g_clasf_bio_6" invisible="True"/>
+                    <field name="p_clasf_bio_7" invisible="True"/>
+                    <field name="g_clasf_bio_7" invisible="True"/>
+                    <field name="p_clasf_bio_8" invisible="True"/>
+                    <field name="g_clasf_bio_8" invisible="True"/>
+                    <field name="p_clasf_bio_9" invisible="True"/>
+                    <field name="g_clasf_bio_9" invisible="True"/>
+                    <field name="p_clasf_bio_14" invisible="True"/>
+                    <field name="g_clasf_bio_14" invisible="True"/>
+                    <field name="p_clasf_bio_15" invisible="True"/>
+                    <field name="g_clasf_bio_15" invisible="True"/>
+                    <field name="p_clasf_bio_16" invisible="True"/>
+                    <field name="g_clasf_bio_16" invisible="True"/>
+                    <page string="CALIFICACIÓN BIOLÓGICA" id="clasf_bio">
+                        <group>
+                            <table class="table table-bordered mb64">
+                                <tbody style="border: 1px solid #ccc;">
+                                    <tr>
+                                        <td style="width:15%;" align="center">
+                                            DESCRIPCIÓN
+                                        </td>
+                                        <td style="width:10%;" align="center">
+                                            MARCAR (SI o NO) / OPCIONES (SÍ HUBIERA) / ESPECIFICAR
+                                        </td>
+                                        <td style="width:20%;" align="center">
+                                            OBSERVACIÓN
+                                        </td>
+                                        <td style="width:15%;" colspan="2" align="center">
+                                            VERIFICADOR / RECOMENDACIONES
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td colspan="4" style="width:15%;" align="justify">
+                                            I. CALIFICACIÓN BIOLÓGICA: INMUNOSEROLOGÍA
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Es abastecido oportunamente con insumos y reactivos?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="clasf_bio_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_clasf_bio_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar registros
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Han existido periodos de carencia de reactivos para tamizaje de enfermedades infecciosas?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="clasf_bio_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_clasf_bio_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Por cuanto tiempo aproximadamente, que prueba y que medidas se adoptaron.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            Responsable (s) del procesamiento
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="esp_clasf_bio_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_clasf_bio_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            Profesión del responsable del procesamiento
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="t_clasf_bio_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_clasf_bio_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con registros de muestras procesadas?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="clasf_bio_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_clasf_bio_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar archivos de lecturas
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Los resultados se encuentran validados?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="clasf_bio_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_clasf_bio_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar firma del jefe del servició y fecha de validación
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con seroteca?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="clasf_bio_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_clasf_bio_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar condición de la seroteca
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="vertical-align:middle;width:15%;" align="justify">
+                                            ¿Por cuanto tiempo conserva la seroteca?
+                                        </td>
+                                        <td style="width:15%;" align="justify">
+                                            <field name="t_clasf_bio_9" attrs="{'readonly': [('state', 'in', ('terminado'))]}"/>
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_clasf_bio_9" attrs="{'readonly': [('state', 'in', ('terminado'))]}"/>
+                                        </td>
+                                        <td colspan="2" style="vertical-align:middle;width:15%;" align="justify">
+                                            Verificar el almacenamiento mínimo de 01 año
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" style="width:15%;" align="justify">
+                                            II. CALIFICACIÓN BIOLÓGICA: INMUNOHEMATOLOGÍA
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Es abastecido oportunamente con insumos y reactivos?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="clasf_bio_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_clasf_bio_14"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Si la respuesta es afirmativa señalar por cuanto tiempo aproximadamente
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Han existido periodos de carencia de reactivos para pruebas inmunohematológicas?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="clasf_bio_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_clasf_bio_15"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar registros
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Qué tecnología utiliza para el procesamiento?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="esp_clasf_bio_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_clasf_bio_16"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Indicar cuál?
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con registros de muestras procesadas?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="clasf_bio_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_clasf_bio_18"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar archivos de lecturas
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Los resultados se encuentran validados?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="clasf_bio_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_clasf_bio_19"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar firma del jefe del servició y fecha de validación
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+   </data>
+</odoo>

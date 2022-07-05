@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- VISTA SEARCH -->
+        <record id="banco_sangre_search_view" model="ir.ui.view">
+            <field name="name">hemored.banco_sangre.search</field>
+            <field name="model">hemored.banco_sangre</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="renipress_id" string="Código Ipress ó Nombre de CHBS"/>
+                    <field name="diresa_id" string="DIRIS/DIRESA/GERESA"/>
+                    <field name="name" string="Nombre del Centro de Hemoterapia y/o Banco de Sangre"/>
+                    <field name="institucion" string="Nombre de la Institución"/>
+                    <field name="tipo_banco" string="Tipo"/>
+                    <group string="Agrupar por">
+                        <filter name="by_diresa_id" string="DIRIS/DIRESA/GERESA" context="{'group_by': 'diresa_id'}"/>
+                        <filter name="by_tipo_banco" string="Tipo de Banco" context="{'group_by': 'tipo_banco'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="banco_sangre_tree_view">
+            <field name="name">hemored.banco_sangre.tree</field>
+            <field name="model">hemored.banco_sangre</field>
+            <field name="arch" type="xml">
+                <tree duplicate="0">
+                    <field name="renipress_id"/>
+                    <field name="diresa_id" string="DIRIS/DIRESA/GERESA"/>
+                    <field name="departamento_id"/>
+                    <field name="institucion"/>
+                    <field name="tipo_banco"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="banco_sangre_form_view">
+            <field name="name">hemored.banco_sangre.form</field>
+            <field name="model">hemored.banco_sangre</field>
+            <field name="arch" type="xml">
+                <form duplicate="0">
+                    <field name="registro_web" invisible="True"/>
+                    <field name="archivo_nombre" invisible="True"/>
+                    <sheet>
+                        <group string="Datos del CHBS - Hemored">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:20%;"><label for="renipress_id"/></td>
+                                        <td><field name="renipress_id"/></td>
+                                    </tr>
+                                    <tr invisible="True">
+                                        <td><label for="usuario_id"/></td>
+                                        <td><field name="usuario_id" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:20%;"><label for="fecha"/></td>
+                                        <td><field name="fecha"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group string="Datos Principales">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td><p>Código RENIPRESS / usuario</p></td>
+                                        <td><field name="codigo_eess" readonly="True" required="False"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>DIRIS/DIRESA/GERESA</p></td>
+                                        <td><field name="diresa_id" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="num_registro"/></td>
+                                        <td><field name="num_registro" required="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="archivo"/></td>
+                                        <td><field name="archivo" filename="txt_ficha_estadistica"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="fecha_registro"/></td>
+                                        <td><field name="fecha_registro" required="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:20%;"><label for="name"/></td>
+                                        <td><field name="name" readonly="True" required="False"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="tipo_banco"/></td>
+                                        <td><field name="tipo_banco"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="institucion"/></td>
+                                        <td><field name="institucion" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="region_prov_dist"/></td>
+                                        <td><field name="region_prov_dist" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="direccion"/></td>
+                                        <td><field name="direccion" readonly="True"/></td>
+                                    </tr>
+                                    <tr invisible="True">
+                                        <td><label for="microred_id"/></td>
+                                        <td><field name="microred_id" readonly="True" required="False"/></td>
+                                    </tr>
+                                    <tr invisible="True">
+                                        <td><label for="red_id"/></td>
+                                        <td><field name="red_id" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>Teléfono del CHBS</p></td>
+                                        <td><field name="telefono"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>Anexo del CHBS</p></td>
+                                        <td><field name="anexo"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:20%;"><label for="director_eess"/></td>
+                                        <td><field name="director_eess"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group string="Otros Datos del CHBS">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:20%;"><label for="medico_coordinador_responsable"/></td>
+                                        <td><field name="medico_coordinador_responsable"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="celular"/></td>
+                                        <td><field name="celular" required="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="email"/></td>
+                                        <td><field name="email"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="num_camas"/></td>
+                                        <td><field name="num_camas"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="horario_atencion"/></td>
+                                        <td><field name="horario_atencion" required="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="observacion"/></td>
+                                        <td><field name="observacion"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- ACTION VIEW -->
+        <record id="banco_sangre_action" model="ir.actions.act_window">
+            <field name="name">Datos Generales de CHBS</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored.banco_sangre</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="limit">25</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record id="ir_cron_update_user" model="ir.cron">
+            <field name="name">Asociar usuario</field>
+            <field name="model_id" ref="model_hemored_banco_sangre"/>
+            <field name="state">code</field>
+            <field name="code">model._update_user()</field>
+            <field name='interval_number'>1</field>
+            <field name='interval_type'>minutes</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+
+        <!-- MENU Datos Generales de CHBS -->
+        <menuitem id="menu_banco_sangre"
+            name="Datos Generales de CHBS"
+            parent="menu_main"
+            action="banco_sangre_action" 
+            sequence="2" />
+
+    </data>
+</odoo>

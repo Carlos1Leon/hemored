@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- VIEW GRAPH  -->
+        <record id="hemored_ficha_total_postulante_diferido_excluido_graph_view" model="ir.ui.view">
+            <field name="name">Tipo Postulantes</field>
+            <field name="model">hemored.ficha_total_postulante_diferido_excluido.line</field>
+            <field name="arch" type="xml">
+                <graph>
+                    <field name="diresa_id" type="row"/>
+                </graph>
+            </field>
+        </record>
+
+       <!-- VIEW PIVOT  -->
+        <record model="ir.ui.view" id="hemored_ficha_total_postulante_diferido_excluido_pivot_view">
+            <field name="name">Tipo Postulantes</field>
+            <field name="model">hemored.ficha_total_postulante_diferido_excluido.line</field>
+            <field name="arch" type="xml">
+                <pivot string="Tipo Postulante">
+                    <field name="diresa_id" type="row"/>
+                    <field name="motivo_diferido_excluido" type="col"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="hemored_ficha_total_postulante_report_tree" model="ir.ui.view">
+            <field name="name">hemored.ficha_total_postulante.reporte.tree</field>
+            <field name="model">hemored.ficha_total_postulante_diferido_excluido.line</field>
+            <field name="arch" type="xml">
+                <tree string="Tipo Postulante" create="0" edit="0" duplicate="0">
+                    <field name="banco_id"/>
+                    <field name="diresa_id"/>
+                    <field name="tipo_banco"/>
+                    <field name="institucion"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record id="hemored_ficha_total_postulante_report_form" model="ir.ui.view">
+            <field name="name">hemored.ficha_total_postulante_report.form</field>
+            <field name="model">hemored.ficha_total_postulante_diferido_excluido.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Tipo Postulante" create="0" edit="0" duplicate="0">
+                    <sheet>
+                        <group>
+                            <field name="banco_id"/>
+                            <field name="diresa_id"/>
+                            <field name="tipo_banco"/>
+                            <field name="institucion"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_ficha_total_postulante_report_action" model="ir.actions.act_window">
+            <field name="name">Tipo Postulante</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored.ficha_total_postulante_diferido_excluido.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">pivot,graph,tree,form</field>
+        </record>
+
+        <!-- MENU -->
+        <menuitem id="menu_tipo_postulante_reporte"
+            name="Tipo Postulante"
+            parent="menu_main_report"
+            action="hemored_ficha_total_postulante_report_action"
+            sequence="3" />
+
+    </data>
+</odoo>

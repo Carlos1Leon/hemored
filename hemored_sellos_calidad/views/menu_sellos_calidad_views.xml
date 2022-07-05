@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- MENU DE LA APLICACION -->
+        <menuitem
+            id="menu_hemored_sellos_calidad_main"
+            name="Sellos de Calidad"
+            web_icon="hemored_sellos_calidad,static/description/icon.png"
+            groups="hemored.group_administrador,hemored_sellos_calidad.group_establecimiento_tipo_ii_sellos_calidad_hemored"
+            sequence="9"
+        />
+
+        <!-- MENU FORMULARIO-->
+        <menuitem id="menu_hemored_sellos_calidad"
+                  name="Sellos de Calidad"
+                  parent="menu_hemored_sellos_calidad_main"
+                  sequence="1"
+                  action="hemored_sellos_calidad_action"
+        />
+
+        <!-- MENU FORMULARIO-->
+        <menuitem id="menu_hemored_sellos_calidad_registro"
+                  name="Sellos de Calidad Registro"
+                  parent="menu_hemored_sellos_calidad_main"
+                  sequence="2"
+                  action="hemored_sellos_calidad_registro_action"
+        />
+
+        <!-- MENU FORMULARIO-->
+        <menuitem id="menu_hemored_sellos_calidad_eliminado_chbs"
+                  name="Sellos de Calidad Eliminados"
+                  parent="menu_hemored_sellos_calidad_main"
+                  sequence="3"
+                  action="hemored_sellos_calidad_eliminado_action"
+                  groups="hemored_sellos_calidad.group_establecimiento_tipo_ii_sellos_calidad_hemored"
+        />
+
+        <!-- MENU FORMULARIO-->
+        <menuitem id="menu_hemored_sellos_calidad_eliminado_admin"
+                  name="Sellos de Calidad Eliminados"
+                  parent="menu_hemored_sellos_calidad_main"
+                  sequence="4"
+                  action="hemored_sellos_calidad_eliminado_action_admin"
+                  groups="hemored.group_administrador"
+        />
+
+        <!-- MENU REPORTE -->
+        <menuitem name="Reportes" id="menu_reportes" parent="hemored_sellos_calidad.menu_hemored_sellos_calidad_main"
+                  sequence="5" groups="hemored.group_administrador"
+        />
+
+        <menuitem id="menu_stock_sellos_reporte"
+                  name="Consolidado Sellos de Calidad"
+                  action="stock_sellos_report_excel_action"
+                  parent="menu_reportes" sequence="1"
+        />
+
+    </data>
+</odoo>

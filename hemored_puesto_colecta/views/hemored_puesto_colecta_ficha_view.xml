@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="hemored_puesto_colecta_ficha_tree_view">
+            <field name="name">Ficha Puesto de Colecta</field>
+            <field name="model">hemored_puesto_colecta.ficha</field>
+            <field name="arch" type="xml">
+                <tree string="Puesto de Colecta" duplicate="0">
+                    <field name="hemored_puesto_colecta_id"/>
+                    <field name="banco_id"/>
+                    <field name="diresa_id"/>
+                    <field name="fecha_ficha"/>
+                    <field name="estado"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="hemored_puesto_colecta_ficha_form_view">
+            <field name="name">Ficha Puesto de Colecta</field>
+            <field name="model">hemored_puesto_colecta.ficha</field>
+            <field name="arch" type="xml">
+                <form string="Ficha Puesto de Colecta" duplicate="0">
+                    <header>
+                        <button name="action_send" type="object" class="oe_inline oe_stat_button"
+                                string="Enviar" attrs="{'invisible': [('estado', 'in', ('enviado', 'validado'))]}"
+                                confirm="Verifique los datos ingresados" groups="hemored.group_coordinador_establecimiento_hemored,hemored.group_administrador"
+                        />
+                        <button name="action_observed" type="object" class="oe_inline oe_stat_button"
+                                string="Observar" attrs="{'invisible': [('estado', 'in', ('borrador', 'validado'))]}"
+                                confirm="Regresará a un estado Borrador" groups="hemored.group_coordinador_establecimiento_hemored,hemored.group_administrador"
+                        />
+                        <button name="action_valid" type="object" class="oe_inline oe_stat_button"
+                                string="Validar" attrs="{'invisible': [('estado', 'in', ('borrador', 'validado'))]}"
+                                confirm="Verifique los datos ingresados" groups="hemored.group_coordinador_establecimiento_hemored,hemored.group_administrador"
+                        />
+                        <field name="estado" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td>Puesto de Colecta</td>
+                                        <td><field name="hemored_puesto_colecta_id"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Diresa</td>
+                                        <td><field name="diresa_id" options="{'no_create': True, 'no_edit': True}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Centro de Hemoterapia y Banco de Sangre</td>
+                                        <td><field name="banco_id" domain="[('diresa_id','=',diresa_id), ('tipo_banco','=',2)]" options="{'no_create': True, 'no_edit': True}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fecha</td>
+                                        <td><field name="fecha_ficha"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="postulantes"/></td>
+                                        <td><field name="postulantes" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="donantes"/></td>
+                                        <td><field name="donantes" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="donantes_hombre"/></td>
+                                        <td><field name="donantes_hombre" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="donantes_mujer"/></td>
+                                        <td><field name="donantes_mujer" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_puesto_colecta_ficha_action" model="ir.actions.act_window">
+            <field name="name">Ficha Puesto de Colecta</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored_puesto_colecta.ficha</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="limit">25</field>
+        </record>
+
+        <!-- MENU -->
+        <menuitem id="menu_hemored_puesto_colecta_ficha"
+                  name="Ficha Puesto de Colecta"
+                  parent="menu_hemored_puesto_colecta_main"
+                  sequence="2"
+                  action="hemored_puesto_colecta_ficha_action"
+        />
+
+
+    </data>
+</odoo>

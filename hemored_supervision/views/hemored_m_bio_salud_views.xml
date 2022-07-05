@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <record id="hemored_supervision_record_supervision_form_inherit_bio_salud_m" model="ir.ui.view">
+            <field name="name">hemored.banco_sangre.form.inherit.bio_salud.monitoreo</field>
+            <field name="model">hemored_supervision.record_supervision</field>
+            <field name="inherit_id" ref="hemored_supervision.hemored_supervision_record_supervision_form_inherit_infra_instal_m"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@id='infra_instal']" position="after">
+                    <field name="p_bio_s_2" invisible="True"/>
+                    <field name="g_bio_s_2" invisible="True"/>
+                    <field name="p_bio_s_3" invisible="True"/>
+                    <field name="g_bio_s_3" invisible="True"/>
+                    <field name="p_bio_s_4" invisible="True"/>
+                    <field name="g_bio_s_4" invisible="True"/>
+                    <field name="p_bio_s_5" invisible="True"/>
+                    <field name="g_bio_s_5" invisible="True"/>
+                    <page string="BIOSEGURIDAD Y SALUD OCUPACIONAL" id="bio_salud">
+                        <group>
+                            <table class="table table-bordered mb64">
+                                <tbody style="border: 1px solid #ccc;">
+                                    <tr>
+                                        <td style="width:15%;" align="center">
+                                            DESCRIPCIÓN
+                                        </td>
+                                        <td style="width:10%;" align="center">
+                                            MARCAR (SI o NO) / OPCIONES (SÍ HUBIERA) / ESPECIFICAR
+                                        </td>
+                                        <td style="width:20%;" align="center">
+                                            OBSERVACIÓN
+                                        </td>
+                                        <td style="width:15%;" colspan="2" align="center">
+                                            VERIFICADOR - RECOMENDACIONES
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Se maneja y descarta la sangre y sus hemocomponentes de acuerdo a la norma de bioseguridad vigente?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="bio_s_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_bio_s_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            ¿Se esterilizan sistemáticamente los dispositivos en contacto con sangre o tejido que puedan transmitir infección?
+                                            Referencia: Criterio de calidad EG10-CC03 del SGC
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Proveen medidas de prevención y vacunación al personal expuesto?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="bio_s_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_bio_s_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar el uso de materiales de protección  (EPP adecuado)
+                                            Referencia: NT N° 015-MINSA/DGSP V.01
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuentan con empresa para eliminar desechos?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="bio_s_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_bio_s_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Solicitar manifiesto de manejo de residuos solidos biocontaminados (copia)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con registro de eliminación de unidades de sangre de acuerdo al SGC?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="bio_s_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_bio_s_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar actualización
+                                            Referencia: EG010-FR02
+                                            Se recomienda incluir número de sello de calidad
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+   </data>
+</odoo>

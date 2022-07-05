@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="stock_hemocomponente_generar_ficha_tree_view">
+            <field name="name">Generar Fichas</field>
+            <field name="model">stock_hemocomponente.generar_ficha</field>
+            <field name="arch" type="xml">
+                <tree string="Generar Fichas" duplicate="0">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="stock_hemocomponente_generar_ficha_form_view">
+            <field name="name">Generar Fichas</field>
+            <field name="model">stock_hemocomponente.generar_ficha</field>
+            <field name="arch" type="xml">
+                <form string="Generar Fichas" duplicate="0">
+                    <div class="oe_button_box" name="button_box">
+                        <div class="oe_inline">
+                            <button class="oe_stat_button" type="object"
+                                name="action_crear_ficha"
+                                string="Crear Fichas Estadísticas"
+                                icon="fa-file-text-o" attrs="{'invisible':[('id','=', False)]}"/>
+                        </div>
+                    </div>
+                    <group>
+                        <field name="name" required="True"/>
+                        <field name="company_id" invisible="True"/>
+                    </group>
+                    <group>
+                        <field name="banco_ids" nolabel="1" domain="[('tipo_banco', '=', '2')]">
+                            <tree editable="bottom">
+                                <field name="renipress_id" string="Bancos"/>
+                            </tree>
+                        </field>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- LIST ACTION -->
+        <record model="ir.actions.act_window" id="stock_hemocomponente_generar_ficha_action">
+            <field name="name">Generar Fichas</field>
+            <field name="res_model">stock_hemocomponente.generar_ficha</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="limit">25</field>
+        </record>
+
+        <record id="ir_cron_crea_ficha_stock" model="ir.cron">
+            <field name="name">Crear Fichas</field>
+            <field name="model_id" ref="model_stock_hemocomponente_generar_ficha"/>
+            <field name="state">code</field>
+            <field name="code">model._crear_ficha()</field>
+            <field name='interval_number'>1</field>
+            <field name='interval_type'>days</field>
+            <field name="nextcall" eval="datetime.now(pytz.timezone('UTC')).strftime('%Y-%m-%d 07:00:00')" />
+            <field name="numbercall">-1</field>
+        </record>
+
+        <!-- MENU  -->
+        <menuitem id="menu_generar_ficha_stock"
+                  name="Generar Fichas"
+                  parent="stock_hemocomponente.menu_stock_hemocomponente_main"
+                  sequence="4"
+                  action="stock_hemocomponente_generar_ficha_action"
+        />
+
+
+    </data>
+</odoo>

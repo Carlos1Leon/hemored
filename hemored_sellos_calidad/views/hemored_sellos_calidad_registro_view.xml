@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- VISTA SEARCH -->
+        <record id="hemored_sellos_calidad_registro_search_view" model="ir.ui.view">
+            <field name="name">hemored.sellos.calidad.registro.search</field>
+            <field name="model">hemored.sellos.calidad.registro</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="diresa_id" string="DIRIS/DIRESA/GERESA"/>
+                    <field name="banco_id" string="CHBS"/>
+                    <field name="serie"/>
+                    <field name="componente"/>
+                    <field name="num_serie"/>
+                    <group string="Agrupar por">
+                        <filter name="by_banco_id" string="Banco" context="{'group_by': 'banco_id'}"/>
+                        <filter name="by_diresa_id" string="DIRIS/DIRESA/GERESA" context="{'group_by': 'diresa_id'}"/>
+                        <filter name="by_serie" string="Serie" context="{'group_by': 'serie'}"/>
+                        <filter name="by_num_serie" string="Número" context="{'group_by': 'num_serie'}"/>
+                        <filter name="by_componente" string="Componente" context="{'group_by': 'componente'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="hemored_sellos_calidad_registro_tree_view">
+            <field name="name">Sellos de Calidad Registro</field>
+            <field name="model">hemored.sellos.calidad.registro</field>
+            <field name="arch" type="xml">
+                <tree string="Sellos de Calidad" duplicate="0" delete="0">
+                    <field name="diresa_id"/>
+                    <field name="banco_id"/>
+                    <field name="serie"/>
+                    <field name="num_serie"/>
+                    <field name="componente"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="hemored_sellos_calidad_registro_form_view">
+            <field name="name">Sellos de Calidad Registro</field>
+            <field name="model">hemored.sellos.calidad.registro</field>
+            <field name="arch" type="xml">
+                <form string="Sellos de Calidad Registro" edit="0" delete="0">
+                    <sheet>
+                        <group>
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <label for="diresa_id"/>
+                                        </td>
+                                        <td>
+                                            <field
+                                                name="diresa_id"
+                                                readonly="True"
+                                                options="{'no_open': True, 'no_create': True, 'no_edit': True}">
+                                            </field>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="banco_id"/>
+                                        </td>
+                                        <td>
+                                            <field
+                                                name="banco_id"
+                                                readonly="True"
+                                                domain="[('diresa_id','=',diresa_id), ('tipo_banco','=', '2')]"
+                                                options="{'no_open': True, 'no_create': True, 'no_edit': True}">
+                                            </field>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group>
+                            <field name="serie"/>
+                            <field name="num_serie"/>
+                            <field name="componente"/>
+                            <field name="estado_registro" readonly="True"/>
+                            <field name="num_unidad" readonly="True"/>
+                            <field name="grupo_sanguineo" readonly="True"/>
+                            <field name="series_id" invisible="True"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_sellos_calidad_registro_action" model="ir.actions.act_window">
+            <field name="name">Sellos de Calidad Registro</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored.sellos.calidad.registro</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="context">{'search_default_by_serie': 1, 'search_default_by_componente': 2, 'search_default_by_banco_id': 3}</field>
+            <field name="domain">[('estado_registro','=', 'activo')]</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_datos_registro_view_form">
+            <field name="act_window_id" ref="hemored_sellos_calidad_registro_action"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hemored_sellos_calidad_registro_form_view"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_datos_registro_view_tree">
+            <field name="act_window_id" ref="hemored_sellos_calidad_registro_action"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="hemored_sellos_calidad_registro_tree_view"/>
+        </record>
+
+
+
+        <!-- VISTA SEARCH -->
+        <record id="hemored_sellos_calidad_eliminado_search_view" model="ir.ui.view">
+            <field name="name">hemored.sellos.calidad.eliminado.search</field>
+            <field name="model">hemored.sellos.calidad.registro</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="diresa_id" string="DIRIS/DIRESA/GERESA"/>
+                    <field name="banco_id" string="CHBS"/>
+                    <field name="serie"/>
+                    <field name="componente"/>
+                    <field name="num_serie"/>
+                    <group string="Agrupar por">
+                        <filter name="by_banco_id" string="Banco" context="{'group_by': 'banco_id'}"/>
+                        <filter name="by_diresa_id" string="DIRIS/DIRESA/GERESA" context="{'group_by': 'diresa_id'}"/>
+                        <filter name="by_serie" string="Serie" context="{'group_by': 'serie'}"/>
+                        <filter name="by_num_serie" string="Número" context="{'group_by': 'num_serie'}"/>
+                        <filter name="by_componente" string="Componente" context="{'group_by': 'componente'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="hemored_sellos_calidad_eliminado_tree_view">
+            <field name="name">Sellos de Calidad Eliminados</field>
+            <field name="model">hemored.sellos.calidad.registro</field>
+            <field name="arch" type="xml">
+                <tree string="Sellos de Calidad" duplicate="0" delete="0">
+                    <field name="diresa_id"/>
+                    <field name="banco_id"/>
+                    <field name="serie"/>
+                    <field name="num_serie"/>
+                    <field name="componente"/>
+                    <field name="acta"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="hemored_sellos_calidad_eliminado_form_view">
+            <field name="name">Sellos de Calidad Eliminados</field>
+            <field name="model">hemored.sellos.calidad.registro</field>
+            <field name="arch" type="xml">
+                <form string="Sellos de Calidad Eliminados" edit="0" delete="0">
+                    <sheet>
+                        <group>
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <label for="diresa_id"/>
+                                        </td>
+                                        <td>
+                                            <field
+                                                name="diresa_id"
+                                                readonly="True"
+                                                options="{'no_open': True, 'no_create': True, 'no_edit': True}">
+                                            </field>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="banco_id"/>
+                                        </td>
+                                        <td>
+                                            <field
+                                                name="banco_id"
+                                                readonly="True"
+                                                domain="[('diresa_id','=',diresa_id), ('tipo_banco','=', '2')]"
+                                                options="{'no_open': True, 'no_create': True, 'no_edit': True}">
+                                            </field>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                        <group>
+                            <field name="serie"/>
+                            <field name="num_serie"/>
+                            <field name="componente"/>
+                            <field name="estado_registro" readonly="True"/>
+                            <field name="num_unidad" readonly="True"/>
+                            <field name="grupo_sanguineo" readonly="True"/>
+                            <field name="series_id" invisible="True"/>
+                            <field name="acta"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_sellos_calidad_eliminado_action" model="ir.actions.act_window">
+            <field name="name">Sellos de Calidad Eliminados</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored.sellos.calidad.registro</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="context">{'search_default_by_serie': 1, 'search_default_by_componente': 2, 'search_default_by_banco_id': 3}</field>
+            <field name="domain">[('estado_registro','=', 'eliminado')]</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_datos_eliminacion_chsb_view_form">
+            <field name="act_window_id" ref="hemored_sellos_calidad_eliminado_action"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hemored_sellos_calidad_eliminado_form_view"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_datos_eliminacion_chsb_view_tree">
+            <field name="act_window_id" ref="hemored_sellos_calidad_eliminado_action"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="hemored_sellos_calidad_eliminado_tree_view"/>
+        </record>
+
+
+        <!-- ACTION VIEW -->
+        <record id="hemored_sellos_calidad_eliminado_action_admin" model="ir.actions.act_window">
+            <field name="name">Sellos de Calidad Eliminados</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored.sellos.calidad.registro</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="context">{'search_default_by_serie': 1, 'search_default_by_componente': 2, 'search_default_by_banco_id': 3}</field>
+            <field name="domain">[('estado_registro','=', 'eliminado'), ('acta','=', True)]</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_datos_eliminacion_admin_view_form">
+            <field name="act_window_id" ref="hemored_sellos_calidad_eliminado_action_admin"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hemored_sellos_calidad_eliminado_form_view"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_datos_eliminacion_admin_view_tree">
+            <field name="act_window_id" ref="hemored_sellos_calidad_eliminado_action_admin"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="hemored_sellos_calidad_eliminado_tree_view"/>
+        </record>
+
+    </data>
+</odoo>

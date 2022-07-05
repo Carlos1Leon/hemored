@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- VISTA SEARCH -->
+        <record id="estado_fichas_estadistica_search_view" model="ir.ui.view">
+            <field name="name">hemored.report_estado_ficha.search</field>
+            <field name="model">hemored.report_estado_ficha</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="fecha_reporte" string="Fecha de reporte"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="estado_fichas_estadistica_tree_view">
+            <field name="name">hemored.report_estado_ficha.tree</field>
+            <field name="model">hemored.report_estado_ficha</field>
+            <field name="arch" type="xml">
+                <tree duplicate="0">
+                    <field name="fecha_reporte"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- VISTA FORMULARIO -->
+        <record model="ir.ui.view" id="view_estado_fichas_estadistica_xls_form">
+            <field name="name">Porcentaje - Ficha Estadística</field>
+            <field name="model">hemored.report_estado_ficha</field>
+            <field name="arch" type="xml">
+                <form string="Porcentajes">
+                    <header>
+                        <button name="action_generated" type="object" class="oe_inline oe_stat_button"
+                                icon="fa-check" string="Generar" attrs="{'invisible': [('state', 'in', ['borrador', 'generado'])]}"
+                                groups="hemored.group_administrador"
+                        />
+                        <button class="oe_stat_button" type="object"
+                                name="print_excel_porcentaje"
+                                string="Exportar Excel"
+                                icon="fa-file-text-o" attrs="{'invisible': [('state', 'in', ['borrador', 'registrado'])]}"
+                        />
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group string="Filtros">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:30%;"><label for="fecha_reporte"/></td>
+                                        <td><field name="fecha_reporte" readonly="True"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:30%;"><label for="anho_id"/></td>
+                                        <td><field name="anho_id"
+                                                   options="{'no_create': True, 'no_edit': True}"
+                                                   attrs="{'readonly': [('state', '=', 'generado')]}"
+                                        /></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:30%;"><label for="periodo_ids"/></td>
+                                        <td><field name="periodo_ids"
+                                                   widget="many2many_tags"
+                                                   options="{'no_create': True, 'no_edit': True}"
+                                                   domain="[('fiscalyear_id','=',anho_id)]"
+                                                   attrs="{'readonly': [('state', '=', 'generado')]}"
+                                        /></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:30%;"><label for="diresa_id"/></td>
+                                        <td><field name="diresa_id"
+                                                   options="{'no_create': True, 'no_edit': True}"
+                                                   attrs="{'readonly': [('state', '=', 'generado')]}"
+                                        /></td>
+                                    </tr>
+                                    <tr attrs="{'invisible':[('tipo_banco','!=', False)]}">
+                                        <td style="width:30%;"><label for="banco_id"/></td>
+                                        <td><field name="banco_id"
+                                                   options="{'no_create': True, 'no_edit': True}"
+                                                   domain="[('diresa_id','=',diresa_id)]"
+                                                   attrs="{'readonly': [('state', '=', 'generado')]}"
+                                        /></td>
+                                    </tr>
+                                    <tr attrs="{'invisible':[('banco_id','!=', False)]}">
+                                        <td style="width:30%;"><label for="tipo_banco"/></td>
+                                        <td><field name="tipo_banco"
+                                                   attrs="{'readonly': [('state', '=', 'generado')]}"
+                                        /></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:30%;"><label for="porc_fichas_borrador"/></td>
+                                        <td><field name="porc_fichas_borrador" readonly="True" widget="progressbar"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:30%;"><label for="porc_fichas_enviadas"/></td>
+                                        <td><field name="porc_fichas_enviadas" readonly="True" widget="progressbar"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:30%;"><label for="porc_fichas_validadas"/></td>
+                                        <td><field name="porc_fichas_validadas" readonly="True" widget="progressbar"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION VIEW -->
+        <record id="report_estado_ficha_action" model="ir.actions.act_window">
+            <field name="name">Porcentaje - Ficha Estadística en estado borrador, enviado y validado</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hemored.report_estado_ficha</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <menuitem id="menu_report_estado_ficha"
+            name="Porcentaje - Ficha Estadística en estado borrador, enviado y validado"
+            parent="menu_reportes"
+            action="report_estado_ficha_action"
+            sequence="1" />
+
+    </data>
+</odoo>

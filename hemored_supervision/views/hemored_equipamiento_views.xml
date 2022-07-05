@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+
+        <record id="hemored_supervision_record_supervision_form_inherit_equip" model="ir.ui.view">
+            <field name="name">hemored.banco_sangre.form.inherit.equip</field>
+            <field name="model">hemored_supervision.record_supervision</field>
+            <field name="inherit_id" ref="hemored_supervision.hemored_supervision_record_supervision_form_inherit_clasf_bio"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@id='clasf_bio']" position="after">
+                    <field name="p_equip_1" invisible="True"/>
+                    <field name="g_equip_1" invisible="True"/>
+                    <field name="p_equip_2" invisible="True"/>
+                    <field name="g_equip_2" invisible="True"/>
+                    <field name="p_equip_3" invisible="True"/>
+                    <field name="g_equip_3" invisible="True"/>
+                    <field name="p_equip_4" invisible="True"/>
+                    <field name="g_equip_4" invisible="True"/>
+                    <field name="p_equip_5" invisible="True"/>
+                    <field name="g_equip_5" invisible="True"/>
+                    <field name="p_equip_6" invisible="True"/>
+                    <field name="g_equip_6" invisible="True"/>
+                    <field name="p_equip_7" invisible="True"/>
+                    <field name="g_equip_7" invisible="True"/>
+                    <field name="p_equip_8" invisible="True"/>
+                    <field name="g_equip_8" invisible="True"/>
+                    <field name="p_equip_9" invisible="True"/>
+                    <field name="g_equip_9" invisible="True"/>
+                    <field name="p_equip_10" invisible="True"/>
+                    <field name="g_equip_10" invisible="True"/>
+                    <field name="p_equip_11" invisible="True"/>
+                    <field name="g_equip_11" invisible="True"/>
+                    <page string="EQUIPAMIENTO" id="equip">
+                        <group>
+                            <table class="table table-bordered mb64">
+                                <tbody style="border: 1px solid #ccc;">
+                                    <tr>
+                                        <td style="width:15%;" align="center">
+                                            DESCRIPCIÓN
+                                        </td>
+                                        <td style="width:10%;" align="center">
+                                            MARCAR (SI o NO) / OPCIONES (SÍ HUBIERA) / ESPECIFICAR
+                                        </td>
+                                        <td style="width:20%;" align="center">
+                                            OBSERVACIÓN
+                                        </td>
+                                        <td style="width:15%;" colspan="2" align="center">
+                                            VERIFICADOR / RECOMENDACIONES
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Los equipos con los que cuenta son adecuados para el uso y demanda requeridos?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="equip_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_equip_1"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Apreciación del supervisor: Anexo 1 ( Relación de equipos )
+                                            Referencia: Directiva Sanitaria N° 011-MINSA/DGSP V.01
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Se realiza el mantenimiento diario de los equipos regularmente de acuerdo
+                                            a lo establecido en los respectivos manuales de usuario de cada uno de ellos?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="equip_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_equip_2"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar limpieza de equipos
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿La totalidad de equipos cuentan con identificación única, adherida, visible
+                                            y con registro de último mantenimiento preventivo y/o correctivo?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="equip_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_equip_3"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar
+                                            Referencia: Criterio de Calidad EG03-CC03 del SGC
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            El espacio entre los equipos es no menor a 50 cm
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="equip_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_equip_4"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuentan con un plan de mantenimiento preventivo de todos los equipos?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="equip_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_equip_5"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar
+                                            Referencia: Criterio de Calidad EG03 del SGC
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Los planes de mantenimiento preventivo se cumplen?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="equip_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_equip_6"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar con informe y órdenes de servicios.
+                                            Referencia: Criterio de Calidad EG03 del SGC y Formato EG03-FR02
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿El cronograma de mantenimiento anualizado se encuentra junto a cada equipo?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="equip_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_equip_7"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar
+                                            Referencia: Formato EG03-FR02 Plan de Mantenimiento Preventivo de Equipos.
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con centrifuga refrigerada calibrada?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="equip_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_equip_8"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar última calibración
+                                            Referencia: Criterio de Calidad EG03-CC01 del SGC
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            ¿Cuenta con pipetas calibradas?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="equip_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_equip_9"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar documento de ultima calibración
+                                            Referencia: Criterio de Calidad EG03-CC01 del SGC
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('tipo_banco', '=', '1')]}">
+                                        <td style="width:15%;" align="justify">
+                                            ¿Utiliza balanza de doble plato/digitales?
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="equip_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_equip_10"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:15%;" align="justify">
+                                            Operatividad y calibración de equipos para inmunohematología
+                                        </td>
+                                        <td style="width:10%;">
+                                            <field name="equip_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td style="width:15%;">
+                                            <field name="obs_equip_11"
+                                                   attrs="{'readonly': [('state', 'in', ('terminado'))]}"
+                                            />
+                                        </td>
+                                        <td colspan="2" style="width:15%;" align="justify">
+                                            Verificar informes de calibración
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+   </data>
+</odoo>
